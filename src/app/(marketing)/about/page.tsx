@@ -5,6 +5,15 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { aboutFaqs, teamMembers } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/seo/metadata";
 
+const aboutTeamImages = [
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+];
+
+const workersImage =
+  "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?auto=format&fit=crop&w=1400&q=80";
+
 export const metadata = buildMetadata({
   title: "About Us | LIKTISH Engineering",
   description:
@@ -58,8 +67,10 @@ export default function AboutPage() {
       <section className="bg-[#f8f2e8] px-4 py-18 sm:py-24">
         <div className="container-shell">
           <div className="max-w-3xl">
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-soft">
+              Our Journey
+            </p>
             <SectionHeading
-              eyebrow="Our Journey"
               title="LIKTISH grew from solving real power problems, not following a generic solar script."
               body="The About page should show how the company thinks, how it works, and why clients trust it to stay involved long after installation."
             />
@@ -96,11 +107,9 @@ export default function AboutPage() {
             <div className="overflow-hidden rounded-[1.55rem] border border-[#dce8e0] bg-white shadow-[0_18px_46px_rgba(11,33,25,0.08)] sm:rounded-[1.9rem]">
               <div className="relative h-[280px] sm:h-[340px]">
                 <Image
-                  src="/hero-solar-industrial.jfif"
+                  src={workersImage}
                   alt="LIKTISH solar installation team at work"
                   fill
-                  priority
-                  unoptimized
                   className="object-cover"
                 />
               </div>
@@ -120,8 +129,10 @@ export default function AboutPage() {
       <section className="px-4 py-18 sm:py-24">
         <div className="container-shell">
           <div className="max-w-3xl">
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-soft">
+              The People Behind LIKTISH
+            </p>
             <SectionHeading
-              eyebrow="Team"
               title="The people behind LIKTISH delivery."
               body="The team section should feel spacious and credible, with enough room for each person to sound like a real operator instead of a compressed profile card."
             />
@@ -139,13 +150,13 @@ export default function AboutPage() {
               >
                 <div className="grid gap-5 sm:grid-cols-[9rem_1fr] sm:items-start">
                   <div className="relative h-56 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[linear-gradient(180deg,#eef4ef_0%,#dfe9e2_100%)] sm:h-64">
-                    <div className={`absolute inset-0 flex items-center justify-center text-4xl font-black ${index === 1 ? "text-white/28" : "text-brand/18"}`}>
-                      {member.name
-                        .split(" ")
-                        .map((part) => part[0])
-                        .join("")}
-                    </div>
-                    <div className={`absolute inset-x-0 bottom-0 h-20 ${index === 1 ? "bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.08))]" : "bg-[linear-gradient(180deg,transparent,rgba(24,49,39,0.06))]"}`} />
+                    <Image
+                      src={aboutTeamImages[index] ?? aboutTeamImages[0]}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className={`absolute inset-x-0 bottom-0 h-24 ${index === 1 ? "bg-[linear-gradient(180deg,transparent,rgba(7,40,29,0.34))]" : "bg-[linear-gradient(180deg,transparent,rgba(24,49,39,0.22))]"}`} />
                   </div>
 
                   <div>
