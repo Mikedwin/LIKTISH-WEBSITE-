@@ -84,24 +84,6 @@ export default function AboutPage() {
               <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-base sm:leading-8">
                 LIKTISH was shaped by the everyday reality of unstable power, rising electricity costs, and the need for solar systems that are engineered for how people actually live and work in Ghana.
               </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.35rem] border border-border bg-white/76 p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-soft">
-                    What drives the work
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    Practical advice, sound engineering, and systems that are sized for real usage rather than sales language.
-                  </p>
-                </div>
-                <div className="rounded-[1.35rem] border border-border bg-[linear-gradient(180deg,#f8fbf7_0%,#edf4ee_100%)] p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-soft">
-                    Where it is going
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    Deeper delivery across homes, businesses, institutions, and long-term maintenance support throughout Ghana.
-                  </p>
-                </div>
-              </div>
             </article>
 
             <div className="overflow-hidden rounded-[1.55rem] border border-[#dce8e0] bg-white shadow-[0_18px_46px_rgba(11,33,25,0.08)] sm:rounded-[1.9rem]">
