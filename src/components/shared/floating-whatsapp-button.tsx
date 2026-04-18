@@ -8,7 +8,7 @@ export function FloatingWhatsAppButton() {
       rel="noreferrer"
       title="Chat with LIKTISH on WhatsApp"
       aria-label="Chat with LIKTISH on WhatsApp"
-      className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#22c55e] text-white shadow-[0_16px_34px_rgba(11,33,25,0.18)] transition-transform hover:translate-y-[-2px]"
+      className="button-breathe fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#22c55e] text-white shadow-[0_16px_34px_rgba(11,33,25,0.18)] transition-transform hover:translate-y-[-2px]"
     >
       <svg
         aria-hidden="true"

@@ -17,7 +17,7 @@ export function CTAButton({
   disabled = false,
 }: CTAButtonProps) {
   const sharedClassName = cn(
-    "inline-flex min-h-11 items-center justify-center rounded-[1rem] px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-center transition duration-200 hover:-translate-y-0.5 sm:min-h-12 sm:px-5 sm:text-[11px] sm:tracking-[0.2em]",
+    "inline-flex min-h-11 items-center justify-center rounded-[1rem] px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-center transition duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.985] sm:min-h-12 sm:px-5 sm:text-[11px] sm:tracking-[0.2em]",
     variant === "primary" &&
       "bg-brand text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)] hover:bg-brand-strong",
     variant === "secondary" &&

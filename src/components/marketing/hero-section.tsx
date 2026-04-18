@@ -16,22 +16,31 @@ export function HeroSection() {
         />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,71,54,0.62),rgba(2,71,54,0.68))]" />
-      <div className="absolute inset-0 opacity-15">
+      <div className="hero-orb-drift absolute inset-0 opacity-15">
         <div className="h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(25,168,117,0.34),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(25,168,117,0.22),transparent_28%)]" />
       </div>
       <div className="container-shell relative">
         <div className="grid items-start gap-10 lg:gap-12 xl:grid-cols-[1fr_0.95fr]">
           <div className="max-w-3xl pt-0 md:-translate-y-2 xl:-translate-y-8">
-            <h1 className="headline max-w-4xl text-[2.6rem] font-extrabold leading-[0.94] sm:text-[3.4rem] md:text-[4.4rem] xl:text-[4.9rem]">
+            <h1
+              className="headline intro-rise max-w-4xl text-[2.6rem] font-extrabold leading-[0.94] sm:text-[3.4rem] md:text-[4.4rem] xl:text-[4.9rem]"
+              style={{ animationDelay: "60ms" }}
+            >
               <span className="block text-white">Say Goodbye to</span>
               <span className="block text-[#27d69d]">Dumsor. Forever.</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-[0.98rem] leading-7 text-white/80 sm:mt-8 sm:text-[1rem] md:text-[1.08rem]">
+            <p
+              className="intro-rise mt-6 max-w-2xl text-[0.98rem] leading-7 text-white/80 sm:mt-8 sm:text-[1rem] md:text-[1.08rem]"
+              style={{ animationDelay: "180ms" }}
+            >
               LIKTISH Engineering designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana. Clean energy. Smart investment. Reliable power.
             </p>
 
-            <div className="mt-10 grid max-w-[42rem] grid-cols-2 gap-3 sm:mt-12 xl:mt-20">
+            <div
+              className="intro-rise mt-10 grid max-w-[42rem] grid-cols-2 gap-3 sm:mt-12 xl:mt-20"
+              style={{ animationDelay: "300ms" }}
+            >
               <CTAButton
                 label="Get a Free Solar Assessment"
                 disabled
@@ -44,12 +53,18 @@ export function HeroSection() {
                 className="min-h-14 w-full rounded-full !border-white/24 !bg-transparent px-4 text-[0.88rem] font-medium normal-case tracking-normal !text-white/78 shadow-none hover:!border-white/40 hover:!bg-white/8 hover:!text-white sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:min-h-[4.2rem] md:px-8 md:text-[0.98rem]"
               />
             </div>
-            <p className="mt-4 max-w-xl text-sm leading-6 text-white/64 sm:mt-5">
+            <p
+              className="intro-rise mt-4 max-w-xl text-sm leading-6 text-white/64 sm:mt-5"
+              style={{ animationDelay: "380ms" }}
+            >
               Ask for a free solar assessment, or message us on WhatsApp if you want a quick first conversation.
             </p>
           </div>
 
-          <div className="relative xl:justify-self-end">
+          <div
+            className="intro-shift relative xl:justify-self-end"
+            style={{ animationDelay: "200ms" }}
+          >
             <div
               className="hero-image-float relative mx-auto aspect-[1.18/1] w-full max-w-[22rem] sm:aspect-[1.3/1] sm:max-w-[28rem] md:aspect-[1.46/1] md:max-w-[38rem] xl:max-w-[45rem]"
               style={{ borderRadius: "46% 38% 41% 35% / 33% 34% 66% 67%" }}

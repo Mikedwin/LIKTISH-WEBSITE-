@@ -15,6 +15,7 @@ export function ContactForm() {
   const [formState, setFormState] = useState(initialState);
   const [status, setStatus] = useState<string>("");
   const [loading, setLoading] = useState(false);
+  const [statusTone, setStatusTone] = useState<"error" | "success">("success");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,10 +34,12 @@ export function ContactForm() {
     setLoading(false);
 
     if (!response.ok) {
+      setStatusTone("error");
       setStatus(payload.error ?? "Something went wrong.");
       return;
     }
 
+    setStatusTone("success");
     setStatus(payload.message ?? "Thanks. LIKTISH will get back to you shortly.");
     setFormState(initialState);
   }
@@ -99,11 +102,21 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="mt-5 inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white disabled:opacity-60"
+        className="mt-5 inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.985] disabled:opacity-60"
       >
         {loading ? "Sending..." : "Send enquiry"}
       </button>
-      {status ? <p className="mt-4 text-sm text-muted">{status}</p> : null}
+      {status ? (
+        <p
+          className={
+            statusTone === "error"
+              ? "status-chip mt-4 rounded-[1rem] border border-[#d39c95] bg-[#fff4f2] px-4 py-3 text-sm text-[#8d4a40]"
+              : "status-chip mt-4 rounded-[1rem] border border-[#b8dfcd] bg-[#f3fbf6] px-4 py-3 text-sm text-[#2f6b51]"
+          }
+        >
+          {status}
+        </p>
+      ) : null}
     </form>
   );
 }

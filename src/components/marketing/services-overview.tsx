@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { RevealOnScroll } from "@/components/shared/reveal-on-scroll";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { services } from "@/lib/site-data";
 
@@ -72,68 +73,72 @@ export function ServicesOverview() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#f3f6f3_0%,#edf3ef_100%)]" />
       <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(120deg,rgba(13,87,63,0.14)_1px,transparent_1px)] [background-size:190px_190px]" />
       <div className="container-shell relative">
-        <div className="mb-10 text-center sm:mb-14">
+        <RevealOnScroll className="mb-10 text-center sm:mb-14">
           <SectionHeading
             title="Our Services"
             body="Solar solutions for homes, businesses, industries, institutions, and long-term system support across Ghana."
             align="center"
           />
-        </div>
+        </RevealOnScroll>
 
         <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-7">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const isDark = service.slug === "maintenance";
 
             return (
-              <article
+              <RevealOnScroll
                 key={service.slug}
-                id={service.slug}
-                className={
-                  isDark
-                    ? "group relative flex min-h-[18.5rem] flex-col overflow-hidden rounded-[1.7rem] border border-[#0f6f54] bg-[#0b5b43] px-5 py-6 text-white shadow-[0_22px_52px_rgba(11,33,25,0.18)] transition duration-200 hover:-translate-y-1 hover:border-[2px] hover:border-white scroll-mt-28 sm:min-h-[20rem] sm:rounded-[2rem] sm:px-6 sm:py-7 lg:min-h-[21rem] lg:px-8 lg:py-8"
-                    : "group relative flex min-h-[18.5rem] flex-col overflow-hidden rounded-[1.7rem] border border-[#dde8e1] bg-[#fbfcfa] px-5 py-6 shadow-[0_18px_40px_rgba(11,33,25,0.08)] transition duration-200 hover:-translate-y-1 hover:border-[2px] hover:border-[#19A875] scroll-mt-28 sm:min-h-[20rem] sm:rounded-[2rem] sm:px-6 sm:py-7 lg:min-h-[21rem] lg:px-8 lg:py-8"
-                }
+                delay={90 + index * 70}
               >
-                <div
+                <article
+                  id={service.slug}
                   className={
                     isDark
-                      ? "inline-flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#107559] text-[#37d69c] transition duration-200 group-hover:bg-[#14906a] group-hover:text-white sm:h-14 sm:w-14 sm:rounded-[1.15rem]"
-                      : "inline-flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#dff6e9] text-[#19A875] transition duration-200 group-hover:bg-[#19A875] group-hover:text-white sm:h-14 sm:w-14 sm:rounded-[1.15rem]"
+                      ? "group relative flex min-h-[18.5rem] flex-col overflow-hidden rounded-[1.7rem] border border-[#0f6f54] bg-[#0b5b43] px-5 py-6 text-white shadow-[0_22px_52px_rgba(11,33,25,0.18)] transition duration-300 hover:-translate-y-1.5 hover:border-[2px] hover:border-white hover:shadow-[0_28px_64px_rgba(11,33,25,0.24)] scroll-mt-28 sm:min-h-[20rem] sm:rounded-[2rem] sm:px-6 sm:py-7 lg:min-h-[21rem] lg:px-8 lg:py-8"
+                      : "group relative flex min-h-[18.5rem] flex-col overflow-hidden rounded-[1.7rem] border border-[#dde8e1] bg-[#fbfcfa] px-5 py-6 shadow-[0_18px_40px_rgba(11,33,25,0.08)] transition duration-300 hover:-translate-y-1.5 hover:border-[2px] hover:border-[#19A875] hover:shadow-[0_26px_58px_rgba(11,33,25,0.12)] scroll-mt-28 sm:min-h-[20rem] sm:rounded-[2rem] sm:px-6 sm:py-7 lg:min-h-[21rem] lg:px-8 lg:py-8"
                   }
                 >
-                  {serviceIcons[service.slug]}
-                </div>
+                  <div
+                    className={
+                      isDark
+                        ? "inline-flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#107559] text-[#37d69c] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#14906a] group-hover:text-white sm:h-14 sm:w-14 sm:rounded-[1.15rem]"
+                        : "inline-flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#dff6e9] text-[#19A875] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#19A875] group-hover:text-white sm:h-14 sm:w-14 sm:rounded-[1.15rem]"
+                    }
+                  >
+                    {serviceIcons[service.slug]}
+                  </div>
 
-                <p
-                  className={
-                    isDark
-                      ? "mt-5 text-[0.83rem] font-semibold uppercase tracking-[0.12em] text-[#7fddb9] sm:mt-6 sm:text-[0.9rem] lg:mt-7 lg:text-[0.95rem] lg:tracking-[0.14em]"
-                      : "mt-5 text-[0.83rem] font-semibold uppercase tracking-[0.12em] text-[#19A875] sm:mt-6 sm:text-[0.9rem] lg:mt-7 lg:text-[0.95rem] lg:tracking-[0.14em]"
-                  }
-                >
-                  {service.label}
-                </p>
+                  <p
+                    className={
+                      isDark
+                        ? "mt-5 text-[0.83rem] font-semibold uppercase tracking-[0.12em] text-[#7fddb9] sm:mt-6 sm:text-[0.9rem] lg:mt-7 lg:text-[0.95rem] lg:tracking-[0.14em]"
+                        : "mt-5 text-[0.83rem] font-semibold uppercase tracking-[0.12em] text-[#19A875] sm:mt-6 sm:text-[0.9rem] lg:mt-7 lg:text-[0.95rem] lg:tracking-[0.14em]"
+                    }
+                  >
+                    {service.label}
+                  </p>
 
-                <h3
-                  className={
-                    isDark
-                      ? "headline mt-3 text-[1.65rem] font-black leading-[1.05] text-white sm:text-[1.8rem] lg:text-[2rem]"
-                      : "headline mt-3 text-[1.65rem] font-black leading-[1.05] text-[#0d5a43] sm:text-[1.8rem] lg:text-[2rem]"
-                  }
-                >
-                  {service.slug === "industrial" ? "Industrial / Solar EPC" : service.title}
-                </h3>
+                  <h3
+                    className={
+                      isDark
+                        ? "headline mt-3 text-[1.65rem] font-black leading-[1.05] text-white transition duration-300 group-hover:translate-x-1 sm:text-[1.8rem] lg:text-[2rem]"
+                        : "headline mt-3 text-[1.65rem] font-black leading-[1.05] text-[#0d5a43] transition duration-300 group-hover:translate-x-1 sm:text-[1.8rem] lg:text-[2rem]"
+                    }
+                  >
+                    {service.slug === "industrial" ? "Industrial / Solar EPC" : service.title}
+                  </h3>
 
-                <p
-                  className={
-                    isDark
-                      ? "mt-4 max-w-[24rem] text-[0.98rem] leading-7 text-white/76 sm:mt-5 sm:text-[1.02rem] sm:leading-8 lg:text-[1.05rem] lg:leading-9"
-                      : "mt-4 max-w-[24rem] text-[0.98rem] leading-7 text-[#63766d] sm:mt-5 sm:text-[1.02rem] sm:leading-8 lg:text-[1.05rem] lg:leading-9"
-                  }
-                >
-                  {service.heroBody}
-                </p>
-              </article>
+                  <p
+                    className={
+                      isDark
+                        ? "mt-4 max-w-[24rem] text-[0.98rem] leading-7 text-white/76 transition duration-300 group-hover:text-white/88 sm:mt-5 sm:text-[1.02rem] sm:leading-8 lg:text-[1.05rem] lg:leading-9"
+                        : "mt-4 max-w-[24rem] text-[0.98rem] leading-7 text-[#63766d] transition duration-300 group-hover:text-[#3e5148] sm:mt-5 sm:text-[1.02rem] sm:leading-8 lg:text-[1.05rem] lg:leading-9"
+                    }
+                  >
+                    {service.heroBody}
+                  </p>
+                </article>
+              </RevealOnScroll>
             );
           })}
         </div>

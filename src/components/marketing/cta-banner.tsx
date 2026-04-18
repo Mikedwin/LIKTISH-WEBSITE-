@@ -1,4 +1,5 @@
 import { CTAButton } from "@/components/shared/cta-button";
+import { RevealOnScroll } from "@/components/shared/reveal-on-scroll";
 import { siteContact } from "@/lib/site-data";
 
 export function CtaBanner() {
@@ -13,7 +14,7 @@ export function CtaBanner() {
           }}
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74,181,141,0.24),transparent_34%)]" />
-          <div className="relative mx-auto max-w-4xl">
+          <RevealOnScroll className="relative mx-auto max-w-4xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/72">
               Get a Free Solar Assessment
             </p>
@@ -36,7 +37,7 @@ export function CtaBanner() {
                 className="min-h-14 w-full rounded-full border border-white/35 bg-white/10 px-4 text-[0.88rem] normal-case tracking-normal text-white hover:bg-white/16 sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:px-10 md:text-[1.08rem]"
               />
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>
