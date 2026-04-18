@@ -23,17 +23,17 @@ export function CtaBanner() {
             <p className="mx-auto mt-5 max-w-3xl text-[0.98rem] leading-7 text-white/82 sm:mt-7 sm:text-base sm:leading-8 md:text-xl">
               Contact us for a free site assessment. Join Ghanaian homes and businesses moving from unreliable power to clean, engineered solar.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+            <div className="mt-8 mx-auto grid w-full max-w-[42rem] grid-cols-2 gap-3 sm:mt-10 sm:gap-4">
               <CTAButton
                 label="Get a Free Solar Assessment"
                 disabled
-                className="min-h-14 w-full rounded-full !bg-white px-7 text-[0.95rem] !text-brand shadow-[0_18px_36px_rgba(11,33,25,0.18)] sm:min-h-16 sm:w-auto sm:px-10 sm:text-[1rem] md:px-12 md:text-[1.08rem]"
+                className="min-h-14 w-full rounded-full !bg-white px-4 text-[0.88rem] !text-brand shadow-[0_18px_36px_rgba(11,33,25,0.18)] sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:px-10 md:text-[1.08rem]"
               />
               <CTAButton
                 href={siteContact.whatsapp}
                 label="WhatsApp Us"
                 variant="secondary"
-                className="min-h-14 w-full rounded-full border border-white/35 bg-white/10 px-7 text-[0.95rem] normal-case tracking-normal text-white hover:bg-white/16 sm:min-h-16 sm:w-auto sm:px-10 sm:text-[1rem] md:px-12 md:text-[1.08rem]"
+                className="min-h-14 w-full rounded-full border border-white/35 bg-white/10 px-4 text-[0.88rem] normal-case tracking-normal text-white hover:bg-white/16 sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:px-10 md:text-[1.08rem]"
               />
             </div>
           </div>

@@ -31,17 +31,17 @@ export function HeroSection() {
               LIKTISH Engineering designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana. Clean energy. Smart investment. Reliable power.
             </p>
 
-            <div className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center xl:mt-20">
+            <div className="mt-10 grid max-w-[42rem] grid-cols-2 gap-3 sm:mt-12 xl:mt-20">
               <CTAButton
                 label="Get a Free Solar Assessment"
                 disabled
-                className="min-h-14 rounded-full bg-[#159066] px-7 text-[0.95rem] font-bold normal-case tracking-normal text-white shadow-[0_22px_46px_rgba(8,46,33,0.24)] sm:min-h-16 sm:px-11 sm:text-[1rem] md:min-h-[4.2rem] md:px-13 md:text-[1.08rem]"
+                className="min-h-14 w-full rounded-full bg-[#159066] px-4 text-[0.88rem] font-bold normal-case tracking-normal text-white shadow-[0_22px_46px_rgba(8,46,33,0.24)] sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:min-h-[4.2rem] md:px-10 md:text-[1.08rem]"
               />
               <CTAButton
                 href={siteContact.whatsapp}
                 label="WhatsApp Us"
                 variant="secondary"
-                className="min-h-12 rounded-full !border-white/24 !bg-transparent px-6 text-[0.92rem] font-medium normal-case tracking-normal !text-white/78 shadow-none hover:!border-white/40 hover:!bg-white/8 hover:!text-white sm:px-7 sm:text-[0.95rem] md:min-h-[3.45rem] md:px-8 md:text-[0.98rem]"
+                className="min-h-14 w-full rounded-full !border-white/24 !bg-transparent px-4 text-[0.88rem] font-medium normal-case tracking-normal !text-white/78 shadow-none hover:!border-white/40 hover:!bg-white/8 hover:!text-white sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:min-h-[4.2rem] md:px-8 md:text-[0.98rem]"
               />
             </div>
             <p className="mt-4 max-w-xl text-sm leading-6 text-white/64 sm:mt-5">
