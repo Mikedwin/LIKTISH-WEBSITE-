@@ -21,7 +21,7 @@ export const navLinks: NavLink[] = [
   { label: "Services", href: "/#services" },
   { label: "Why LIKTISH", href: "/#why-liktish" },
   { label: "Projects", href: "/#projects" },
-  { label: "About Us", href: "/#about-us" },
+  { label: "About Us", href: "/about" },
   { label: "Contact", href: "/#contact" },
 ];
 
