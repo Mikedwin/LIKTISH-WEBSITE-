@@ -24,11 +24,13 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden px-4 py-18 sm:py-22">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#f7f2e8_0%,#f2f6f0_100%)]" />
-        <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.1)_1px,transparent_1px)] [background-size:120px_120px,40px_40px]" />
-        <div className="absolute -left-16 top-10 h-40 w-40 rounded-full bg-[rgba(203,138,46,0.12)] blur-3xl" />
-        <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.1)] blur-3xl" />
+      <section className="relative overflow-hidden bg-[#f3ecdd] px-4 py-18 sm:py-22">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.26)_0%,rgba(21,144,102,0.06)_45%,rgba(203,138,46,0.14)_100%)]" />
+        <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,rgba(21,144,102,0.24)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.14)_1px,transparent_1px)] [background-size:120px_120px,36px_36px]" />
+        <div className="absolute inset-y-0 right-0 w-[38%] bg-[linear-gradient(180deg,rgba(16,112,80,0.2),rgba(16,112,80,0.04))]" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(203,138,46,0.28),transparent_60%)]" />
+        <div className="absolute -left-16 top-10 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
+        <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
         <div className="container-shell relative grid gap-8 lg:gap-10 xl:grid-cols-[0.82fr_1.18fr]">
           <div>
             <SectionHeading
@@ -68,9 +70,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#f8f2e8] px-4 py-18 sm:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(203,138,46,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(21,144,102,0.1),transparent_32%)]" />
-        <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(90deg,rgba(24,49,39,0.16)_1px,transparent_1px),linear-gradient(rgba(24,49,39,0.12)_1px,transparent_1px)] [background-size:90px_90px,30px_30px]" />
+      <section className="relative overflow-hidden bg-[#e6f0e8] px-4 py-18 sm:py-24">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(203,138,46,0.06)_100%)]" />
+        <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(90deg,rgba(24,49,39,0.24)_1px,transparent_1px),linear-gradient(rgba(24,49,39,0.16)_1px,transparent_1px)] [background-size:88px_88px,28px_28px]" />
+        <div className="absolute inset-y-0 right-0 w-[44%] bg-[linear-gradient(180deg,rgba(21,144,102,0.2),rgba(21,144,102,0.05))]" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-[radial-gradient(circle_at_bottom_left,rgba(203,138,46,0.28),transparent_55%)]" />
+        <div className="absolute left-10 top-8 h-44 w-44 rounded-full bg-[rgba(255,255,255,0.18)] blur-3xl" />
         <div className="container-shell relative">
           <div className="max-w-3xl">
             <p className="mb-4 text-[0.9rem] font-semibold uppercase tracking-[0.18em] text-brand-soft sm:text-[1rem] sm:tracking-[0.22em]">
@@ -114,11 +119,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden px-4 py-18 sm:py-24">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#f3f6ef_0%,#faf5eb_100%)]" />
-        <div className="absolute inset-y-0 left-0 w-full opacity-[0.08] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px)] [background-size:150px_150px]" />
-        <div className="absolute left-8 top-8 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.12)] blur-3xl" />
-        <div className="absolute bottom-0 right-12 h-44 w-44 rounded-full bg-[rgba(203,138,46,0.1)] blur-3xl" />
+      <section className="relative overflow-hidden bg-[#eef3ea] px-4 py-18 sm:py-24">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(203,138,46,0.08)_100%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(120deg,rgba(21,144,102,0.24)_1px,transparent_1px)] [background-size:140px_140px]" />
+        <div className="absolute inset-y-0 left-0 w-[38%] bg-[linear-gradient(180deg,rgba(21,144,102,0.18),rgba(21,144,102,0.04))]" />
+        <div className="absolute left-8 top-8 h-44 w-44 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
+        <div className="absolute bottom-0 right-12 h-52 w-52 rounded-full bg-[rgba(203,138,46,0.16)] blur-3xl" />
         <div className="container-shell relative">
           <div className="max-w-3xl">
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-soft">
@@ -172,10 +178,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#f8f2e8] px-4 py-18 sm:py-24">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#eef4ee_0%,#f8f2e8_100%)]" />
-        <div className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(120deg,rgba(21,144,102,0.15)_1px,transparent_1px)] [background-size:140px_140px]" />
-        <div className="absolute -right-12 top-10 h-48 w-48 rounded-full bg-[rgba(21,144,102,0.12)] blur-3xl" />
+      <section className="relative overflow-hidden bg-[#e1ece2] px-4 py-18 sm:py-24">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18)_0%,rgba(203,138,46,0.08)_100%)]" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(120deg,rgba(21,144,102,0.2)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.12)_1px,transparent_1px)] [background-size:130px_130px,34px_34px]" />
+        <div className="absolute inset-y-0 right-0 w-[42%] bg-[linear-gradient(180deg,rgba(21,144,102,0.18),rgba(21,144,102,0.04))]" />
+        <div className="absolute -right-12 top-10 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
+        <div className="absolute left-0 bottom-0 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
         <div className="container-shell relative grid gap-10 xl:grid-cols-[0.92fr_1.08fr]">
           <div>
             <SectionHeading
