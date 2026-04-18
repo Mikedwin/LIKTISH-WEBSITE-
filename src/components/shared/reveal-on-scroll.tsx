@@ -27,12 +27,11 @@ export function RevealOnScroll({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) {
+        if (!entry) {
           return;
         }
 
-        setVisible(true);
-        observer.disconnect();
+        setVisible(entry.isIntersecting);
       },
       {
         threshold: 0.18,
