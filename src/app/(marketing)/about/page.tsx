@@ -67,7 +67,7 @@ export default function AboutPage() {
       <section className="bg-[#f8f2e8] px-4 py-18 sm:py-24">
         <div className="container-shell">
           <div className="max-w-3xl">
-            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-soft">
+            <p className="mb-4 text-[0.9rem] font-semibold uppercase tracking-[0.18em] text-brand-soft sm:text-[1rem] sm:tracking-[0.22em]">
               Our Journey
             </p>
             <SectionHeading
