@@ -61,7 +61,7 @@ export default function ProjectsPage() {
             href={`/projects/${featuredProject.slug}`}
             className="group overflow-hidden rounded-[2.3rem] border border-white/10 bg-[linear-gradient(160deg,#095F42_0%,#148E63_52%,#0A583E_100%)] text-white shadow-[0_28px_70px_rgba(11,33,25,0.22)]"
           >
-            <div className="relative h-[21rem] overflow-hidden md:h-[25rem]">
+            <div className="relative h-[16rem] overflow-hidden sm:h-[18rem] md:h-[21rem] lg:h-[25rem]">
               <Image
                 src={featuredProject.image}
                 alt={featuredProject.title}
@@ -90,7 +90,7 @@ export default function ProjectsPage() {
 
               <div>
                 <p className="text-base leading-8 text-white/82">{featuredProject.summary}</p>
-                <div className="mt-7 grid gap-3 md:grid-cols-2">
+                <div className="mt-6 grid gap-3 md:mt-7 md:grid-cols-2">
                   {featuredProject.results.slice(0, 2).map((result) => (
                     <div
                       key={result}
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
           <div className="grid gap-6">
             <Link
               href={`/projects/${leadProject.slug}`}
-              className="group rounded-[2rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] p-6 shadow-[0_16px_40px_rgba(11,33,25,0.08)] transition duration-300 hover:-translate-y-1"
+              className="group rounded-[1.6rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] p-5 shadow-[0_16px_40px_rgba(11,33,25,0.08)] transition duration-300 hover:-translate-y-1 sm:rounded-[2rem] sm:p-6"
             >
               <div className="grid gap-5 sm:grid-cols-[9rem_1fr] sm:items-start md:grid-cols-[11rem_1fr]">
                 <div className="relative h-40 overflow-hidden rounded-[1.4rem]">
@@ -126,7 +126,7 @@ export default function ProjectsPage() {
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                     Lead project
                   </p>
-                  <h2 className="headline mt-3 text-2xl font-black text-brand md:text-3xl">
+                  <h2 className="headline mt-3 text-[1.7rem] font-black text-brand sm:text-2xl md:text-3xl">
                     {leadProject.title}
                   </h2>
                   <p className="mt-3 text-sm font-semibold text-[#159066]">
@@ -165,7 +165,7 @@ export default function ProjectsPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Project archive
               </p>
-              <h2 className="headline mt-3 text-3xl font-black text-brand md:text-4xl">
+              <h2 className="headline mt-3 text-[2rem] font-black text-brand sm:text-3xl md:text-4xl">
                 More LIKTISH work across Ghana
               </h2>
             </div>
@@ -178,7 +178,7 @@ export default function ProjectsPage() {
                 href={`/projects/${project.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8fb49e]"
               >
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-44 overflow-hidden sm:h-52">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -191,7 +191,7 @@ export default function ProjectsPage() {
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                     {project.category} / {project.location}
                   </p>
-                  <h3 className="headline mt-3 text-2xl font-black text-brand">
+                  <h3 className="headline mt-3 text-[1.7rem] font-black text-brand sm:text-2xl">
                     {project.title}
                   </h3>
                   <p className="mt-3 text-sm font-semibold text-[#159066]">
@@ -209,7 +209,7 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        <section className="mt-16 rounded-[2.1rem] border border-[#d9e5dd] bg-[linear-gradient(135deg,#fffaf2_0%,#eef5ef_100%)] px-7 py-8 shadow-[0_18px_44px_rgba(11,33,25,0.06)] md:px-10 md:py-10">
+        <section className="mt-16 rounded-[1.6rem] border border-[#d9e5dd] bg-[linear-gradient(135deg,#fffaf2_0%,#eef5ef_100%)] px-5 py-6 shadow-[0_18px_44px_rgba(11,33,25,0.06)] sm:rounded-[2.1rem] sm:px-7 sm:py-8 md:px-10 md:py-10">
           <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-center">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">

@@ -12,28 +12,28 @@ export const metadata = buildMetadata({
 
 export default function ServicesPage() {
   return (
-    <div className="px-4 py-20">
+    <div className="px-4 py-16 sm:py-20">
       <div className="container-shell">
         <SectionHeading
           eyebrow="Services"
           title="Five core service lines, one conversion path."
           body="The services hub should feel like a serious navigation page for different buyer contexts, not a repeated card gallery."
         />
-        <div className="mt-14 grid gap-6 xl:grid-cols-[1.02fr_0.98fr]">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 xl:grid-cols-[1.02fr_0.98fr]">
           <div className="grid gap-4">
             {services.slice(0, 2).map((service, index) => (
               <article
                 key={service.slug}
                 className={
                   index === 0
-                    ? "ink-panel rounded-[1.75rem] p-8 text-white"
-                    : "section-frame rounded-[1.75rem] p-8"
+                    ? "ink-panel rounded-[1.45rem] p-5 text-white sm:rounded-[1.75rem] sm:p-8"
+                    : "section-frame rounded-[1.45rem] p-5 sm:rounded-[1.75rem] sm:p-8"
                 }
               >
                 <p className={`text-[11px] font-semibold uppercase tracking-[0.2em] ${index === 0 ? "text-white/58" : "text-brand-soft"}`}>
                   {service.label}
                 </p>
-                <h2 className={`headline mt-4 text-3xl font-black ${index === 0 ? "text-white" : "text-brand"}`}>
+                <h2 className={`headline mt-4 text-[2rem] font-black sm:text-3xl ${index === 0 ? "text-white" : "text-brand"}`}>
                   {service.title}
                 </h2>
                 <p className={`mt-4 text-sm leading-7 ${index === 0 ? "text-white/76" : "text-muted"}`}>
@@ -52,11 +52,11 @@ export default function ServicesPage() {
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {services.slice(2).map((service) => (
-              <article key={service.slug} className="rounded-[1.55rem] border border-border bg-white p-6 shadow-[0_14px_36px_rgba(11,33,25,0.08)]">
+              <article key={service.slug} className="rounded-[1.35rem] border border-border bg-white p-5 shadow-[0_14px_36px_rgba(11,33,25,0.08)] sm:rounded-[1.55rem] sm:p-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
                   {service.label}
                 </p>
-                <h2 className="headline mt-4 text-2xl font-black text-brand">
+                <h2 className="headline mt-4 text-[1.7rem] font-black text-brand sm:text-2xl">
                   {service.title}
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-muted">

@@ -47,7 +47,7 @@ export function ServiceDetailSections({
       </section>
 
       <section className="px-4 py-18 sm:py-24">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.78fr_1.22fr]">
+        <div className="container-shell grid gap-8 sm:gap-10 xl:grid-cols-[0.78fr_1.22fr]">
           <div>
             <SectionHeading
               eyebrow="Benefits"
@@ -75,7 +75,7 @@ export function ServiceDetailSections({
       </section>
 
       <section className="bg-[#f8f2e8] px-4 py-18 sm:py-24">
-        <div className="container-shell grid gap-10 xl:grid-cols-2">
+        <div className="container-shell grid gap-8 sm:gap-10 xl:grid-cols-2">
           <div>
             <SectionHeading
               eyebrow="How It Works"
@@ -123,7 +123,7 @@ export function ServiceDetailSections({
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
               Related Project
             </p>
-            <h2 className="headline mt-4 text-3xl font-black text-brand">
+            <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:text-3xl">
               {relatedProject.title}
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
@@ -147,7 +147,7 @@ export function ServiceDetailSections({
           </div>
           <a
             href="tel:+233542794665"
-            className="mt-10 inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white"
+            className="mt-10 inline-flex w-full min-h-12 items-center justify-center rounded-[1rem] bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white sm:w-auto sm:justify-start"
           >
             Call LIKTISH Today
           </a>

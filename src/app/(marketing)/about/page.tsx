@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="px-4 py-20">
+      <section className="px-4 py-16 sm:py-20">
         <div className="container-shell grid gap-10 xl:grid-cols-[0.86fr_1.14fr]">
           <div>
             <SectionHeading
@@ -23,7 +23,7 @@ export default function AboutPage() {
               body="The About page should make LIKTISH feel like a real operating company with people, field judgment, and long-term accountability."
             />
           </div>
-          <div className="section-frame rounded-[1.75rem] p-8">
+          <div className="section-frame rounded-[1.45rem] p-5 sm:rounded-[1.75rem] sm:p-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
               Company story
             </p>
@@ -32,23 +32,23 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-3">
           {teamMembers.map((member, index) => (
             <article
               key={member.name}
               className={
                 index === 1
-                  ? "ink-panel rounded-[1.7rem] p-8 text-white"
-                  : "section-frame rounded-[1.7rem] p-8"
+                  ? "ink-panel rounded-[1.45rem] p-5 text-white sm:rounded-[1.7rem] sm:p-8"
+                  : "section-frame rounded-[1.45rem] p-5 sm:rounded-[1.7rem] sm:p-8"
               }
             >
-              <div className={`inline-flex h-14 w-14 items-center justify-center rounded-[1rem] text-xl font-black ${index === 1 ? "bg-white text-brand" : "bg-brand text-white"}`}>
+              <div className={`inline-flex h-12 w-12 items-center justify-center rounded-[0.95rem] text-lg font-black sm:h-14 sm:w-14 sm:rounded-[1rem] sm:text-xl ${index === 1 ? "bg-white text-brand" : "bg-brand text-white"}`}>
                 {member.name
                   .split(" ")
                   .map((part) => part[0])
                   .join("")}
               </div>
-              <h2 className={`headline mt-6 text-2xl font-black ${index === 1 ? "text-white" : "text-brand"}`}>
+              <h2 className={`headline mt-5 text-[1.7rem] font-black sm:mt-6 sm:text-2xl ${index === 1 ? "text-white" : "text-brand"}`}>
                 {member.name}
               </h2>
               <p className={`mt-2 text-sm font-semibold ${index === 1 ? "text-accent-soft" : "text-brand-soft"}`}>
@@ -64,7 +64,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-      <section className="bg-[#f8f2e8] px-4 py-24">
+      <section className="bg-[#f8f2e8] px-4 py-18 sm:py-24">
         <div className="container-shell grid gap-10 xl:grid-cols-[0.9fr_1.1fr]">
           <div>
             <SectionHeading
@@ -72,12 +72,12 @@ export default function AboutPage() {
               title="Clean energy with confidence, clarity, and aftercare."
               body="LIKTISH should feel direct about dumsor, serious about engineering, and committed to long-term maintenance and service."
             />
-            <div className="mt-10">
+            <div className="mt-8 sm:mt-10">
               <FAQAccordion items={aboutFaqs} />
             </div>
           </div>
-          <div className="section-frame overflow-hidden rounded-[1.8rem] p-3">
-            <MapEmbed className="map-frame h-[420px] w-full rounded-[1.3rem] border-0" />
+          <div className="section-frame overflow-hidden rounded-[1.5rem] p-2.5 sm:rounded-[1.8rem] sm:p-3">
+            <MapEmbed className="map-frame h-[280px] w-full rounded-[1.1rem] border-0 sm:h-[360px] sm:rounded-[1.3rem] lg:h-[420px]" />
           </div>
         </div>
       </section>

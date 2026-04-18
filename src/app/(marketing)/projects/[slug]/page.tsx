@@ -45,7 +45,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   return (
     <>
       <section className="hero-gradient px-4 py-16 text-white sm:py-20">
-        <div className="container-shell grid gap-10 xl:grid-cols-[1.02fr_0.98fr]">
+        <div className="container-shell grid gap-8 sm:gap-10 xl:grid-cols-[1.02fr_0.98fr]">
           <div>
             <p className="eyebrow text-white/72">{project.category} project</p>
             <h1 className="headline mt-4 text-[2.5rem] font-black sm:mt-5 sm:text-5xl md:text-6xl">
@@ -54,7 +54,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             <p className="mt-5 max-w-2xl text-[1rem] leading-7 text-white/78 sm:mt-6 sm:text-lg sm:leading-8">
               {project.summary}
             </p>
-            <p className="mt-8 text-sm font-semibold text-white/84">
+            <p className="mt-6 text-sm font-semibold text-white/84 sm:mt-8">
               {project.location} | {project.systemSize}
             </p>
           </div>
@@ -70,7 +70,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         </div>
       </section>
       <section className="px-4 py-18 sm:py-24">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.86fr_1.14fr]">
+        <div className="container-shell grid gap-8 sm:gap-10 xl:grid-cols-[0.86fr_1.14fr]">
           <div className="space-y-4">
             <article className="section-frame rounded-[1.4rem] p-5 sm:rounded-[1.65rem] sm:p-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
@@ -105,7 +105,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             </ul>
             <a
               href="tel:+233542794665"
-              className="mt-8 inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
+              className="mt-8 inline-flex w-full min-h-12 items-center justify-center rounded-[1rem] bg-brand px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white sm:w-auto sm:justify-start"
             >
               Call LIKTISH Today
             </a>

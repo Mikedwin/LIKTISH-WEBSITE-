@@ -19,7 +19,7 @@ export default function WhyLiktishPage() {
   return (
     <>
       <section className="hero-gradient px-4 py-16 text-white sm:py-20">
-        <div className="container-shell grid gap-8 xl:grid-cols-[1.04fr_0.96fr]">
+        <div className="container-shell grid gap-6 sm:gap-8 xl:grid-cols-[1.04fr_0.96fr]">
           <div>
             <p className="eyebrow text-white/72">Why LIKTISH</p>
             <h1 className="headline mt-4 max-w-4xl text-[2.5rem] font-black sm:mt-5 sm:text-5xl md:text-6xl">
@@ -46,7 +46,7 @@ export default function WhyLiktishPage() {
               key={item.title}
               className={
                 index === 1
-                  ? "ink-panel ml-auto max-w-[64rem] rounded-[1.45rem] p-5 text-white sm:rounded-[1.75rem] sm:p-8"
+                  ? "ink-panel max-w-[64rem] rounded-[1.45rem] p-5 text-white sm:ml-auto sm:rounded-[1.75rem] sm:p-8"
                   : "section-frame rounded-[1.45rem] p-5 sm:rounded-[1.75rem] sm:p-8"
               }
             >
@@ -56,7 +56,7 @@ export default function WhyLiktishPage() {
               <h2 className={`headline mt-4 text-[2rem] font-black sm:text-3xl ${index === 1 ? "text-white" : "text-brand"}`}>
                 {item.title}
               </h2>
-              <p className={`mt-4 max-w-3xl text-base leading-8 ${index === 1 ? "text-white/74" : "text-muted"}`}>
+              <p className={`mt-4 max-w-3xl text-[0.98rem] leading-7 sm:text-base sm:leading-8 ${index === 1 ? "text-white/74" : "text-muted"}`}>
                 {item.body}
               </p>
             </article>
