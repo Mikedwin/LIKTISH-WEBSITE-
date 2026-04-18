@@ -69,6 +69,8 @@ export function HeroSection() {
                   alt="Industrial solar panels installed on rooftops"
                   width={1200}
                   height={900}
+                  priority
+                  unoptimized
                   className="h-full w-full object-cover"
                 />
               </div>

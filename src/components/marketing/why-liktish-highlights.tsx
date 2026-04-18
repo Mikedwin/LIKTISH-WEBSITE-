@@ -77,6 +77,7 @@ export function WhyLiktishHighlights() {
                 alt="Solar installation for LIKTISH trust section"
                 width={1200}
                 height={900}
+                unoptimized
                 className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[520px] xl:h-[580px]"
               />
             </div>
