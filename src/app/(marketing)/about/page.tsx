@@ -24,8 +24,12 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="px-4 py-18 sm:py-22">
-        <div className="container-shell grid gap-8 lg:gap-10 xl:grid-cols-[0.82fr_1.18fr]">
+      <section className="relative overflow-hidden px-4 py-18 sm:py-22">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#f7f2e8_0%,#f2f6f0_100%)]" />
+        <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.1)_1px,transparent_1px)] [background-size:120px_120px,40px_40px]" />
+        <div className="absolute -left-16 top-10 h-40 w-40 rounded-full bg-[rgba(203,138,46,0.12)] blur-3xl" />
+        <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.1)] blur-3xl" />
+        <div className="container-shell relative grid gap-8 lg:gap-10 xl:grid-cols-[0.82fr_1.18fr]">
           <div>
             <SectionHeading
               eyebrow="About LIKTISH"
@@ -64,8 +68,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f8f2e8] px-4 py-18 sm:py-24">
-        <div className="container-shell">
+      <section className="relative overflow-hidden bg-[#f8f2e8] px-4 py-18 sm:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(203,138,46,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(21,144,102,0.1),transparent_32%)]" />
+        <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(90deg,rgba(24,49,39,0.16)_1px,transparent_1px),linear-gradient(rgba(24,49,39,0.12)_1px,transparent_1px)] [background-size:90px_90px,30px_30px]" />
+        <div className="container-shell relative">
           <div className="max-w-3xl">
             <p className="mb-4 text-[0.9rem] font-semibold uppercase tracking-[0.18em] text-brand-soft sm:text-[1rem] sm:tracking-[0.22em]">
               Our Journey
@@ -108,8 +114,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-4 py-18 sm:py-24">
-        <div className="container-shell">
+      <section className="relative overflow-hidden px-4 py-18 sm:py-24">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#f3f6ef_0%,#faf5eb_100%)]" />
+        <div className="absolute inset-y-0 left-0 w-full opacity-[0.08] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px)] [background-size:150px_150px]" />
+        <div className="absolute left-8 top-8 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.12)] blur-3xl" />
+        <div className="absolute bottom-0 right-12 h-44 w-44 rounded-full bg-[rgba(203,138,46,0.1)] blur-3xl" />
+        <div className="container-shell relative">
           <div className="max-w-3xl">
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-soft">
               The People Behind LIKTISH
@@ -162,8 +172,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f8f2e8] px-4 py-18 sm:py-24">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.92fr_1.08fr]">
+      <section className="relative overflow-hidden bg-[#f8f2e8] px-4 py-18 sm:py-24">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#eef4ee_0%,#f8f2e8_100%)]" />
+        <div className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(120deg,rgba(21,144,102,0.15)_1px,transparent_1px)] [background-size:140px_140px]" />
+        <div className="absolute -right-12 top-10 h-48 w-48 rounded-full bg-[rgba(21,144,102,0.12)] blur-3xl" />
+        <div className="container-shell relative grid gap-10 xl:grid-cols-[0.92fr_1.08fr]">
           <div>
             <SectionHeading
               eyebrow="Mission and Values"
