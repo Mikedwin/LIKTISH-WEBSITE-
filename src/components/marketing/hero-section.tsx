@@ -42,8 +42,8 @@ export function HeroSection() {
               style={{ animationDelay: "300ms" }}
             >
               <CTAButton
+                href="/solar-assessment"
                 label="Get a Free Solar Assessment"
-                disabled
                 className="min-h-14 w-full rounded-full bg-[#159066] px-4 text-[0.88rem] font-bold normal-case tracking-normal text-white shadow-[0_22px_46px_rgba(8,46,33,0.24)] sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:min-h-[4.2rem] md:px-10 md:text-[1.08rem]"
               />
               <CTAButton

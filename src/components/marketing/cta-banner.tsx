@@ -26,8 +26,8 @@ export function CtaBanner() {
             </p>
             <div className="mt-8 mx-auto grid w-full max-w-[42rem] grid-cols-2 gap-3 sm:mt-10 sm:gap-4">
               <CTAButton
+                href="/solar-assessment"
                 label="Get a Free Solar Assessment"
-                disabled
                 className="min-h-14 w-full rounded-full !bg-white px-4 text-[0.88rem] !text-brand shadow-[0_18px_36px_rgba(11,33,25,0.18)] sm:min-h-16 sm:px-7 sm:text-[0.95rem] md:px-10 md:text-[1.08rem]"
               />
               <CTAButton

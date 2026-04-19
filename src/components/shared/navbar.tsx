@@ -47,12 +47,12 @@ export function Navbar() {
             </svg>
             WhatsApp
           </a>
-          <span
-            aria-disabled="true"
-            className="inline-flex min-h-12 cursor-default items-center rounded-full bg-brand px-7 py-3 text-[1rem] font-semibold text-white shadow-[0_14px_24px_rgba(20,55,43,0.18)]"
+          <Link
+            href="/solar-assessment"
+            className="inline-flex min-h-12 items-center rounded-full bg-brand px-7 py-3 text-[1rem] font-semibold text-white shadow-[0_14px_24px_rgba(20,55,43,0.18)] transition hover:bg-brand-strong"
           >
             Get a Free Solar Assessment
-          </span>
+          </Link>
         </div>
 
         <button
@@ -94,12 +94,13 @@ export function Navbar() {
                 </svg>
                 WhatsApp
               </a>
-              <span
-                aria-disabled="true"
-                className="inline-flex min-h-12 w-full cursor-default items-center justify-center rounded-full bg-brand px-7 py-3 text-center text-[0.96rem] font-semibold text-white"
+              <Link
+                href="/solar-assessment"
+                onClick={() => setOpen(false)}
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand px-7 py-3 text-center text-[0.96rem] font-semibold text-white transition hover:bg-brand-strong"
               >
                 Get a Free Solar Assessment
-              </span>
+              </Link>
             </div>
           </div>
         </div>
