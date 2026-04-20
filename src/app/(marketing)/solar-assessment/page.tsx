@@ -79,114 +79,134 @@ export default function SolarAssessmentPage() {
           <div className="absolute -right-8 top-10 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.2)] blur-3xl" />
           <div className="absolute bottom-0 left-10 h-28 w-28 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
           <form className="relative space-y-5">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="flex h-full flex-col">
-                <span className="mb-2 block min-h-[3.5rem] text-sm font-semibold text-brand">
-                  What is the nature of your request?
-                </span>
-                <select className="field-shell">
-                  <option>Please Select</option>
-                  <option>New solar installation</option>
-                  <option>Assessment for an existing system</option>
-                  <option>Maintenance or repairs</option>
-                  <option>Battery backup or upgrade</option>
-                  <option>Commercial or business enquiry</option>
-                </select>
-              </label>
+            <div className="rounded-[1.35rem] border border-white/45 bg-white/48 p-4 sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                Project details
+              </p>
+              <div className="mt-4 grid gap-5 sm:grid-cols-2">
+                <label className="flex h-full flex-col">
+                  <span className="mb-2 block min-h-[3.5rem] text-sm font-semibold text-brand">
+                    What is the nature of your request?
+                  </span>
+                  <select className="field-shell">
+                    <option>Please Select</option>
+                    <option>New solar installation</option>
+                    <option>Assessment for an existing system</option>
+                    <option>Maintenance or repairs</option>
+                    <option>Battery backup or upgrade</option>
+                    <option>Commercial or business enquiry</option>
+                  </select>
+                </label>
 
-              <label className="flex h-full flex-col">
-                <span className="mb-2 block min-h-[3.5rem] text-sm font-semibold text-brand">
-                  Who installed the solar panels on your home or business?
+                <label className="flex h-full flex-col">
+                  <span className="mb-2 block min-h-[3.5rem] text-sm font-semibold text-brand">
+                    Who installed the solar panels on your home or business?
+                  </span>
+                  <select className="field-shell">
+                    <option>Please Select</option>
+                    <option>LIKTISH Engineering</option>
+                    <option>Another solar company</option>
+                    <option>Independent installer</option>
+                    <option>Not installed yet</option>
+                    <option>Not sure</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div className="rounded-[1.35rem] border border-white/45 bg-white/42 p-4 sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                Contact information
+              </p>
+              <div className="mt-4 grid gap-5 md:grid-cols-2">
+                <label className="block">
+                  <span className="mb-2 block text-sm font-semibold text-brand">
+                    Name
+                  </span>
+                  <input type="text" className="field-shell" placeholder="Your full name" />
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block text-sm font-semibold text-brand">
+                    Phone Number*
+                  </span>
+                  <input
+                    type="tel"
+                    className="field-shell"
+                    placeholder="Your phone number"
+                  />
+                </label>
+              </div>
+
+              <div className="mt-5 grid gap-5 md:grid-cols-2">
+                <label className="block">
+                  <span className="mb-2 block text-sm font-semibold text-brand">
+                    Address*
+                  </span>
+                  <input
+                    type="text"
+                    className="field-shell"
+                    placeholder="Property or business address"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block text-sm font-semibold text-brand">
+                    Email*
+                  </span>
+                  <input
+                    type="email"
+                    className="field-shell"
+                    placeholder="Your email address"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="rounded-[1.35rem] border border-white/45 bg-white/38 p-4 sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                Request details
+              </p>
+              <label className="mt-4 block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  What can we help you with today?*
                 </span>
-                <select className="field-shell">
-                  <option>Please Select</option>
-                  <option>LIKTISH Engineering</option>
-                  <option>Another solar company</option>
-                  <option>Independent installer</option>
-                  <option>Not installed yet</option>
-                  <option>Not sure</option>
-                </select>
+                <textarea
+                  rows={5}
+                  className="field-shell min-h-[10rem] py-3"
+                  placeholder="Share a few details about the issue, property, or kind of solar help you need"
+                />
               </label>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-brand">
-                  Name
-                </span>
-                <input type="text" className="field-shell" placeholder="Your full name" />
-              </label>
+            <div className="rounded-[1.35rem] border border-white/45 bg-white/44 p-4 sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                Preferred follow-up
+              </p>
+              <div className="mt-4 grid gap-5 md:grid-cols-2">
+                <label className="block">
+                  <span className="mb-2 block text-sm font-semibold text-brand">
+                    How would you like us to reach out?
+                  </span>
+                  <select className="field-shell">
+                    <option>Please Select</option>
+                    <option>Phone call</option>
+                    <option>WhatsApp</option>
+                    <option>Email</option>
+                  </select>
+                </label>
 
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-brand">
-                  Phone Number*
-                </span>
-                <input
-                  type="tel"
-                  className="field-shell"
-                  placeholder="Your phone number"
-                />
-              </label>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-brand">
-                  Address*
-                </span>
-                <input
-                  type="text"
-                  className="field-shell"
-                  placeholder="Property or business address"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-brand">
-                  Email*
-                </span>
-                <input
-                  type="email"
-                  className="field-shell"
-                  placeholder="Your email address"
-                />
-              </label>
-            </div>
-
-            <label className="block">
-              <span className="mb-2 block text-sm font-semibold text-brand">
-                What can we help you with today?*
-              </span>
-              <textarea
-                rows={5}
-                className="field-shell min-h-[10rem] py-3"
-                placeholder="Share a few details about the issue, property, or kind of solar help you need"
-              />
-            </label>
-
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-brand">
-                  How would you like us to reach out?
-                </span>
-                <select className="field-shell">
-                  <option>Please Select</option>
-                  <option>Phone call</option>
-                  <option>WhatsApp</option>
-                  <option>Email</option>
-                </select>
-              </label>
-
-              <label className="flex items-start gap-3 rounded-[1.2rem] border border-[#d6e2da] bg-white/82 px-4 py-4 text-sm leading-6 text-muted sm:px-5">
-                <input
-                  type="checkbox"
-                  className="mt-1 h-4 w-4 rounded border-[#aac9b9] text-brand focus:ring-brand"
-                />
-                <span>
-                  I agree to receive other communications from Freedom Solar
-                  Power.
-                </span>
-              </label>
+                <label className="flex items-start gap-3 rounded-[1.2rem] border border-[#d6e2da] bg-white/82 px-4 py-4 text-sm leading-6 text-muted sm:px-5">
+                  <input
+                    type="checkbox"
+                    className="mt-1 h-4 w-4 rounded border-[#aac9b9] text-brand focus:ring-brand"
+                  />
+                  <span>
+                    I agree to receive other communications from Freedom Solar
+                    Power.
+                  </span>
+                </label>
+              </div>
             </div>
 
             <button
