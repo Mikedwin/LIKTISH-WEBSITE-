@@ -3,17 +3,166 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "Free Solar Assessment | LIKTISH Engineering",
   description:
-    "Request a free solar assessment from LIKTISH Engineering. This page is ready for the next assessment flow.",
+    "Request a free solar assessment from LIKTISH Engineering for your home or business in Ghana.",
   path: "/solar-assessment",
 });
 
 export default function SolarAssessmentPage() {
   return (
-    <section className="min-h-[70vh] bg-white px-4 py-20 sm:py-28">
-      <div className="container-shell flex min-h-[50vh] items-center justify-center rounded-[2rem] border border-dashed border-[#cfe0d7] bg-[#fbfdfb]">
-        <p className="headline px-6 text-center text-[2rem] font-black tracking-tight text-brand sm:text-[3rem]">
-          Solar Assessment
-        </p>
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#edf4ee_0%,#f5eee2_100%)] px-4 py-16 sm:py-20">
+      <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.1)_1px,transparent_1px)] [background-size:140px_140px,34px_34px]" />
+      <div className="absolute inset-y-0 right-0 w-[38%] bg-[linear-gradient(180deg,rgba(21,144,102,0.14),rgba(21,144,102,0.03))]" />
+      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
+      <div className="absolute right-8 top-16 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.16)] blur-3xl" />
+
+      <div className="container-shell relative grid gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
+        <div className="xl:sticky xl:top-28 xl:self-start">
+          <p className="eyebrow text-brand-soft">Free Solar Assessment</p>
+          <h1 className="headline mt-3 max-w-2xl text-[2.4rem] font-black leading-[0.94] text-brand sm:text-[3.2rem] md:text-[4rem]">
+            Tell LIKTISH what your property needs.
+          </h1>
+          <p className="prose-copy mt-5 max-w-xl text-[1rem] leading-7 sm:text-[1.05rem] sm:leading-8">
+            This page is designed as a clearer intake for homes and businesses that
+            want a solar assessment. Share the basics, and we can shape the full
+            flow from here.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+            <div className="rounded-[1.45rem] border border-[#d8e4dc] bg-white/78 p-5 shadow-[0_12px_28px_rgba(11,33,25,0.06)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                Built for
+              </p>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                Residential, commercial, and small business solar enquiries that
+                need a clean first step.
+              </p>
+            </div>
+            <div className="rounded-[1.45rem] border border-[#d8e4dc] bg-[linear-gradient(180deg,#f7fbf8_0%,#eef5ef_100%)] p-5 shadow-[0_12px_28px_rgba(11,33,25,0.06)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                Next step
+              </p>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                We can later connect this page to a real lead flow without bringing
+                back any booking or admin system.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="editorial-panel rounded-[1.7rem] p-5 sm:rounded-[2rem] sm:p-8 lg:p-10">
+          <form className="space-y-5">
+            <div className="grid gap-5 md:grid-cols-2">
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  What is the nature of your request?
+                </span>
+                <input
+                  type="text"
+                  className="field-shell"
+                  placeholder="Tell us what you need help with"
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  Who installed the solar panels on your home or business?
+                </span>
+                <input
+                  type="text"
+                  className="field-shell"
+                  placeholder="Installer or company name"
+                />
+              </label>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  Name
+                </span>
+                <input type="text" className="field-shell" placeholder="Your full name" />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  Phone Number*
+                </span>
+                <input
+                  type="tel"
+                  className="field-shell"
+                  placeholder="Your phone number"
+                />
+              </label>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  Address*
+                </span>
+                <input
+                  type="text"
+                  className="field-shell"
+                  placeholder="Property or business address"
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  Email*
+                </span>
+                <input
+                  type="email"
+                  className="field-shell"
+                  placeholder="Your email address"
+                />
+              </label>
+            </div>
+
+            <label className="block">
+              <span className="mb-2 block text-sm font-semibold text-brand">
+                What can we help you with today?*
+              </span>
+              <textarea
+                rows={5}
+                className="field-shell min-h-[10rem] py-3"
+                placeholder="Share a few details about the issue, property, or kind of solar help you need"
+              />
+            </label>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-brand">
+                  How would you like us to reach out?
+                </span>
+                <select className="field-shell">
+                  <option>Please Select</option>
+                  <option>Phone call</option>
+                  <option>WhatsApp</option>
+                  <option>Email</option>
+                </select>
+              </label>
+
+              <label className="flex items-start gap-3 rounded-[1.2rem] border border-[#d6e2da] bg-white/82 px-4 py-4 text-sm leading-6 text-muted sm:px-5">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-4 w-4 rounded border-[#aac9b9] text-brand focus:ring-brand"
+                />
+                <span>
+                  I agree to receive other communications from Freedom Solar
+                  Power.
+                </span>
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0 active:scale-[0.985]"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );
