@@ -54,12 +54,12 @@ export default function SolarAssessmentPage() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[1.7rem] border border-[#bdd4c8] bg-[linear-gradient(145deg,#f5fbf7_0%,#e3f1e7_40%,#ecd7b3_100%)] p-5 shadow-[0_30px_70px_rgba(11,33,25,0.11)] sm:rounded-[2rem] sm:p-8 lg:p-10">
+        <div className="relative overflow-hidden rounded-[1.7rem] border border-[#aecab9] bg-[linear-gradient(145deg,#eef8f1_0%,#d6eadd_40%,#e3c590_100%)] p-5 shadow-[0_30px_70px_rgba(11,33,25,0.12)] sm:rounded-[2rem] sm:p-8 lg:p-10">
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.01))]" />
-          <div className="absolute inset-y-0 right-0 w-[32%] bg-[linear-gradient(180deg,rgba(21,144,102,0.12),rgba(21,144,102,0.03))]" />
-          <div className="absolute inset-y-0 left-0 w-[22%] bg-[linear-gradient(180deg,rgba(203,138,46,0.12),rgba(203,138,46,0.03))]" />
-          <div className="absolute -right-8 top-10 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.16)] blur-3xl" />
-          <div className="absolute bottom-0 left-10 h-28 w-28 rounded-full bg-[rgba(203,138,46,0.16)] blur-3xl" />
+          <div className="absolute inset-y-0 right-0 w-[32%] bg-[linear-gradient(180deg,rgba(21,144,102,0.16),rgba(21,144,102,0.04))]" />
+          <div className="absolute inset-y-0 left-0 w-[22%] bg-[linear-gradient(180deg,rgba(203,138,46,0.16),rgba(203,138,46,0.04))]" />
+          <div className="absolute -right-8 top-10 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.2)] blur-3xl" />
+          <div className="absolute bottom-0 left-10 h-28 w-28 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
           <form className="relative space-y-5">
             <div className="grid gap-5 md:grid-cols-2">
               <label className="block">
