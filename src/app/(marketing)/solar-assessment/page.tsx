@@ -84,22 +84,28 @@ export default function SolarAssessmentPage() {
                 <span className="mb-2 block text-sm font-semibold text-brand">
                   What is the nature of your request?
                 </span>
-                <input
-                  type="text"
-                  className="field-shell"
-                  placeholder="Tell us what you need help with"
-                />
+                <select className="field-shell">
+                  <option>Please Select</option>
+                  <option>New solar installation</option>
+                  <option>Assessment for an existing system</option>
+                  <option>Maintenance or repairs</option>
+                  <option>Battery backup or upgrade</option>
+                  <option>Commercial or business enquiry</option>
+                </select>
               </label>
 
               <label className="block">
                 <span className="mb-2 block text-sm font-semibold text-brand">
                   Who installed the solar panels on your home or business?
                 </span>
-                <input
-                  type="text"
-                  className="field-shell"
-                  placeholder="Installer or company name"
-                />
+                <select className="field-shell">
+                  <option>Please Select</option>
+                  <option>LIKTISH Engineering</option>
+                  <option>Another solar company</option>
+                  <option>Independent installer</option>
+                  <option>Not installed yet</option>
+                  <option>Not sure</option>
+                </select>
               </label>
             </div>
 
