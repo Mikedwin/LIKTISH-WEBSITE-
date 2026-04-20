@@ -81,7 +81,7 @@ export default function SolarAssessmentPage() {
           <form className="relative space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="flex h-full flex-col">
-                <span className="mb-2 block text-sm font-semibold text-brand">
+                <span className="mb-2 block min-h-[3.5rem] text-sm font-semibold text-brand">
                   What is the nature of your request?
                 </span>
                 <select className="field-shell">
@@ -95,10 +95,10 @@ export default function SolarAssessmentPage() {
               </label>
 
               <label className="flex h-full flex-col">
-                <span className="mb-2 block text-sm font-semibold text-brand">
+                <span className="mb-2 block min-h-[3.5rem] text-sm font-semibold text-brand">
                   Who installed the solar panels on your home or business?
                 </span>
-                <select className="field-shell mt-auto">
+                <select className="field-shell">
                   <option>Please Select</option>
                   <option>LIKTISH Engineering</option>
                   <option>Another solar company</option>
