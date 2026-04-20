@@ -79,7 +79,7 @@ export default function SolarAssessmentPage() {
           <div className="absolute -right-8 top-10 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.2)] blur-3xl" />
           <div className="absolute bottom-0 left-10 h-28 w-28 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
           <form className="relative space-y-5">
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2">
               <label className="block">
                 <span className="mb-2 block text-sm font-semibold text-brand">
                   What is the nature of your request?
