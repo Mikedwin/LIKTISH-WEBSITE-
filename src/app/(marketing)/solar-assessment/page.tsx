@@ -17,7 +17,9 @@ export default function SolarAssessmentPage() {
 
       <div className="container-shell relative grid gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
         <div className="xl:sticky xl:top-28 xl:self-start">
-          <p className="eyebrow text-brand-soft">Free Solar Assessment</p>
+          <p className="text-[0.95rem] font-semibold uppercase tracking-[0.22em] text-brand-soft sm:text-[1.05rem]">
+            Free Solar Assessment
+          </p>
           <h1 className="headline mt-3 max-w-2xl text-[2.4rem] font-black leading-[0.94] text-brand sm:text-[3.2rem] md:text-[4rem]">
             Tell LIKTISH what your property needs.
           </h1>
