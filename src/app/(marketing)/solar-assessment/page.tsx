@@ -9,11 +9,14 @@ export const metadata = buildMetadata({
 
 export default function SolarAssessmentPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#edf4ee_0%,#f5eee2_100%)] px-4 py-16 sm:py-20">
-      <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.1)_1px,transparent_1px)] [background-size:140px_140px,34px_34px]" />
-      <div className="absolute inset-y-0 right-0 w-[38%] bg-[linear-gradient(180deg,rgba(21,144,102,0.14),rgba(21,144,102,0.03))]" />
-      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
-      <div className="absolute right-8 top-16 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.16)] blur-3xl" />
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#dfeee3_0%,#efe1c8_100%)] px-4 py-16 sm:py-20">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(21,144,102,0.08)_42%,rgba(203,138,46,0.12)_100%)]" />
+      <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(120deg,rgba(21,144,102,0.22)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.12)_1px,transparent_1px)] [background-size:140px_140px,34px_34px]" />
+      <div className="absolute inset-y-0 right-0 w-[42%] bg-[linear-gradient(180deg,rgba(21,144,102,0.22),rgba(21,144,102,0.05))]" />
+      <div className="absolute inset-y-0 left-0 w-[24%] bg-[linear-gradient(180deg,rgba(203,138,46,0.14),rgba(203,138,46,0.03))]" />
+      <div className="absolute -left-10 top-10 h-44 w-44 rounded-full bg-[rgba(203,138,46,0.18)] blur-3xl" />
+      <div className="absolute right-8 top-16 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.22)] blur-3xl" />
+      <div className="absolute bottom-0 left-[24%] h-40 w-40 rounded-full bg-[rgba(255,255,255,0.14)] blur-3xl" />
 
       <div className="container-shell relative grid gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
         <div className="xl:sticky xl:top-28 xl:self-start">
