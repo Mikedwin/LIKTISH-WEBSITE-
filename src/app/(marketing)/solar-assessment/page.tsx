@@ -9,14 +9,14 @@ export const metadata = buildMetadata({
 
 export default function SolarAssessmentPage() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#dfeee3_0%,#efe1c8_100%)] px-4 py-16 sm:py-20">
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(21,144,102,0.08)_42%,rgba(203,138,46,0.12)_100%)]" />
-      <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(120deg,rgba(21,144,102,0.22)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.12)_1px,transparent_1px)] [background-size:140px_140px,34px_34px]" />
-      <div className="absolute inset-y-0 right-0 w-[42%] bg-[linear-gradient(180deg,rgba(21,144,102,0.22),rgba(21,144,102,0.05))]" />
-      <div className="absolute inset-y-0 left-0 w-[24%] bg-[linear-gradient(180deg,rgba(203,138,46,0.14),rgba(203,138,46,0.03))]" />
-      <div className="absolute -left-10 top-10 h-44 w-44 rounded-full bg-[rgba(203,138,46,0.18)] blur-3xl" />
-      <div className="absolute right-8 top-16 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.22)] blur-3xl" />
-      <div className="absolute bottom-0 left-[24%] h-40 w-40 rounded-full bg-[rgba(255,255,255,0.14)] blur-3xl" />
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#cfe6d5_0%,#dcc199_100%)] px-4 py-16 sm:py-20">
+      <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(7,56,42,0.08)_0%,rgba(21,144,102,0.14)_38%,rgba(203,138,46,0.18)_100%)]" />
+      <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,rgba(13,87,63,0.26)_1px,transparent_1px),linear-gradient(rgba(13,87,63,0.14)_1px,transparent_1px)] [background-size:140px_140px,34px_34px]" />
+      <div className="absolute inset-y-0 right-0 w-[46%] bg-[linear-gradient(180deg,rgba(11,102,73,0.32),rgba(11,102,73,0.08))]" />
+      <div className="absolute inset-y-0 left-0 w-[28%] bg-[linear-gradient(180deg,rgba(180,118,34,0.2),rgba(180,118,34,0.05))]" />
+      <div className="absolute -left-12 top-8 h-52 w-52 rounded-full bg-[rgba(203,138,46,0.24)] blur-3xl" />
+      <div className="absolute right-4 top-10 h-72 w-72 rounded-full bg-[rgba(21,144,102,0.3)] blur-3xl" />
+      <div className="absolute bottom-0 left-[22%] h-48 w-48 rounded-full bg-[rgba(255,255,255,0.16)] blur-3xl" />
 
       <div className="container-shell relative grid gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
         <div className="xl:sticky xl:top-28 xl:self-start">
