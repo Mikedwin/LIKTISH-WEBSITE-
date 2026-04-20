@@ -32,6 +32,24 @@ export default function SolarAssessmentPage() {
             flow from here.
           </p>
 
+          <div className="mt-7 rounded-[1.5rem] border border-[#caded2] bg-white/80 p-5 shadow-[0_16px_36px_rgba(11,33,25,0.07)] sm:p-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+              What to expect
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted sm:text-[0.98rem]">
+              This assessment is for homeowners, businesses, and property teams who
+              want practical solar guidance before moving forward.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted sm:text-[0.98rem]">
+              After you submit the form, LIKTISH reviews the request and follows up
+              with the next step, usually by phone or WhatsApp.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted sm:text-[0.98rem]">
+              It is a simple first step, not a booking system, and it helps us
+              understand the property, the issue, and the best way to reach you.
+            </p>
+          </div>
+
           <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
             <div className="rounded-[1.45rem] border border-[#d8e4dc] bg-white/78 p-5 shadow-[0_12px_28px_rgba(11,33,25,0.06)]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
