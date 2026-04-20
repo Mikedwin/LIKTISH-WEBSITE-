@@ -49,7 +49,7 @@ export function Navbar() {
           </a>
           <Link
             href="/solar-assessment"
-            className="inline-flex min-h-12 items-center rounded-full bg-brand px-7 py-3 text-[1rem] font-semibold text-white shadow-[0_14px_24px_rgba(20,55,43,0.18)] transition hover:bg-brand-strong"
+            className="inline-flex min-h-12 items-center rounded-full bg-brand px-7 py-3 text-[1rem] font-semibold !text-white shadow-[0_14px_24px_rgba(20,55,43,0.18)] transition hover:bg-brand-strong hover:!text-white"
           >
             Get a Free Solar Assessment
           </Link>
@@ -97,7 +97,7 @@ export function Navbar() {
               <Link
                 href="/solar-assessment"
                 onClick={() => setOpen(false)}
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand px-7 py-3 text-center text-[0.96rem] font-semibold text-white transition hover:bg-brand-strong"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand px-7 py-3 text-center text-[0.96rem] font-semibold !text-white transition hover:bg-brand-strong hover:!text-white"
               >
                 Get a Free Solar Assessment
               </Link>
