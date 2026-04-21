@@ -50,7 +50,7 @@ export default function SolarAssessmentPage() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+          <div className="mt-8">
             <div className="rounded-[1.45rem] border border-[#d8e4dc] bg-white/78 p-5 shadow-[0_12px_28px_rgba(11,33,25,0.06)]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Built for
@@ -58,15 +58,6 @@ export default function SolarAssessmentPage() {
               <p className="mt-3 text-sm leading-7 text-muted">
                 Residential, commercial, and small business solar enquiries that
                 need a clean first step.
-              </p>
-            </div>
-            <div className="rounded-[1.45rem] border border-[#d8e4dc] bg-[linear-gradient(180deg,#f7fbf8_0%,#eef5ef_100%)] p-5 shadow-[0_12px_28px_rgba(11,33,25,0.06)]">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
-                Next step
-              </p>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                We can later connect this page to a real lead flow without bringing
-                back any booking or admin system.
               </p>
             </div>
           </div>
