@@ -79,6 +79,35 @@ export default function SolarAssessmentPage() {
           <div className="absolute -right-8 top-10 h-36 w-36 rounded-full bg-[rgba(21,144,102,0.2)] blur-3xl" />
           <div className="absolute bottom-0 left-10 h-28 w-28 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
           <form className="relative space-y-5">
+            <div className="mb-1 rounded-[1.45rem] border border-white/55 bg-white/52 px-4 py-5 shadow-[0_16px_30px_rgba(11,33,25,0.06)] sm:px-5 sm:py-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-[1rem] bg-brand text-white shadow-[0_10px_22px_rgba(11,33,25,0.12)]">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+                    <path
+                      d="M4 7h16M7 4v6m10-6v6M6 11h12v9H6v-9Zm3 3h2m4 0h-2m-4 3h6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                    Assessment form
+                  </p>
+                  <h2 className="headline mt-1 text-[1.7rem] font-black text-brand sm:text-[2rem]">
+                    Share your solar project details
+                  </h2>
+                </div>
+              </div>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-[0.98rem]">
+                Fill in the essentials below so LIKTISH can understand the property,
+                the current setup, and the best way to follow up.
+              </p>
+            </div>
+
             <div className="rounded-[1.35rem] border border-white/45 bg-white/48 p-4 sm:rounded-[1.5rem] sm:p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Project details
@@ -113,6 +142,8 @@ export default function SolarAssessmentPage() {
                 </label>
               </div>
             </div>
+
+            <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(13,87,63,0.18),transparent)]" />
 
             <div className="rounded-[1.35rem] border border-white/45 bg-white/42 p-4 sm:rounded-[1.5rem] sm:p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
@@ -163,6 +194,8 @@ export default function SolarAssessmentPage() {
               </div>
             </div>
 
+            <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(180,118,34,0.18),transparent)]" />
+
             <div className="rounded-[1.35rem] border border-white/45 bg-white/38 p-4 sm:rounded-[1.5rem] sm:p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Request details
@@ -178,6 +211,8 @@ export default function SolarAssessmentPage() {
                 />
               </label>
             </div>
+
+            <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(13,87,63,0.18),transparent)]" />
 
             <div className="rounded-[1.35rem] border border-white/45 bg-white/44 p-4 sm:rounded-[1.5rem] sm:p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
@@ -209,12 +244,17 @@ export default function SolarAssessmentPage() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0 active:scale-[0.985]"
-            >
-              Submit
-            </button>
+            <div className="flex flex-col gap-3 rounded-[1.35rem] border border-white/45 bg-white/50 p-4 sm:flex-row sm:items-center sm:justify-between sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-sm leading-7 text-muted">
+                Submit this form and LIKTISH will review the request before following up.
+              </p>
+              <button
+                type="submit"
+                className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0 active:scale-[0.985] sm:min-w-[11rem]"
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
