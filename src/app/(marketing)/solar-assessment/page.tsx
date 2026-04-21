@@ -27,9 +27,9 @@ export default function SolarAssessmentPage() {
             Tell LIKTISH what your property needs.
           </h1>
           <p className="prose-copy mt-4 max-w-xl text-[0.96rem] leading-7 sm:mt-5 sm:text-[1.05rem] sm:leading-8">
-            This page is designed as a clearer intake for homes and businesses that
-            want a solar assessment. Share the basics, and we can shape the full
-            flow from here.
+            Share a few details about your property, your current setup, or the
+            kind of solar help you need. LIKTISH uses this as a clearer first step
+            before recommending what makes sense.
           </p>
 
           <div className="mt-6 rounded-[1.35rem] border border-[#caded2] bg-white/80 p-4 shadow-[0_16px_36px_rgba(11,33,25,0.07)] sm:mt-7 sm:rounded-[1.5rem] sm:p-6">
@@ -38,15 +38,15 @@ export default function SolarAssessmentPage() {
             </p>
             <p className="mt-3 text-[0.92rem] leading-6 text-muted sm:text-[0.98rem] sm:leading-7">
               This assessment is for homeowners, businesses, and property teams who
-              want practical solar guidance before moving forward.
+              want practical solar guidance before making the next move.
             </p>
             <p className="mt-3 text-[0.92rem] leading-6 text-muted sm:text-[0.98rem] sm:leading-7">
-              After you submit the form, LIKTISH reviews the request and follows up
-              with the next step, usually by phone or WhatsApp.
+              After you submit the form, LIKTISH reviews the request and usually
+              follows up by phone or WhatsApp.
             </p>
             <p className="mt-3 text-[0.92rem] leading-6 text-muted sm:text-[0.98rem] sm:leading-7">
-              It is a simple first step, not a booking system, and it helps us
-              understand the property, the issue, and the best way to reach you.
+              It is a simple first step that helps us understand the property, the
+              issue, and the best way to reach you.
             </p>
           </div>
 
@@ -56,8 +56,8 @@ export default function SolarAssessmentPage() {
                 Built for
               </p>
               <p className="mt-3 text-[0.92rem] leading-6 text-muted sm:text-sm sm:leading-7">
-                Residential, commercial, and small business solar enquiries that
-                need a clean first step.
+                Homes, businesses, and property teams that want a clearer way to
+                start the conversation about solar.
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function SolarAssessmentPage() {
 
                 <label className="flex h-full flex-col">
                   <span className="mb-2 block min-h-[3rem] text-[0.92rem] font-semibold leading-6 text-brand sm:min-h-[3.5rem] sm:text-sm">
-                    Who installed the solar panels on your home or business?
+                    Who installed the solar system at your home or business?
                   </span>
                   <select className="field-shell">
                     <option>Please Select</option>
@@ -137,7 +137,7 @@ export default function SolarAssessmentPage() {
                   <input
                     type="text"
                     className="field-shell"
-                    placeholder="Property or business address"
+                    placeholder="Property address or business location"
                   />
                 </label>
 
@@ -165,7 +165,7 @@ export default function SolarAssessmentPage() {
                 <textarea
                   rows={5}
                   className="field-shell min-h-[10rem] py-3"
-                  placeholder="Share a few details about the issue, property, or kind of solar help you need"
+                  placeholder="Tell us about the property, the issue you are facing, or the kind of solar support you need"
                 />
               </label>
             </div>
@@ -193,8 +193,8 @@ export default function SolarAssessmentPage() {
                     className="mt-1 h-4 w-4 rounded border-[#aac9b9] text-brand focus:ring-brand"
                   />
                   <span>
-                    I agree to receive follow-up communication from LIKTISH
-                    Engineering about my solar assessment request.
+                    I agree to hear back from LIKTISH Engineering about this solar
+                    assessment request.
                   </span>
                 </label>
               </div>
