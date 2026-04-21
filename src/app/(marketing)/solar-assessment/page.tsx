@@ -202,8 +202,8 @@ export default function SolarAssessmentPage() {
                     className="mt-1 h-4 w-4 rounded border-[#aac9b9] text-brand focus:ring-brand"
                   />
                   <span>
-                    I agree to receive other communications from Freedom Solar
-                    Power.
+                    I agree to receive follow-up communication from LIKTISH
+                    Engineering about my solar assessment request.
                   </span>
                 </label>
               </div>
