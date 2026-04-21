@@ -209,6 +209,42 @@ export default function SolarAssessmentPage() {
               </div>
             </div>
 
+            <div className="rounded-[1.35rem] border border-[#d7e2da] bg-white/70 p-4 shadow-[0_12px_28px_rgba(11,33,25,0.05)] sm:rounded-[1.5rem] sm:p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                What happens next
+              </p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[1.1rem] border border-[#dbe6de] bg-[#f7fbf8] p-4">
+                  <p className="text-sm font-semibold text-brand">1. Submit your details</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    Share the basics about the property, the request, and the best
+                    way to reach you.
+                  </p>
+                </div>
+                <div className="rounded-[1.1rem] border border-[#dbe6de] bg-[#f7fbf8] p-4">
+                  <p className="text-sm font-semibold text-brand">2. LIKTISH reviews it</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    We look at the request and decide the most useful next step for
+                    the project.
+                  </p>
+                </div>
+                <div className="rounded-[1.1rem] border border-[#dbe6de] bg-[#fcf8f1] p-4">
+                  <p className="text-sm font-semibold text-brand">3. We follow up</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    LIKTISH usually reaches out by phone or WhatsApp based on your
+                    preference.
+                  </p>
+                </div>
+                <div className="rounded-[1.1rem] border border-[#dbe6de] bg-[#fcf8f1] p-4">
+                  <p className="text-sm font-semibold text-brand">4. Next steps are discussed</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    From there, we can talk through assessment, recommendations, or
+                    the right path forward.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <button
               type="submit"
               className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0 active:scale-[0.985]"
