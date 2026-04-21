@@ -81,3 +81,15 @@ export interface SavingsLeadInput {
   email: string;
   estimateSummary: string;
 }
+
+export interface SolarAssessmentInput {
+  requestNature: string;
+  installerType: string;
+  name: string;
+  address: string;
+  email: string;
+  helpNeeded: string;
+  phone: string;
+  preferredContactMethod: string;
+  consent: boolean;
+}
