@@ -20,10 +20,10 @@ export default function SolarAssessmentPage() {
 
       <div className="container-shell relative grid gap-6 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:gap-10">
         <div className="xl:sticky xl:top-28 xl:self-start">
-          <p className="text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#0c6a4d] sm:text-[1.05rem] sm:tracking-[0.22em]">
+          <p className="text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#117356] sm:text-[1.05rem] sm:tracking-[0.22em]">
             Free Solar Assessment
           </p>
-          <h1 className="headline mt-3 max-w-2xl text-[2.05rem] font-black leading-[0.94] text-[#083f2f] sm:text-[3.2rem] md:text-[4rem]">
+          <h1 className="headline mt-3 max-w-2xl text-[2.05rem] font-black leading-[0.94] text-[#0b4c38] sm:text-[3.2rem] md:text-[4rem]">
             Tell LIKTISH what your property needs.
           </h1>
           <p className="prose-copy mt-4 max-w-xl text-[0.96rem] leading-7 sm:mt-5 sm:text-[1.05rem] sm:leading-8">
