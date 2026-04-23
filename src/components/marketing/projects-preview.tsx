@@ -8,24 +8,22 @@ export function ProjectsPreview() {
 
   return (
     <section id="projects" className="relative overflow-hidden px-4 py-18 scroll-mt-28 sm:py-24">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.65]"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=80')",
-          backgroundPosition: "center 62%",
-        }}
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(8,71,54,0.74)_0%,rgba(18,97,72,0.64)_42%,rgba(233,241,232,0.72)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(203,138,46,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(188,235,217,0.18),transparent_24%)]" />
-      <div className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(120deg,rgba(20,55,43,0.22)_1px,transparent_1px),linear-gradient(rgba(20,55,43,0.10)_1px,transparent_1px)] [background-size:110px_110px,55px_55px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#e5efe6_0%,#f4ebdb_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.16)_0%,rgba(21,144,102,0.08)_42%,rgba(203,138,46,0.14)_100%)]" />
+      <div className="absolute inset-y-0 right-0 w-[40%] bg-[linear-gradient(180deg,rgba(16,112,80,0.18),rgba(16,112,80,0.03))]" />
+      <div className="absolute inset-y-0 left-0 w-[22%] bg-[linear-gradient(180deg,rgba(203,138,46,0.14),rgba(203,138,46,0.03))]" />
+      <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(120deg,rgba(20,55,43,0.22)_1px,transparent_1px),linear-gradient(rgba(20,55,43,0.10)_1px,transparent_1px)] [background-size:110px_110px,55px_55px]" />
+      <div className="absolute -left-14 top-10 h-56 w-56 rounded-full bg-[rgba(203,138,46,0.16)] blur-3xl" />
+      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_top,rgba(203,138,46,0.2),transparent_62%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-[radial-gradient(circle_at_bottom_right,rgba(21,144,102,0.18),transparent_58%)]" />
 
       <div className="container-shell relative">
         <RevealOnScroll className="mx-auto max-w-3xl text-center">
-          <h2 className="headline mt-4 text-[2rem] font-black text-white sm:mt-5 sm:text-3xl md:text-5xl">
+          <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:mt-5 sm:text-3xl md:text-5xl">
             Projects
           </h2>
-          <p className="mx-auto mt-4 text-[0.98rem] leading-7 text-white/82 sm:mt-5 sm:text-base sm:leading-8 md:text-lg">
+          <p className="mx-auto mt-4 text-[0.98rem] leading-7 text-muted sm:mt-5 sm:text-base sm:leading-8 md:text-lg">
             Case-study proof from homes, businesses, industrial sites, and institutions that needed reliable solar power across Ghana.
           </p>
         </RevealOnScroll>
@@ -151,7 +149,7 @@ export function ProjectsPreview() {
         <RevealOnScroll delay={360} className="mt-10 flex justify-center">
           <Link
             href="/projects"
-            className="inline-flex min-h-12 items-center rounded-[1rem] border border-white/20 bg-white/14 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:bg-white/20"
+            className="inline-flex min-h-12 items-center rounded-[1rem] border border-[#c9d9cf] bg-white/78 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_14px_30px_rgba(11,33,25,0.08)] transition duration-200 hover:-translate-y-0.5 hover:bg-white"
           >
             View projects
           </Link>
