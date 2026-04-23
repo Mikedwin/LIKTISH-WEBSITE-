@@ -33,9 +33,9 @@ export default function AboutPage() {
         <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
         <div className="container-shell relative grid gap-8 lg:gap-10 xl:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#b8d7c7] bg-white/74 px-4 py-2 shadow-[0_10px_24px_rgba(11,33,25,0.05)] sm:px-5">
+            <div className="mb-5 inline-flex items-center gap-3">
               <span className="h-2.5 w-2.5 rounded-full bg-[#159066]" />
-              <p className="text-[0.92rem] font-semibold uppercase tracking-[0.22em] text-[#117356] sm:text-[1rem]">
+              <p className="text-[0.95rem] font-semibold uppercase tracking-[0.22em] text-brand-soft sm:text-[1.05rem]">
                 ABOUT LIKTISH
               </p>
             </div>
