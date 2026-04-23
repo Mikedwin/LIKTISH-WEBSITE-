@@ -33,8 +33,10 @@ export default function AboutPage() {
         <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
         <div className="container-shell relative grid gap-8 lg:gap-10 xl:grid-cols-[0.82fr_1.18fr]">
           <div>
+            <p className="mb-4 text-[0.98rem] font-semibold uppercase tracking-[0.22em] text-brand-soft sm:text-[1.08rem]">
+              ABOUT LIKTISH
+            </p>
             <SectionHeading
-              eyebrow="About LIKTISH"
               title="An engineering-led solar company grounded in Ghana's power realities."
               body="The About page should make LIKTISH feel like a real operating company with people, field judgment, and long-term accountability."
             />
