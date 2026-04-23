@@ -191,8 +191,13 @@ export default function AboutPage() {
         <div className="absolute left-0 bottom-0 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
         <div className="container-shell relative grid gap-10 xl:grid-cols-[0.92fr_1.08fr]">
           <div>
+            <div className="mb-5 inline-flex items-center gap-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#159066]" />
+              <p className="text-[0.95rem] font-semibold uppercase tracking-[0.22em] text-brand-soft sm:text-[1.05rem]">
+                MISSION AND VALUES
+              </p>
+            </div>
             <SectionHeading
-              eyebrow="Mission and Values"
               title="Clean energy with confidence, clarity, and aftercare."
               body="LIKTISH should feel direct about dumsor, serious about engineering, and committed to long-term maintenance and service."
             />
