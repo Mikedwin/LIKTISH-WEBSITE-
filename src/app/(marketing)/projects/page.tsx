@@ -86,7 +86,7 @@ export default function ProjectsPage() {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#a9e7d0]">
                   {featuredProject.category} / {featuredProject.location}
                 </p>
-                <h2 className="headline mt-4 text-[2rem] font-black sm:text-3xl md:text-5xl">
+                <h2 className="headline mt-4 text-[2rem] font-black text-white sm:text-3xl md:text-5xl">
                   {featuredProject.title}
                 </h2>
                 <p className="mt-4 text-sm font-semibold text-white/82">
