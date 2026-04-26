@@ -229,12 +229,13 @@ export default function ProjectsPage() {
               </p>
             </div>
             <div className="md:justify-self-end">
-              <Link
-                href={`/projects/${featuredProject.slug}`}
-                className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
-              >
-                View Project
-              </Link>
+            <Link
+              href={`/projects/${featuredProject.slug}`}
+              className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
+              style={{ color: "#ffffff" }}
+            >
+              View Project
+            </Link>
             </div>
           </div>
         </section>
