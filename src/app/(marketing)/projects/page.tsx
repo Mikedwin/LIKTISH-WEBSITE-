@@ -183,9 +183,9 @@ export default function ProjectsPage() {
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8fb49e]"
+                className="group flex h-[34rem] flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8fb49e] sm:h-[35rem]"
               >
-                <div className="relative h-[16rem] overflow-hidden sm:h-[17.5rem]">
+                <div className="relative h-[19rem] overflow-hidden sm:h-[20rem]">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -194,7 +194,7 @@ export default function ProjectsPage() {
                     className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex h-full flex-col p-5 pt-6 sm:p-6 sm:pt-7">
+                <div className="flex h-full flex-col p-5 pt-5 sm:p-6 sm:pt-6">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                     {project.category} / {project.location}
                   </p>
