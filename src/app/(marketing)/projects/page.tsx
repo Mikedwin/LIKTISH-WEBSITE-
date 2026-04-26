@@ -67,7 +67,7 @@ export default function ProjectsPage() {
             href={`/projects/${featuredProject.slug}`}
             className="group overflow-hidden rounded-[2.3rem] border border-white/10 bg-[linear-gradient(160deg,#095F42_0%,#148E63_52%,#0A583E_100%)] text-white shadow-[0_28px_70px_rgba(11,33,25,0.22)]"
           >
-            <div className="relative h-[16rem] overflow-hidden sm:h-[18rem] md:h-[21rem] lg:h-[25rem]">
+            <div className="relative h-[16rem] overflow-hidden rounded-b-[2rem] sm:h-[18rem] md:h-[21rem] lg:h-[25rem]">
               <Image
                 src={featuredProject.image}
                 alt={featuredProject.title}
