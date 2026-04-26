@@ -185,7 +185,7 @@ export default function ProjectsPage() {
                 href={`/projects/${project.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8fb49e]"
               >
-                <div className="relative h-44 overflow-hidden sm:h-52">
+                <div className="relative mx-4 mt-4 h-44 overflow-hidden rounded-[1.5rem] sm:mx-5 sm:mt-5 sm:h-52">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -194,7 +194,7 @@ export default function ProjectsPage() {
                     className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex h-full flex-col p-6 pt-8 sm:pt-9">
+                <div className="flex h-full flex-col px-6 pb-6 pt-8 sm:px-6 sm:pb-6 sm:pt-10">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                     {project.category} / {project.location}
                   </p>
