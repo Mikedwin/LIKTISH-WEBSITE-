@@ -16,8 +16,14 @@ export default function ProjectsPage() {
   const [featuredProject, leadProject, ...projectLibrary] = projects;
 
   return (
-    <div className="bg-[#f8f2e8] px-4 py-16 sm:py-20">
-      <div className="container-shell">
+    <div className="relative overflow-hidden bg-[#f3ecdd] px-4 py-16 sm:py-20">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.24)_0%,rgba(21,144,102,0.06)_45%,rgba(203,138,46,0.14)_100%)]" />
+      <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(120deg,rgba(21,144,102,0.22)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.12)_1px,transparent_1px)] [background-size:120px_120px,36px_36px]" />
+      <div className="absolute inset-y-0 right-0 w-[38%] bg-[linear-gradient(180deg,rgba(16,112,80,0.18),rgba(16,112,80,0.04))]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(203,138,46,0.24),transparent_60%)]" />
+      <div className="absolute -left-16 top-10 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.18)] blur-3xl" />
+      <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.16)] blur-3xl" />
+      <div className="container-shell relative">
         <section className="grid gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-end">
           <div className="max-w-3xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-soft">
