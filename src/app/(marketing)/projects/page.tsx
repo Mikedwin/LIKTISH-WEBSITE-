@@ -185,7 +185,7 @@ export default function ProjectsPage() {
                 href={`/projects/${project.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8fb49e]"
               >
-                <div className="relative h-[16rem] overflow-hidden sm:h-[17.5rem]">
+                <div className="relative h-[18rem] overflow-hidden sm:h-[19rem]">
                   <Image
                     src={project.image}
                     alt={project.title}
