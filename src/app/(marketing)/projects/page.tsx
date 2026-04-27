@@ -194,7 +194,7 @@ export default function ProjectsPage() {
                     className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex h-full flex-col justify-end p-5 pt-12 sm:p-6 sm:pt-14">
+                <div className="flex h-full flex-col p-5 pt-12 sm:p-6 sm:pt-14">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                     {project.category} / {project.location}
                   </p>
@@ -204,7 +204,7 @@ export default function ProjectsPage() {
                   <p className="mt-3 text-sm font-semibold text-[#159066]">
                     {project.systemSize}
                   </p>
-                  <p className="mt-4 text-sm leading-7 text-muted">
+                  <p className="mt-4 flex-1 text-sm leading-7 text-muted">
                     {project.summary}
                   </p>
                   <p className="mt-auto pt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand">
