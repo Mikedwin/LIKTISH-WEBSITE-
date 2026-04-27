@@ -194,7 +194,7 @@ export default function ProjectsPage() {
                     className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex h-full flex-col justify-end p-5 pt-8 sm:p-6 sm:pt-9">
+                <div className="flex h-full flex-col justify-end p-5 pt-12 sm:p-6 sm:pt-14">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                     {project.category} / {project.location}
                   </p>
