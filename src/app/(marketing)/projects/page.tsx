@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { projects } from "@/lib/site-data";
+import { projects, siteContact } from "@/lib/site-data";
 
 export const metadata = buildMetadata({
   title: "Projects | LIKTISH Engineering",
@@ -230,13 +230,40 @@ export default function ProjectsPage() {
               </p>
             </div>
             <div className="md:justify-self-end">
-            <Link
-              href={`/projects/${featuredProject.slug}`}
-              className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
-              style={{ color: "#ffffff" }}
-            >
-              View Project
-            </Link>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={siteContact.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="mr-2 h-4 w-4 fill-current"
+                  >
+                    <path d="M19.05 4.94A9.94 9.94 0 0 0 12 2a9.96 9.96 0 0 0-8.63 14.93L2 22l5.22-1.36A10 10 0 1 0 19.05 4.94ZM12 20.13a8.06 8.06 0 0 1-4.11-1.13l-.29-.17-3.1.81.83-3.02-.19-.31A8.12 8.12 0 1 1 12 20.13Zm4.46-5.97c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.18-.7-.63-1.18-1.42-1.32-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.79-.2-.47-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.11 3.64.57.25 1.02.4 1.37.51.58.18 1.11.15 1.53.09.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" />
+                  </svg>
+                  WhatsApp
+                </a>
+                <a
+                  href={`tel:${siteContact.phone.replace(/\s+/g, "")}`}
+                  className="inline-flex min-h-12 items-center justify-center rounded-[1rem] border border-[#c9d9cf] bg-white/82 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_14px_30px_rgba(11,33,25,0.08)]"
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="mr-2 h-4 w-4 fill-none stroke-current stroke-[1.8]"
+                  >
+                    <path
+                      d="M5 4h4l2 5-2.5 1.8a16 16 0 0 0 4.7 4.7L15 13l5 2v4a2 2 0 0 1-2.2 2A17 17 0 0 1 3 6.2 2 2 0 0 1 5 4Z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Call
+                </a>
+              </div>
             </div>
           </div>
         </section>
