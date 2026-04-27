@@ -235,7 +235,8 @@ export default function ProjectsPage() {
                   href={siteContact.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
+                  className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
+                  style={{ color: "#ffffff" }}
                 >
                   <svg
                     aria-hidden="true"
