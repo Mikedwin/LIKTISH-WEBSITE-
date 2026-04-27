@@ -205,7 +205,7 @@ export default function AboutPage() {
               <FAQAccordion items={aboutFaqs} />
             </div>
           </div>
-          <div className="section-frame overflow-hidden rounded-[1.5rem] p-2.5 sm:rounded-[1.8rem] sm:p-3">
+          <div className="section-frame self-start overflow-hidden rounded-[1.5rem] p-2.5 sm:rounded-[1.8rem] sm:p-3">
             <MapEmbed className="map-frame h-[280px] w-full rounded-[1.1rem] border-0 sm:h-[360px] sm:rounded-[1.3rem] lg:h-[420px]" />
           </div>
         </div>
