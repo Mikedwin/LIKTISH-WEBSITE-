@@ -423,14 +423,59 @@ export const teamMembers: TeamMember[] = [
 
 export const aboutFaqs: FAQItem[] = [
   {
-    question: "Where does LIKTISH work?",
+    question: "How often do solar panels need to be repaired?",
     answer:
-      "LIKTISH is based in Takoradi and serves residential, commercial, industrial, and institutional clients across Ghana.",
+      "Solar panels usually require very little maintenance because they do not have moving parts. In most cases, periodic cleaning and routine inspections are enough to help the system maintain strong output over time.",
   },
   {
-    question: "Is LIKTISH focused only on installations?",
+    question: "Can solar panels be repaired?",
     answer:
-      "No. The company also provides maintenance, diagnostics, and long-term support for solar performance and reliability.",
+      "Yes. Many solar panel issues can be assessed and, depending on the damage, repaired or isolated. The right approach depends on whether the issue is surface dirt, cabling, connectors, frame damage, or actual panel cracking.",
+  },
+  {
+    question: "What can damage a solar panel?",
+    answer:
+      "Solar panels can be damaged by physical impact, falling debris, poor installation, faulty wiring, severe weather, hot spots, or long-term neglect. Dirt buildup can also reduce performance even when the panel itself is not broken.",
+  },
+  {
+    question: "How do I know if my solar panel is broken?",
+    answer:
+      "Common warning signs include lower-than-normal output, visible cracks, burn marks, discolouration, water ingress, loose wiring, or inverter alerts. A proper inspection is the safest way to confirm the exact problem.",
+  },
+  {
+    question: "What happens if a solar panel cracks?",
+    answer:
+      "A cracked panel may keep working for a while, but output can drop and moisture can enter the panel over time. That can lead to further damage, so cracked panels should be inspected as soon as possible.",
+  },
+  {
+    question: "What can you do with a broken solar panel?",
+    answer:
+      "A broken panel should first be isolated and inspected. Depending on the condition, it may be repaired, replaced, or removed from service safely so it does not affect the rest of the system.",
+  },
+  {
+    question: "How do you repair a solar panel?",
+    answer:
+      "Repair usually starts with inspection and testing. The solution may involve cleaning, connector replacement, wiring repair, resealing, or panel replacement if the damage is too severe to fix safely.",
+  },
+  {
+    question: "Can you pressure-wash solar panels?",
+    answer:
+      "Pressure-washing is generally not recommended. High pressure can damage seals, frames, or glass edges, especially on older or already stressed panels.",
+  },
+  {
+    question: "What is the best thing to use to clean solar panels?",
+    answer:
+      "In most cases, clean water, a soft brush, a non-abrasive sponge, and gentle washing methods are best. Harsh chemicals and rough tools should be avoided because they can damage the surface.",
+  },
+  {
+    question: "Does cleaning your solar panels make a difference?",
+    answer:
+      "Yes. Cleaning can improve performance, especially where dust, leaves, bird droppings, or other buildup block sunlight. The difference depends on how dirty the panels are and the conditions around the site.",
+  },
+  {
+    question: "How long do solar panels last?",
+    answer:
+      "Most solar panels are designed to last for decades, and many quality panels continue producing power well beyond 20 to 25 years. Performance usually declines gradually rather than stopping all at once.",
   },
 ];
 
