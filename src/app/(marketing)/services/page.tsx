@@ -41,6 +41,15 @@ export const metadata = buildMetadata({
 });
 
 export default function ServicesPage() {
+  const orderedServiceGroups = serviceCatalogGroups
+    .slice()
+    .sort(
+      (a, b) =>
+        prioritizedGroupOrder.indexOf(a.label) -
+        prioritizedGroupOrder.indexOf(b.label),
+    );
+  const [prioritySupportGroup, ...remainingServiceGroups] = orderedServiceGroups;
+
   return (
     <div className="relative overflow-hidden px-4 py-16 sm:py-20">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#f4f7f4_0%,#edf3ef_100%)]" />
@@ -153,44 +162,69 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 xl:grid-cols-[1.04fr_0.96fr]">
-          <RevealOnScroll>
-            <div className="rounded-[1.55rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.8rem] sm:p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
-                Tell LIKTISH what is happening
-              </p>
-              <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:text-3xl">
-                A simple path from problem or project idea to the right next step.
-              </h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {contactSteps.map((step, index) => (
-                  <div
-                    key={step}
-                    className="rounded-[1.2rem] border border-[#e2ebe5] bg-[#f8fbf8] p-4"
-                  >
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
-                      Step {index + 1}
-                    </p>
-                    <p className="mt-2 text-sm leading-7 text-[#476057]">{step}</p>
-                  </div>
-                ))}
+          <div className="grid gap-4 sm:gap-5">
+            <RevealOnScroll>
+              <div className="rounded-[1.55rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.8rem] sm:p-7">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
+                  Tell LIKTISH what is happening
+                </p>
+                <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:text-3xl">
+                  A simple path from problem or project idea to the right next step.
+                </h2>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {contactSteps.map((step, index) => (
+                    <div
+                      key={step}
+                      className="rounded-[1.2rem] border border-[#e2ebe5] bg-[#f8fbf8] p-4"
+                    >
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                        Step {index + 1}
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-[#476057]">{step}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </RevealOnScroll>
+            </RevealOnScroll>
+
+            {prioritySupportGroup ? (
+              <RevealOnScroll delay={80}>
+                <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
+                  <div className="flex items-start gap-4">
+                    <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
+                      M
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
+                        {prioritySupportGroup.label}
+                      </p>
+                      <p className="mt-3 text-sm leading-7 text-muted">
+                        {prioritySupportGroup.intro}
+                      </p>
+                    </div>
+                  </div>
+                  <ul className="mt-5 grid gap-3 text-sm leading-6 text-[#476057] sm:grid-cols-2">
+                    {prioritySupportGroup.items.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] px-4 py-3"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </RevealOnScroll>
+            ) : null}
+          </div>
 
           <div className="grid gap-4 sm:gap-5">
-            {serviceCatalogGroups
-              .slice()
-              .sort(
-                (a, b) =>
-                  prioritizedGroupOrder.indexOf(a.label) -
-                  prioritizedGroupOrder.indexOf(b.label),
-              )
-              .map((group, index) => (
+            {remainingServiceGroups.map((group, index) => (
               <RevealOnScroll key={group.label} delay={80 + index * 80}>
                 <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
                   <div className="flex items-start gap-4">
                     <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
-                      {index === 0 ? "I" : index === 1 ? "R" : index === 2 ? "M" : "C"}
+                      {index === 0 ? "I" : index === 1 ? "R" : "C"}
                     </div>
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
