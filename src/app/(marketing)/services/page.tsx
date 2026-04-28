@@ -26,6 +26,13 @@ const contactSteps = [
   "Next steps are recommended clearly",
 ];
 
+const prioritizedGroupOrder = [
+  "Monitoring, expansion, and specialist support",
+  "Inspections, assessments, and diagnostics",
+  "Cleaning, repairs, and component replacement",
+  "Custom delivery and client support",
+];
+
 export const metadata = buildMetadata({
   title: "Services | LIKTISH Engineering",
   description:
@@ -171,7 +178,14 @@ export default function ServicesPage() {
           </RevealOnScroll>
 
           <div className="grid gap-4 sm:gap-5">
-            {serviceCatalogGroups.map((group, index) => (
+            {serviceCatalogGroups
+              .slice()
+              .sort(
+                (a, b) =>
+                  prioritizedGroupOrder.indexOf(a.label) -
+                  prioritizedGroupOrder.indexOf(b.label),
+              )
+              .map((group, index) => (
               <RevealOnScroll key={group.label} delay={80 + index * 80}>
                 <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
                   <div className="flex items-start gap-4">
