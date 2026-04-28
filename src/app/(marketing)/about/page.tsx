@@ -27,11 +27,11 @@ const groupedFaqs = [
   },
   {
     label: "Cleaning and upkeep",
-    items: [aboutFaqs[7], aboutFaqs[8], aboutFaqs[9]],
+    items: [aboutFaqs[7], aboutFaqs[8], aboutFaqs[9], aboutFaqs[6]],
   },
   {
     label: "Performance and lifespan",
-    items: [aboutFaqs[4], aboutFaqs[6]],
+    items: [aboutFaqs[4]],
   },
 ];
 
