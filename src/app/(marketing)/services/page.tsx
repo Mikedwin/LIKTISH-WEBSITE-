@@ -162,7 +162,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 xl:grid-cols-[1.04fr_0.96fr]">
-          <div className="grid gap-4 sm:gap-5">
+          <div className="grid gap-4 sm:gap-5 xl:grid-rows-[auto_1fr]">
             <RevealOnScroll>
               <div className="rounded-[1.55rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.8rem] sm:p-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
@@ -189,7 +189,7 @@ export default function ServicesPage() {
 
             {prioritySupportGroup ? (
               <RevealOnScroll delay={80}>
-                <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
+                <article className="flex h-full flex-col rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
                   <div className="flex items-start gap-4">
                     <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
                       M
@@ -203,7 +203,7 @@ export default function ServicesPage() {
                       </p>
                     </div>
                   </div>
-                  <ul className="mt-5 grid gap-3 text-sm leading-6 text-[#476057] sm:grid-cols-2">
+                  <ul className="mt-5 grid flex-1 content-start gap-3 text-sm leading-6 text-[#476057] sm:grid-cols-2">
                     {prioritySupportGroup.items.map((item) => (
                       <li
                         key={item}
