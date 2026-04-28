@@ -2,6 +2,7 @@
   FAQItem,
   NavLink,
   ProjectData,
+  ServiceCatalogGroup,
   ServicePageData,
   TeamMember,
   TestimonialData,
@@ -476,6 +477,51 @@ export const aboutFaqs: FAQItem[] = [
     question: "How long do solar panels last?",
     answer:
       "Most solar panels are designed to last for decades, and many quality panels continue producing power well beyond 20 to 25 years. Performance usually declines gradually rather than stopping all at once.",
+  },
+];
+
+export const serviceCatalogGroups: ServiceCatalogGroup[] = [
+  {
+    label: "Inspections, assessments, and diagnostics",
+    intro:
+      "For system health checks, fault tracing, baseline reviews, and performance investigation.",
+    items: [
+      "Performance and Equipment Inspections",
+      "Solar System Assessments and Check Up Reports",
+      "Low Production Resolution",
+      "Diagnostics",
+    ],
+  },
+  {
+    label: "Cleaning, repairs, and component replacement",
+    intro:
+      "For ongoing care, problem resolution, and replacing damaged or underperforming system parts.",
+    items: [
+      "Panel Cleaning and Replacement",
+      "Inverter and Optimizer Replacement",
+      "Manufacturer Warranty Replacement Assistance",
+      "Roof Leak Investigation and Resolution",
+    ],
+  },
+  {
+    label: "Monitoring, expansion, and specialist support",
+    intro:
+      "For clients who need better visibility, system expansion, or support during property works.",
+    items: [
+      "Monitoring Assistance and Solutions",
+      "Solar Panel Additions for Existing Systems",
+      "Detachment and Reinstallation for Construction and Roof Repair",
+      "Ground Mounts & Carports",
+    ],
+  },
+  {
+    label: "Custom delivery and client support",
+    intro:
+      "For tailored project planning, specialist builds, and helping owners understand their systems.",
+    items: [
+      "Custom Solar Solutions",
+      "System Training & Education",
+    ],
   },
 ];
 

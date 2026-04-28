@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import Link from "next/link";
 import { RevealOnScroll } from "@/components/shared/reveal-on-scroll";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { services } from "@/lib/site-data";
@@ -142,6 +143,15 @@ export function ServicesOverview() {
             );
           })}
         </div>
+
+        <RevealOnScroll delay={180} className="mt-10 flex justify-center sm:mt-12">
+          <Link
+            href="/services"
+            className="inline-flex min-h-12 items-center rounded-[1rem] border border-[#d3dfd8] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_16px_34px_rgba(11,33,25,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-[#90b6a0] hover:bg-[#fbfdfb]"
+          >
+            View all services
+          </Link>
+        </RevealOnScroll>
       </div>
     </section>
   );

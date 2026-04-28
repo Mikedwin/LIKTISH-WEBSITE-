@@ -36,6 +36,12 @@ export interface ServicePageData {
   caseStudySlug: string;
 }
 
+export interface ServiceCatalogGroup {
+  label: string;
+  intro: string;
+  items: string[];
+}
+
 export interface ProjectData {
   slug: string;
   title: string;
