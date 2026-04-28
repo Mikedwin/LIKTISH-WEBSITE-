@@ -23,7 +23,7 @@ const featuredFaqs = [
 const groupedFaqs = [
   {
     label: "Damage and faults",
-    items: [aboutFaqs[2], aboutFaqs[4], aboutFaqs[6]],
+    items: [aboutFaqs[2], aboutFaqs[5], aboutFaqs[10]],
   },
   {
     label: "Cleaning and upkeep",
@@ -31,7 +31,7 @@ const groupedFaqs = [
   },
   {
     label: "Performance and lifespan",
-    items: [aboutFaqs[5], aboutFaqs[10]],
+    items: [aboutFaqs[4], aboutFaqs[6]],
   },
 ];
 
