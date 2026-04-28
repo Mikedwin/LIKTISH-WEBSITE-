@@ -1,4 +1,5 @@
 import { CtaBanner } from "@/components/marketing/cta-banner";
+import { HomepageFaqPreview } from "@/components/marketing/homepage-faq-preview";
 import { HeroSection } from "@/components/marketing/hero-section";
 import { ProjectsPreview } from "@/components/marketing/projects-preview";
 import { ServicesOverview } from "@/components/marketing/services-overview";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <RevealOnScroll delay={40}>
         <ProjectsPreview />
       </RevealOnScroll>
+      <HomepageFaqPreview />
       <RevealOnScroll delay={60}>
         <CtaBanner />
       </RevealOnScroll>
