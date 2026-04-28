@@ -188,7 +188,7 @@ export default function ServicesPage() {
             </RevealOnScroll>
 
             {prioritySupportGroup ? (
-              <RevealOnScroll delay={80}>
+              <RevealOnScroll delay={80} className="xl:-mt-20">
                 <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
                   <div className="flex items-start gap-4">
                     <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
