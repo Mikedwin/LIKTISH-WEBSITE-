@@ -183,7 +183,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#e1ece2] px-4 py-18 sm:py-24">
+      <section
+        id="about-faq"
+        className="relative overflow-hidden bg-[#e1ece2] px-4 py-18 scroll-mt-28 sm:py-24"
+      >
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18)_0%,rgba(203,138,46,0.08)_100%)]" />
         <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(120deg,rgba(21,144,102,0.2)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.12)_1px,transparent_1px)] [background-size:130px_130px,34px_34px]" />
         <div className="absolute inset-y-0 right-0 w-[42%] bg-[linear-gradient(180deg,rgba(21,144,102,0.18),rgba(21,144,102,0.04))]" />

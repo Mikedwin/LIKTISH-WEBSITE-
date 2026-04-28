@@ -31,7 +31,7 @@ export function HomepageFaqPreview() {
               cracks, output loss, and long-term solar maintenance.
             </p>
             <Link
-              href="/about"
+              href="/about#about-faq"
               className="mt-7 inline-flex min-h-12 items-center rounded-[1rem] border border-[#cfe0d6] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_16px_34px_rgba(11,33,25,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-[#95b5a3] hover:bg-[#fbfdfb]"
             >
               View full FAQ on About
