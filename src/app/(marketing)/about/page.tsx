@@ -272,10 +272,7 @@ export default function AboutPage() {
               practical, and grounded in the kind of support LIKTISH actually gives
               clients in the field.
             </p>
-          </div>
-
-          <div className="grid gap-6">
-            <div className="grid gap-4 lg:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:mt-10">
               {featuredFaqs.map((item, index) => (
                 <article
                   key={item.question}
@@ -315,25 +312,25 @@ export default function AboutPage() {
                 </article>
               ))}
             </div>
+          </div>
 
-            <div className="grid gap-5 lg:grid-cols-2">
-              {groupedFaqs.map((group) => (
-                <div
-                  key={group.label}
-                  className="rounded-[1.6rem] border border-[#d6e4da] bg-white/72 p-5 shadow-[0_16px_36px_rgba(11,33,25,0.05)] sm:p-6"
-                >
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
-                    {group.label}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    Direct answers to common questions in this area.
-                  </p>
-                  <div className="mt-5">
-                    <FAQAccordion items={group.items} variant="soft" />
-                  </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {groupedFaqs.map((group) => (
+              <div
+                key={group.label}
+                className="rounded-[1.6rem] border border-[#d6e4da] bg-white/72 p-5 shadow-[0_16px_36px_rgba(11,33,25,0.05)] sm:p-6"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
+                  {group.label}
+                </p>
+                <p className="mt-3 text-sm leading-7 text-muted">
+                  Direct answers to common questions in this area.
+                </p>
+                <div className="mt-5">
+                  <FAQAccordion items={group.items} variant="soft" />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
