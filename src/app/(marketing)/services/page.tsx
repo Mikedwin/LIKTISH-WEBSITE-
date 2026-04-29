@@ -414,7 +414,7 @@ export default function ServicesPage() {
                 direction="right"
                 className={
                   group.label === "Cleaning, repairs, and component replacement"
-                    ? "xl:-mt-40"
+                    ? "xl:-mt-56"
                     : group.label === "Custom delivery and client support"
                       ? "xl:-mt-56"
                       : undefined
