@@ -301,9 +301,9 @@ textarea {
 .services-overview-pattern {
   background-color: #eef4ef;
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(237, 244, 239, 0.28)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%2319A875' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' opacity='0.38'%3E%3Cpath d='M14 26h52v22H36v20h44'/%3E%3Cpath d='M92 18v54h44V46h26'/%3E%3Cpath d='M168 18h38v36h-24v20h24'/%3E%3Cpath d='M18 102h30v42h34v-18h18v38'/%3E%3Cpath d='M120 96c-16 0-28 12-28 28s12 28 28 28 30-12 30-28'/%3E%3Cpath d='M162 138v36h42v-24'/%3E%3Cpath d='M24 182h46v22h22'/%3E%3Cpath d='M106 182h30v24h54'/%3E%3Cpath d='M70 78h14M58 114h12M92 154h12M184 84h12M150 184h10M198 118h8M128 56h10M34 62h8' stroke-dasharray='0 11'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: auto, 220px 220px;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(237, 244, 239, 0.2)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%2319A875' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.34'%3E%3Cpath d='M14 30h66v26H40v26h54'/%3E%3Cpath d='M112 18v68h54V54h34'/%3E%3Cpath d='M198 22h46v40h-28v22h28'/%3E%3Cpath d='M16 118h38v54h48v-24h22v46'/%3E%3Cpath d='M136 110c-18 0-32 14-32 32s14 32 32 32 34-14 34-32c0-8-3-15-8-21'/%3E%3Cpath d='M186 152v46h50v-28'/%3E%3Cpath d='M28 206h56v26h28'/%3E%3Cpath d='M118 206h38v26h70'/%3E%3Cpath d='M74 90c0-18 12-28 28-28h18v18c0 10 8 18 18 18h20'/%3E%3Cpath d='M92 136c0-10 8-18 18-18h10v10c0 9 7 16 16 16h18'/%3E%3Cpath d='M68 76h12M52 130h12M98 182h12M212 96h12M174 206h12M228 138h8M146 66h10M28 72h8M158 118h10M120 234h8' stroke-dasharray='0 12'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 250px 250px;
   background-repeat: repeat, repeat;
   background-position: center, top left;
 }
