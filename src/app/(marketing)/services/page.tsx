@@ -232,7 +232,8 @@ export default function ServicesPage() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href={siteContact.whatsapp}
-                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand"
+                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-[#0d5a43]"
+                    style={{ color: "#0d5a43" }}
                   >
                     WhatsApp
                   </Link>
