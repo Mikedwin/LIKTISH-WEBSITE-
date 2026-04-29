@@ -178,7 +178,7 @@ export default function ServicesPage() {
       <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,rgba(21,144,102,0.24)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.14)_1px,transparent_1px)] [background-size:120px_120px,36px_36px]" />
       <div className="absolute inset-y-0 right-0 w-[38%] bg-[linear-gradient(180deg,rgba(16,112,80,0.2),rgba(16,112,80,0.04))]" />
       <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(203,138,46,0.28),transparent_60%)]" />
-      <div className="absolute -right-12 top-10 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
+      <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
       <div className="absolute -left-16 top-10 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
 
       <div className="container-shell relative">
