@@ -216,6 +216,35 @@ export default function ServicesPage() {
                 </article>
               </RevealOnScroll>
             ) : null}
+
+            <RevealOnScroll delay={220}>
+              <aside className="rounded-[1.55rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-6 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:p-7">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/58">
+                  Need help deciding?
+                </p>
+                <h2 className="headline mt-4 text-[1.8rem] font-black sm:text-[2.1rem]">
+                  Talk to LIKTISH about the service your system actually needs.
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-white/78">
+                  If you are not sure whether the job is an inspection, repair, upgrade,
+                  or a custom project, the quickest next step is still WhatsApp or a direct call.
+                </p>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href={siteContact.whatsapp}
+                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand"
+                  >
+                    WhatsApp
+                  </Link>
+                  <Link
+                    href={`tel:${siteContact.phone.replace(/\s+/g, "")}`}
+                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] border border-white/24 bg-white/10 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
+                  >
+                    Call
+                  </Link>
+                </div>
+              </aside>
+            </RevealOnScroll>
           </div>
 
           <div className="grid gap-4 sm:gap-5">
@@ -248,35 +277,6 @@ export default function ServicesPage() {
                 </article>
               </RevealOnScroll>
             ))}
-
-            <RevealOnScroll delay={360}>
-              <aside className="rounded-[1.55rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-6 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:p-7">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/58">
-                  Need help deciding?
-                </p>
-                <h2 className="headline mt-4 text-[1.8rem] font-black sm:text-[2.1rem]">
-                  Talk to LIKTISH about the service your system actually needs.
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-white/78">
-                  If you are not sure whether the job is an inspection, repair, upgrade,
-                  or a custom project, the quickest next step is still WhatsApp or a direct call.
-                </p>
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href={siteContact.whatsapp}
-                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand"
-                  >
-                    WhatsApp
-                  </Link>
-                  <Link
-                    href={`tel:${siteContact.phone.replace(/\s+/g, "")}`}
-                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] border border-white/24 bg-white/10 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
-                  >
-                    Call
-                  </Link>
-                </div>
-              </aside>
-            </RevealOnScroll>
           </div>
         </div>
       </div>
