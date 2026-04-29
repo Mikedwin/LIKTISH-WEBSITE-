@@ -249,7 +249,11 @@ export default function ServicesPage() {
 
           <div className="grid gap-4 sm:gap-5">
             {remainingServiceGroups.map((group, index) => (
-              <RevealOnScroll key={group.label} delay={80 + index * 80}>
+              <RevealOnScroll
+                key={group.label}
+                delay={80 + index * 80}
+                className={group.label === "Custom delivery and client support" ? "xl:-mt-24" : undefined}
+              >
                 <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
                   <div className="flex items-start gap-4">
                     <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
