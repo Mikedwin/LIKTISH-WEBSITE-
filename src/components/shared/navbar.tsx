@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { LiktishNavbarLogo } from "@/components/shared/liktish-logo";
 import { navLinks, siteContact } from "@/lib/site-data";
 
 export function Navbar() {
@@ -10,13 +11,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-[#dfe8e2] bg-[#eef3ef]/96 backdrop-blur">
       <div className="container-shell flex min-h-18 items-center justify-between gap-3 py-3 sm:min-h-22 sm:gap-6">
-        <Link href="/" className="flex min-w-0 items-center gap-2.5 text-brand sm:gap-3">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#19A875] text-sm font-extrabold text-[#19A875] sm:h-10 sm:w-10">
-            L
-          </span>
-          <span className="headline truncate text-[1.45rem] font-extrabold tracking-tight text-brand sm:text-[1.9rem]">
-            LIKTISH
-          </span>
+        <Link href="/" className="flex min-w-0 items-center text-brand">
+          <LiktishNavbarLogo />
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">

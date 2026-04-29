@@ -23,6 +23,12 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
+metadata.icons = {
+  icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  shortcut: ["/icon.svg"],
+  apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

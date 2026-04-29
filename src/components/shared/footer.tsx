@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+import Link from "next/link";
+import { LiktishFooterLogo } from "@/components/shared/liktish-logo";
 import { navLinks, services, siteContact } from "@/lib/site-data";
 
 const footerIcons = {
@@ -56,15 +57,15 @@ export function Footer() {
   const quickLinks = navLinks;
 
   return (
-    <footer id="about-us" className="border-t border-[#d9eee6] bg-[#ecfbf4] px-4 pb-10 pt-14 text-brand sm:pt-16">
+    <footer
+      id="about-us"
+      className="border-t border-[#d9eee6] bg-[#ecfbf4] px-4 pb-10 pt-14 text-brand sm:pt-16"
+    >
       <div className="container-shell">
-        <div className="grid gap-10 sm:gap-12 md:grid-cols-2 xl:grid-cols-[1.15fr_1fr_1.15fr_1.1fr] md:items-start">
+        <div className="grid gap-10 sm:gap-12 md:grid-cols-2 md:items-start xl:grid-cols-[1.15fr_1fr_1.15fr_1.1fr]">
           <div id="contact">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#19A875] text-lg font-black text-[#19A875]">
-                L
-              </span>
-              <span className="text-2xl font-extrabold tracking-tight">LIKTISH</span>
+            <Link href="/" className="inline-flex items-center">
+              <LiktishFooterLogo />
             </Link>
             <p className="mt-5 max-w-xs text-[1rem] leading-8 text-[#547468] sm:mt-7 sm:text-[1.05rem] sm:leading-9">
               Clean Energy - Smart Investment - Reliable Power
@@ -75,7 +76,10 @@ export function Footer() {
             <p className="text-[0.95rem] font-extrabold uppercase tracking-[0.14em] text-brand sm:text-[1.05rem] sm:tracking-[0.16em]">
               Quick Links
             </p>
-            <nav className="mt-5 grid gap-4 text-[1rem] text-[#547468] sm:mt-7 sm:gap-5 sm:text-[1.05rem]" aria-label="Footer navigation">
+            <nav
+              className="mt-5 grid gap-4 text-[1rem] text-[#547468] sm:mt-7 sm:gap-5 sm:text-[1.05rem]"
+              aria-label="Footer navigation"
+            >
               {quickLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="hover:text-brand">
                   {link.label}
@@ -88,7 +92,10 @@ export function Footer() {
             <p className="text-[0.95rem] font-extrabold uppercase tracking-[0.14em] text-brand sm:text-[1.05rem] sm:tracking-[0.16em]">
               Our Services
             </p>
-            <nav className="mt-5 grid gap-4 text-[1rem] text-[#547468] sm:mt-7 sm:gap-5 sm:text-[1.05rem]" aria-label="Footer services">
+            <nav
+              className="mt-5 grid gap-4 text-[1rem] text-[#547468] sm:mt-7 sm:gap-5 sm:text-[1.05rem]"
+              aria-label="Footer services"
+            >
               {services.map((service) => (
                 <Link key={service.slug} href="/#services" className="hover:text-brand">
                   {service.title}
@@ -109,7 +116,10 @@ export function Footer() {
                 <span className="mt-1 inline-flex text-[#19A875]">{footerIcons.phone}</span>
                 <span>{siteContact.phone}</span>
               </a>
-              <a href={`mailto:${siteContact.email}`} className="flex items-start gap-4 hover:text-brand">
+              <a
+                href={`mailto:${siteContact.email}`}
+                className="flex items-start gap-4 hover:text-brand"
+              >
                 <span className="mt-1 inline-flex text-[#19A875]">{footerIcons.mail}</span>
                 <span>{siteContact.email}</span>
               </a>
@@ -121,9 +131,21 @@ export function Footer() {
 
             <div className="mt-7 flex flex-wrap gap-4 sm:mt-8">
               {[
-                { href: siteContact.whatsapp, icon: footerIcons.message, label: "WhatsApp" },
-                { href: "mailto:" + siteContact.email, icon: footerIcons.mail, label: "Email" },
-                { href: `tel:${siteContact.phone.replace(/\s+/g, "")}`, icon: footerIcons.phone, label: "Call" },
+                {
+                  href: siteContact.whatsapp,
+                  icon: footerIcons.message,
+                  label: "WhatsApp",
+                },
+                {
+                  href: `mailto:${siteContact.email}`,
+                  icon: footerIcons.mail,
+                  label: "Email",
+                },
+                {
+                  href: `tel:${siteContact.phone.replace(/\s+/g, "")}`,
+                  icon: footerIcons.phone,
+                  label: "Call",
+                },
               ].map((item) => (
                 <a
                   key={item.label}
