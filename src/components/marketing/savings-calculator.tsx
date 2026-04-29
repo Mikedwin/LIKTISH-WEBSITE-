@@ -5,11 +5,15 @@ import type { FormEvent, ReactNode } from "react";
 import { calculateSolarEstimate } from "@/lib/calculator/solar";
 import { formatPrice } from "@/lib/utils";
 
-const initialLead = {
-  name: "",
-  phone: "",
-  email: "",
-};
+function createInitialLead() {
+  return {
+    name: "",
+    phone: "",
+    email: "",
+    website: "",
+    formStartedAt: Date.now(),
+  };
+}
 
 export function SavingsCalculator() {
   const [monthlyBill, setMonthlyBill] = useState(1200);
@@ -20,7 +24,7 @@ export function SavingsCalculator() {
     "Greater Accra" | "Ashanti" | "Western" | "Other"
   >("Western");
   const [propertyOwnership, setPropertyOwnership] = useState<"Own" | "Renting">("Own");
-  const [lead, setLead] = useState(initialLead);
+  const [lead, setLead] = useState(createInitialLead);
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const [statusTone, setStatusTone] = useState<"error" | "success">("success");
@@ -60,7 +64,7 @@ export function SavingsCalculator() {
     setStatus(payload.message ?? payload.error ?? "Saved.");
 
     if (response.ok) {
-      setLead(initialLead);
+      setLead(createInitialLead());
     }
   }
 
@@ -162,6 +166,15 @@ export function SavingsCalculator() {
                   </h3>
                 </div>
                 <div className="grid gap-4 md:grid-cols-3">
+                  <input
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    value={lead.website}
+                    onChange={(event) => setLead({ ...lead, website: event.target.value })}
+                    className="hidden"
+                    name="website"
+                  />
                   <input
                     required
                     value={lead.name}

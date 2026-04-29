@@ -73,7 +73,12 @@ export interface FAQItem {
   answer: string;
 }
 
-export interface ContactInput {
+export interface SpamProtectionInput {
+  website?: string;
+  formStartedAt?: number;
+}
+
+export interface ContactInput extends SpamProtectionInput {
   name: string;
   email: string;
   phone: string;
@@ -81,14 +86,14 @@ export interface ContactInput {
   message: string;
 }
 
-export interface SavingsLeadInput {
+export interface SavingsLeadInput extends SpamProtectionInput {
   name: string;
   phone: string;
   email: string;
   estimateSummary: string;
 }
 
-export interface SolarAssessmentInput {
+export interface SolarAssessmentInput extends SpamProtectionInput {
   requestNature: string;
   installerType: string;
   name: string;

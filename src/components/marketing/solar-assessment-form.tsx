@@ -24,20 +24,24 @@ const installerOptions = [
 
 const contactOptions = ["Please Select", "Phone call", "WhatsApp", "Email"];
 
-const initialState: SolarAssessmentInput = {
-  requestNature: "Please Select",
-  installerType: "Please Select",
-  name: "",
-  address: "",
-  email: "",
-  helpNeeded: "",
-  phone: "",
-  preferredContactMethod: "Please Select",
-  consent: false,
-};
+function createInitialState(): SolarAssessmentInput {
+  return {
+    requestNature: "Please Select",
+    installerType: "Please Select",
+    name: "",
+    address: "",
+    email: "",
+    helpNeeded: "",
+    phone: "",
+    preferredContactMethod: "Please Select",
+    consent: false,
+    website: "",
+    formStartedAt: Date.now(),
+  };
+}
 
 export function SolarAssessmentForm() {
-  const [formState, setFormState] = useState(initialState);
+  const [formState, setFormState] = useState(createInitialState);
   const [status, setStatus] = useState("");
   const [statusTone, setStatusTone] = useState<"error" | "success">("success");
   const [loading, setLoading] = useState(false);
@@ -69,11 +73,20 @@ export function SolarAssessmentForm() {
       payload.message ??
         "Your solar assessment request has been sent. LIKTISH will follow up soon.",
     );
-    setFormState(initialState);
+    setFormState(createInitialState());
   }
 
   return (
     <form onSubmit={handleSubmit} className="relative space-y-4 sm:space-y-5">
+      <input
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={formState.website ?? ""}
+        onChange={(event) => setFormState({ ...formState, website: event.target.value })}
+        className="hidden"
+        name="website"
+      />
       <div className="rounded-[1.2rem] border border-white/45 bg-white/48 p-4 sm:rounded-[1.5rem] sm:p-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
           Project details

@@ -3,16 +3,20 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-const initialState = {
-  name: "",
-  email: "",
-  phone: "",
-  enquiryType: "General enquiry",
-  message: "",
-};
+function createInitialState() {
+  return {
+    name: "",
+    email: "",
+    phone: "",
+    enquiryType: "General enquiry",
+    message: "",
+    website: "",
+    formStartedAt: Date.now(),
+  };
+}
 
 export function ContactForm() {
-  const [formState, setFormState] = useState(initialState);
+  const [formState, setFormState] = useState(createInitialState);
   const [status, setStatus] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [statusTone, setStatusTone] = useState<"error" | "success">("success");
@@ -41,7 +45,7 @@ export function ContactForm() {
 
     setStatusTone("success");
     setStatus(payload.message ?? "Thanks. LIKTISH will get back to you shortly.");
-    setFormState(initialState);
+    setFormState(createInitialState());
   }
 
   return (
@@ -55,6 +59,15 @@ export function ContactForm() {
         </h2>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
+        <input
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          value={formState.website}
+          onChange={(event) => setFormState({ ...formState, website: event.target.value })}
+          className="hidden"
+          name="website"
+        />
         <input
           required
           value={formState.name}

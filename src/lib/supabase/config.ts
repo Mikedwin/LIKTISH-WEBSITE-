@@ -1,3 +1,5 @@
+import "server-only";
+
 export function getSupabaseConfig() {
   return {
     url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",

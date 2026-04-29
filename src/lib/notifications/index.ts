@@ -1,3 +1,5 @@
+import "server-only";
+
 import { hasSupabaseAdminConfig } from "@/lib/supabase/config";
 import { supabaseInsert } from "@/lib/supabase/rest";
 

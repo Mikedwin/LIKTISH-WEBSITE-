@@ -1,3 +1,5 @@
+import "server-only";
+
 import { getSupabaseConfig, hasSupabaseAdminConfig } from "@/lib/supabase/config";
 
 type Primitive = string | number | boolean;

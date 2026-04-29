@@ -30,3 +30,19 @@ create table if not exists public.solar_assessments (
   consent boolean not null default false,
   created_at timestamptz not null default timezone('utc', now())
 );
+
+alter table public.contact_inquiries enable row level security;
+alter table public.savings_leads enable row level security;
+alter table public.solar_assessments enable row level security;
+
+revoke all on public.contact_inquiries from anon, authenticated;
+revoke all on public.savings_leads from anon, authenticated;
+revoke all on public.solar_assessments from anon, authenticated;
+
+grant all on public.contact_inquiries to service_role;
+grant all on public.savings_leads to service_role;
+grant all on public.solar_assessments to service_role;
+
+grant usage, select on sequence public.contact_inquiries_id_seq to service_role;
+grant usage, select on sequence public.savings_leads_id_seq to service_role;
+grant usage, select on sequence public.solar_assessments_id_seq to service_role;
