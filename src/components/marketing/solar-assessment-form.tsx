@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { TurnstileWidget } from "@/components/shared/turnstile-widget";
 import type { SolarAssessmentInput } from "@/types/site";
 
 const requestOptions = [
@@ -41,6 +42,7 @@ function createInitialState(): SolarAssessmentInput {
 }
 
 export function SolarAssessmentForm() {
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const [formState, setFormState] = useState(createInitialState);
   const [status, setStatus] = useState("");
   const [statusTone, setStatusTone] = useState<"error" | "success">("success");
@@ -48,6 +50,12 @@ export function SolarAssessmentForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (turnstileSiteKey && !formState.turnstileToken) {
+      setStatusTone("error");
+      setStatus("Please complete the verification check before submitting.");
+      return;
+    }
+
     setLoading(true);
     setStatus("");
 
@@ -258,6 +266,12 @@ export function SolarAssessmentForm() {
       >
         {loading ? "Submitting..." : "Submit"}
       </button>
+      <TurnstileWidget
+        siteKey={turnstileSiteKey}
+        onVerify={(token) =>
+          setFormState((current) => ({ ...current, turnstileToken: token ?? undefined }))
+        }
+      />
 
       {status ? (
         <p

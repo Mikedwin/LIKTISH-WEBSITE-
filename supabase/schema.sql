@@ -31,18 +31,31 @@ create table if not exists public.solar_assessments (
   created_at timestamptz not null default timezone('utc', now())
 );
 
+create table if not exists public.abuse_events (
+  id bigint generated always as identity primary key,
+  route text not null,
+  event_type text not null,
+  ip_address text,
+  details text not null,
+  created_at timestamptz not null default timezone('utc', now())
+);
+
 alter table public.contact_inquiries enable row level security;
 alter table public.savings_leads enable row level security;
 alter table public.solar_assessments enable row level security;
+alter table public.abuse_events enable row level security;
 
 revoke all on public.contact_inquiries from anon, authenticated;
 revoke all on public.savings_leads from anon, authenticated;
 revoke all on public.solar_assessments from anon, authenticated;
+revoke all on public.abuse_events from anon, authenticated;
 
 grant all on public.contact_inquiries to service_role;
 grant all on public.savings_leads to service_role;
 grant all on public.solar_assessments to service_role;
+grant all on public.abuse_events to service_role;
 
 grant usage, select on sequence public.contact_inquiries_id_seq to service_role;
 grant usage, select on sequence public.savings_leads_id_seq to service_role;
 grant usage, select on sequence public.solar_assessments_id_seq to service_role;
+grant usage, select on sequence public.abuse_events_id_seq to service_role;

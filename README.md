@@ -23,8 +23,10 @@ You can start editing the site from `src/app/(marketing)/page.tsx`. The app auto
 The app now supports lightweight persistence for:
 
 - contact enquiries
+- savings leads
 - solar assessment leads
 - notification logs
+- abuse-event logs
 
 To enable it:
 
@@ -35,6 +37,8 @@ To enable it:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
+   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (optional)
+   - `TURNSTILE_SECRET_KEY` (optional)
 5. Restart the app.
 
 If those values are not present, the app falls back to a lightweight in-memory store for development.
@@ -63,6 +67,22 @@ To enable the full notification flow:
 3. Restart the app.
 
 If provider credentials are missing, the app safely skips delivery and records the notification mode as skipped or logged-only.
+
+## Security
+
+The live forms now include lightweight anti-abuse protection, optional Turnstile support, rate limiting, and server-only Supabase handling.
+
+Before deploying or rotating access, review:
+
+- `SECURITY.md`
+
+Recommended checks before major releases:
+
+```bash
+npm run lint
+npm run build
+npm audit
+```
 
 ## Learn More
 

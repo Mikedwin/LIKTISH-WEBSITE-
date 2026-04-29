@@ -1,5 +1,7 @@
 import "server-only";
 
+import { createHash } from "node:crypto";
+import { logAbuseEvent } from "@/lib/security/abuse-log";
 import { hasSupabaseAdminConfig } from "@/lib/supabase/config";
 import { supabaseInsert } from "@/lib/supabase/rest";
 
@@ -23,6 +25,22 @@ interface NotificationLogRow {
   provider_message_id?: string | null;
   error_message?: string | null;
 }
+
+declare global {
+  var __liktishNotificationDedupeStore:
+    | Map<
+        string,
+        {
+          createdAt: number;
+        }
+      >
+    | undefined;
+}
+
+const notificationDedupeStore =
+  globalThis.__liktishNotificationDedupeStore ??
+  (globalThis.__liktishNotificationDedupeStore = new Map());
+const NOTIFICATION_DEDUPE_WINDOW_MS = 10 * 60 * 1000;
 
 function getNotificationConfig() {
   return {
@@ -55,6 +73,28 @@ async function logNotification(entry: NotificationLogRow) {
   } catch (error) {
     console.error("Unable to log notification", error);
   }
+}
+
+function shouldSuppressNotification(payload: NotificationPayload) {
+  const now = Date.now();
+
+  for (const [key, value] of notificationDedupeStore.entries()) {
+    if (now - value.createdAt > NOTIFICATION_DEDUPE_WINDOW_MS) {
+      notificationDedupeStore.delete(key);
+    }
+  }
+
+  const fingerprint = createHash("sha256")
+    .update(`${payload.recipient}::${payload.subject}::${payload.message}`)
+    .digest("hex");
+
+  const existing = notificationDedupeStore.get(fingerprint);
+  if (existing && now - existing.createdAt <= NOTIFICATION_DEDUPE_WINDOW_MS) {
+    return true;
+  }
+
+  notificationDedupeStore.set(fingerprint, { createdAt: now });
+  return false;
 }
 
 async function postSendgridEmail(payload: NotificationPayload) {
@@ -224,6 +264,30 @@ export async function sendSmsNotification(payload: NotificationPayload) {
 export async function sendAdminNotification(payload: NotificationPayload) {
   const { adminNotificationEmail, adminNotificationPhone } = getNotificationConfig();
   const results: unknown[] = [];
+
+  if (shouldSuppressNotification(payload)) {
+    await logNotification({
+      channel: "admin",
+      recipient: [adminNotificationEmail, adminNotificationPhone].filter(Boolean).join(", "),
+      subject: payload.subject,
+      message: payload.message,
+      mode: "logged-only",
+      status: "skipped",
+      error_message: "Suppressed duplicate admin notification.",
+    });
+    await logAbuseEvent({
+      route: "notifications/admin",
+      type: "notification_suppressed",
+      details: payload.subject,
+    });
+
+    return {
+      channel: "admin" as const,
+      mode: "logged-only" as const,
+      status: "skipped" as const,
+      ...payload,
+    };
+  }
 
   if (adminNotificationEmail) {
     results.push(

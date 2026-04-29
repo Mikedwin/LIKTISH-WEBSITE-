@@ -16,3 +16,9 @@ create index if not exists notification_logs_created_at_idx
 
 create index if not exists notification_logs_channel_idx
   on public.notification_logs (channel, created_at desc);
+
+alter table public.notification_logs enable row level security;
+
+revoke all on public.notification_logs from anon, authenticated;
+grant all on public.notification_logs to service_role;
+grant usage, select on sequence public.notification_logs_id_seq to service_role;

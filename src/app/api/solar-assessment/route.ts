@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 import { createSolarAssessment } from "@/lib/lead-store";
 import { sendAdminNotification } from "@/lib/notifications";
+import { logAbuseEvent } from "@/lib/security/abuse-log";
+import { normalizeSolarAssessmentInput } from "@/lib/security/form-normalization";
 import { checkRateLimit, getRequestIp } from "@/lib/security/rate-limit";
 import { checkSpamProtection } from "@/lib/security/spam-protection";
+import { hasTurnstileConfig, verifyTurnstileToken } from "@/lib/security/turnstile";
 import { validateSolarAssessmentInput } from "@/lib/validation/forms";
 import type { SolarAssessmentInput } from "@/types/site";
 
@@ -25,7 +28,9 @@ function buildSolarAssessmentEmail(payload: SolarAssessmentInput) {
 }
 
 export async function POST(request: Request) {
-  const payload = (await request.json()) as Partial<SolarAssessmentInput>;
+  const payload = normalizeSolarAssessmentInput(
+    (await request.json()) as Partial<SolarAssessmentInput>,
+  );
   const ip = getRequestIp(request);
   const rateLimit = checkRateLimit(`solar-assessment:${ip}`, {
     limit: 4,
@@ -33,6 +38,12 @@ export async function POST(request: Request) {
   });
 
   if (!rateLimit.allowed) {
+    await logAbuseEvent({
+      route: "/api/solar-assessment",
+      type: "rate_limited",
+      ipAddress: ip,
+      details: "Solar assessment rate limit exceeded.",
+    });
     return NextResponse.json(
       {
         error:
@@ -56,10 +67,33 @@ export async function POST(request: Request) {
   ]);
 
   if (!spamCheck.valid) {
+    await logAbuseEvent({
+      route: "/api/solar-assessment",
+      type: "spam_rejected",
+      ipAddress: ip,
+      details: spamCheck.message,
+    });
     return NextResponse.json(
       { message: spamCheck.message, error: spamCheck.message },
       { status: spamCheck.status },
     );
+  }
+
+  if (hasTurnstileConfig()) {
+    const turnstileValid = await verifyTurnstileToken(payload.turnstileToken, ip);
+
+    if (!turnstileValid) {
+      await logAbuseEvent({
+        route: "/api/solar-assessment",
+        type: "turnstile_failed",
+        ipAddress: ip,
+        details: "Turnstile verification failed.",
+      });
+      return NextResponse.json(
+        { error: "Verification failed. Please try again and complete the check." },
+        { status: 400 },
+      );
+    }
   }
 
   const validation = validateSolarAssessmentInput(payload);

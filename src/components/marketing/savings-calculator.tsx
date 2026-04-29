@@ -2,10 +2,14 @@
 
 import { useMemo, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
+import { TurnstileWidget } from "@/components/shared/turnstile-widget";
 import { calculateSolarEstimate } from "@/lib/calculator/solar";
+import type { SavingsLeadInput } from "@/types/site";
 import { formatPrice } from "@/lib/utils";
 
-function createInitialLead() {
+type SavingsLeadFormState = Omit<SavingsLeadInput, "estimateSummary">;
+
+function createInitialLead(): SavingsLeadFormState {
   return {
     name: "",
     phone: "",
@@ -16,6 +20,7 @@ function createInitialLead() {
 }
 
 export function SavingsCalculator() {
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const [monthlyBill, setMonthlyBill] = useState(1200);
   const [customerType, setCustomerType] = useState<
     "Residential" | "Commercial" | "Industrial"
@@ -42,6 +47,12 @@ export function SavingsCalculator() {
 
   async function handleLeadSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (turnstileSiteKey && !lead.turnstileToken) {
+      setStatusTone("error");
+      setStatus("Please complete the verification check before requesting a quote.");
+      return;
+    }
+
     setStatus("");
     setLoading(true);
 
@@ -206,6 +217,14 @@ export function SavingsCalculator() {
               >
                 {loading ? "Saving..." : "Get My Accurate Quote"}
               </button>
+              <div className="mt-4">
+                <TurnstileWidget
+                  siteKey={turnstileSiteKey}
+                  onVerify={(token) =>
+                    setLead((current) => ({ ...current, turnstileToken: token ?? undefined }))
+                  }
+                />
+              </div>
               {status ? (
                 <p
                   className={

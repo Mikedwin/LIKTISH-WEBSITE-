@@ -76,6 +76,7 @@ export interface FAQItem {
 export interface SpamProtectionInput {
   website?: string;
   formStartedAt?: number;
+  turnstileToken?: string;
 }
 
 export interface ContactInput extends SpamProtectionInput {

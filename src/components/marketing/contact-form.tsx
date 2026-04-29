@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { TurnstileWidget } from "@/components/shared/turnstile-widget";
+import type { ContactInput } from "@/types/site";
 
-function createInitialState() {
+function createInitialState(): ContactInput {
   return {
     name: "",
     email: "",
@@ -16,6 +18,7 @@ function createInitialState() {
 }
 
 export function ContactForm() {
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const [formState, setFormState] = useState(createInitialState);
   const [status, setStatus] = useState<string>("");
   const [loading, setLoading] = useState(false);
@@ -23,6 +26,12 @@ export function ContactForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (turnstileSiteKey && !formState.turnstileToken) {
+      setStatusTone("error");
+      setStatus("Please complete the verification check before submitting.");
+      return;
+    }
+
     setLoading(true);
     setStatus("");
 
@@ -112,6 +121,12 @@ export function ContactForm() {
         rows={5}
         className="field-shell mt-4 min-h-[9rem] py-3"
       />
+      <div className="mt-4">
+        <TurnstileWidget
+          siteKey={turnstileSiteKey}
+          onVerify={(token) => setFormState((current) => ({ ...current, turnstileToken: token ?? undefined }))}
+        />
+      </div>
       <button
         type="submit"
         disabled={loading}
