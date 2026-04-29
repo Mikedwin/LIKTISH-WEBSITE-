@@ -5,11 +5,81 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { serviceCatalogGroups, services, siteContact } from "@/lib/site-data";
 
 const serviceEntryPoints = [
-  "New installation",
-  "Existing system problem",
-  "Cleaning / maintenance",
-  "Expansion / upgrade",
-  "Custom project",
+  {
+    label: "New installation",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+        <path
+          d="M5 11.5 12 6l7 5.5V19H5v-7.5ZM9 19v-4h6v4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Existing system problem",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+        <path
+          d="M12 8v5m0 3h.01M6.2 19h11.6a1 1 0 0 0 .87-1.5L12.87 7.4a1 1 0 0 0-1.74 0L5.33 17.5A1 1 0 0 0 6.2 19Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Cleaning / maintenance",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+        <path
+          d="M8 18c0-2 1.5-3.5 4-3.5s4 1.5 4 3.5M12 5v5m0 0 2.5-2.5M12 10 9.5 7.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Expansion / upgrade",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+        <path
+          d="M12 5v14M5 12h14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Custom project",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+        <path
+          d="M6 18 18 6M8.5 6H18v9.5M6 8.5V18h9.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
 ];
 
 const mostRequestedServices = [
@@ -32,6 +102,57 @@ const prioritizedGroupOrder = [
   "Cleaning, repairs, and component replacement",
   "Custom delivery and client support",
 ];
+
+const groupIcons = {
+  "Inspections, assessments, and diagnostics": (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+      <path
+        d="M11 6a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm7 12 3 3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  "Cleaning, repairs, and component replacement": (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+      <path
+        d="M14.5 6.5a4 4 0 0 0-5 5L5 16l3 3 4.5-4.5a4 4 0 0 0 5-5l-2.5 2.5-2-2 2.5-2.5Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  "Monitoring, expansion, and specialist support": (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+      <path
+        d="M5 15.5 9 11l3 3 7-8M19 8v-2h-2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  "Custom delivery and client support": (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+      <path
+        d="M6 18 18 6M8.5 6H18v9.5M6 8.5V18h9.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+};
 
 export const metadata = buildMetadata({
   title: "Services | LIKTISH Engineering",
@@ -80,18 +201,25 @@ export default function ServicesPage() {
             <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
               {serviceEntryPoints.map((entry) => (
                 <div
-                  key={entry}
-                  className="rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] px-4 py-3 text-sm font-semibold text-[#365248]"
+                  key={entry.label}
+                  className="group rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] px-4 py-3 text-sm font-semibold text-[#365248] transition duration-300 hover:-translate-y-0.5 hover:border-[#98baa8] hover:bg-white"
                 >
-                  {entry}
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-[0.9rem] bg-[#dff6e9] text-[#169467] transition duration-300 group-hover:bg-[#169467] group-hover:text-white">
+                      {entry.icon}
+                    </span>
+                    <span>{entry.label}</span>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </RevealOnScroll>
 
-        <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 xl:grid-cols-[0.98fr_1.02fr]">
-          <RevealOnScroll>
+        <div className="mt-10 border-t border-[#d6e1da]/80 pt-10 sm:mt-14 sm:pt-14" />
+
+        <div className="grid gap-5 sm:gap-6 xl:grid-cols-[0.98fr_1.02fr]">
+          <RevealOnScroll direction="left">
             <article className="section-frame rounded-[1.55rem] p-5 sm:rounded-[1.8rem] sm:p-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
                 New projects
@@ -136,7 +264,7 @@ export default function ServicesPage() {
             </article>
           </RevealOnScroll>
 
-          <RevealOnScroll delay={80}>
+          <RevealOnScroll delay={80} direction="right">
             <article className="rounded-[1.55rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-5 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:rounded-[1.8rem] sm:p-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/58">
                 Existing systems
@@ -167,9 +295,11 @@ export default function ServicesPage() {
           </RevealOnScroll>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 xl:grid-cols-[1.04fr_0.96fr]">
+        <div className="mt-10 border-t border-[#d6e1da]/80 pt-10 sm:mt-14 sm:pt-14" />
+
+        <div className="grid gap-5 sm:gap-6 xl:grid-cols-[1.04fr_0.96fr]">
           <div className="grid gap-4 sm:gap-5">
-            <RevealOnScroll>
+            <RevealOnScroll direction="left">
               <div className="rounded-[1.55rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.8rem] sm:p-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
                   Tell LIKTISH what is happening
@@ -194,11 +324,11 @@ export default function ServicesPage() {
             </RevealOnScroll>
 
             {prioritySupportGroup ? (
-              <RevealOnScroll delay={80}>
-                <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
+              <RevealOnScroll delay={80} direction="left">
+                <article className="overflow-hidden rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(11,33,25,0.10)] sm:rounded-[1.75rem] sm:p-7">
                   <div className="flex items-start gap-4">
                     <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
-                      M
+                      {groupIcons[prioritySupportGroup.label as keyof typeof groupIcons]}
                     </div>
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
@@ -207,6 +337,28 @@ export default function ServicesPage() {
                       <p className="mt-3 text-sm leading-7 text-muted">
                         {prioritySupportGroup.intro}
                       </p>
+                    </div>
+                  </div>
+                  <div className="mt-5 overflow-hidden rounded-[1.2rem] border border-[#dfe8e1]">
+                    <div className="relative h-44 bg-[linear-gradient(135deg,#dff3e7_0%,#eef4ea_46%,#f3ead7_100%)]">
+                      <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px)] [background-size:90px_90px]" />
+                      <div className="absolute left-5 top-5 max-w-[14rem] rounded-[1rem] bg-white/82 px-4 py-3 shadow-[0_12px_24px_rgba(11,33,25,0.08)] backdrop-blur-sm">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                          Specialist support
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-[#476057]">
+                          Monitoring, add-ons, carports, and support during construction or roof repair.
+                        </p>
+                      </div>
+                      <div className="absolute right-5 top-6 h-16 w-16 rounded-full bg-[rgba(21,144,102,0.18)] blur-2xl" />
+                      <div className="absolute bottom-4 right-4 rounded-[1rem] border border-white/60 bg-white/76 px-4 py-3 shadow-[0_10px_22px_rgba(11,33,25,0.08)] backdrop-blur-sm">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                          Existing systems
+                        </p>
+                        <p className="mt-1 text-sm font-semibold text-[#0d5a43]">
+                          Expansion-ready and site-aware
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <ul className="mt-5 grid gap-3 text-sm leading-6 text-[#476057] sm:grid-cols-2">
@@ -223,7 +375,7 @@ export default function ServicesPage() {
               </RevealOnScroll>
             ) : null}
 
-            <RevealOnScroll delay={220}>
+            <RevealOnScroll delay={220} direction="left">
               <aside className="rounded-[1.55rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-6 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:p-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/58">
                   Need help deciding?
@@ -259,6 +411,7 @@ export default function ServicesPage() {
               <RevealOnScroll
                 key={group.label}
                 delay={80 + index * 80}
+                direction="right"
                 className={
                   group.label === "Cleaning, repairs, and component replacement"
                     ? "xl:-mt-28"
@@ -267,10 +420,16 @@ export default function ServicesPage() {
                       : undefined
                 }
               >
-                <article className="rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.75rem] sm:p-7">
+                <article className={`rounded-[1.45rem] border p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(11,33,25,0.10)] sm:rounded-[1.75rem] sm:p-7 ${
+                  group.label === "Cleaning, repairs, and component replacement"
+                    ? "border-[#cfe0d6] bg-[linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(246,251,248,0.98)_100%)]"
+                    : group.label === "Custom delivery and client support"
+                      ? "border-[#ecd8b7] bg-[linear-gradient(180deg,rgba(255,248,239,0.94)_0%,rgba(245,238,224,0.96)_100%)]"
+                      : "border-[#d7e3dc] bg-white/82"
+                }`}>
                   <div className="flex items-start gap-4">
                     <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
-                      {index === 0 ? "I" : index === 1 ? "R" : "C"}
+                      {groupIcons[group.label as keyof typeof groupIcons]}
                     </div>
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
