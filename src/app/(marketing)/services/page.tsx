@@ -63,8 +63,10 @@ export default function ServicesPage() {
 
       <div className="container-shell relative">
         <RevealOnScroll className="max-w-3xl">
+          <p className="mb-5 text-[1.02rem] font-semibold uppercase tracking-[0.24em] text-brand-soft sm:text-[1.18rem]">
+            Services
+          </p>
           <SectionHeading
-            eyebrow="Services"
             title="Core solar delivery, plus specialist support where systems need it."
             body="The homepage stays selective. This page carries the fuller LIKTISH service catalog, grouped so people can quickly see where they fit and how to reach out."
           />
