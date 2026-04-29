@@ -424,7 +424,7 @@ export default function ServicesPage() {
                   group.label === "Cleaning, repairs, and component replacement"
                     ? "border-[#cfe0d6] bg-[linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(246,251,248,0.98)_100%)]"
                     : group.label === "Custom delivery and client support"
-                      ? "border-[#ecd8b7] bg-[linear-gradient(180deg,rgba(255,248,239,0.94)_0%,rgba(245,238,224,0.96)_100%)]"
+                      ? "border-[#d7e3dc] bg-white"
                       : "border-[#d7e3dc] bg-white/82"
                 }`}>
                   <div className="flex items-start gap-4">
