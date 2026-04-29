@@ -172,7 +172,7 @@ export default function ServicesPage() {
   const [prioritySupportGroup, ...remainingServiceGroups] = orderedServiceGroups;
 
   return (
-    <div className="relative overflow-hidden px-4 py-16 sm:py-20">
+    <div className="relative overflow-hidden px-4 py-14 sm:py-18 lg:py-20">
       <div className="absolute inset-0 bg-[#e9f1ea]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.26)_0%,rgba(203,138,46,0.08)_100%)]" />
       <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(120deg,rgba(21,144,102,0.2)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.1)_1px,transparent_1px)] [background-size:140px_140px,36px_36px]" />
@@ -184,7 +184,7 @@ export default function ServicesPage() {
 
       <div className="container-shell relative">
         <RevealOnScroll className="max-w-3xl">
-          <p className="mb-5 text-[1.02rem] font-semibold uppercase tracking-[0.24em] text-brand-soft sm:text-[1.18rem]">
+          <p className="mb-4 text-[0.92rem] font-semibold uppercase tracking-[0.22em] text-brand-soft sm:mb-5 sm:text-[1.08rem] lg:text-[1.18rem]">
             Services
           </p>
           <SectionHeading
@@ -193,8 +193,8 @@ export default function ServicesPage() {
           />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={60} className="mt-8 sm:mt-10">
-          <div className="rounded-[1.55rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.8rem] sm:p-7">
+        <RevealOnScroll delay={60} className="mt-7 sm:mt-9 lg:mt-10">
+          <div className="rounded-[1.35rem] border border-[#d7e3dc] bg-white/82 p-4 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.8rem] lg:p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
               What do you need help with?
             </p>
@@ -202,13 +202,13 @@ export default function ServicesPage() {
               {serviceEntryPoints.map((entry) => (
                 <div
                   key={entry.label}
-                  className="group rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] px-4 py-3 text-sm font-semibold text-[#365248] transition duration-300 hover:-translate-y-0.5 hover:border-[#98baa8] hover:bg-white"
+                  className="group rounded-[0.95rem] border border-[#e2ebe5] bg-[#f8fbf8] px-3.5 py-3 text-sm font-semibold text-[#365248] transition duration-300 hover:-translate-y-0.5 hover:border-[#98baa8] hover:bg-white sm:px-4"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-[0.9rem] bg-[#dff6e9] text-[#169467] transition duration-300 group-hover:bg-[#169467] group-hover:text-white">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-[0.85rem] bg-[#dff6e9] text-[#169467] transition duration-300 group-hover:bg-[#169467] group-hover:text-white sm:h-9 sm:w-9 sm:rounded-[0.9rem]">
                       {entry.icon}
                     </span>
-                    <span>{entry.label}</span>
+                    <span className="leading-5">{entry.label}</span>
                   </div>
                 </div>
               ))}
@@ -216,22 +216,22 @@ export default function ServicesPage() {
           </div>
         </RevealOnScroll>
 
-        <div className="mt-10 border-t border-[#d6e1da]/80 pt-10 sm:mt-14 sm:pt-14" />
+        <div className="mt-8 border-t border-[#d6e1da]/80 pt-8 sm:mt-12 sm:pt-12 lg:mt-14 lg:pt-14" />
 
         <div className="grid gap-5 sm:gap-6 xl:grid-cols-[0.98fr_1.02fr]">
           <RevealOnScroll direction="left">
-            <article className="section-frame rounded-[1.55rem] p-5 sm:rounded-[1.8rem] sm:p-8">
+            <article className="section-frame rounded-[1.35rem] p-4 sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.8rem] lg:p-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
                 New projects
               </p>
-              <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:text-3xl">
+              <h2 className="headline mt-3 text-[1.75rem] font-black text-brand sm:mt-4 sm:text-[2rem] lg:text-3xl">
                 For new systems, expansions, and custom project work.
               </h2>
-              <p className="mt-4 text-sm leading-7 text-muted">
+              <p className="mt-3 text-sm leading-7 text-muted sm:mt-4">
                 This side of LIKTISH covers fresh installations, commercial delivery,
                 industrial and institutional planning, and projects that need a tailored design path.
               </p>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="mt-5 grid gap-4 sm:mt-6 sm:grid-cols-2">
                 {services
                   .filter((service) => service.slug !== "maintenance")
                   .map((service, index) => (
@@ -239,14 +239,14 @@ export default function ServicesPage() {
                       key={service.slug}
                       className={
                         index === 2
-                          ? "rounded-[1.35rem] border border-[#0f6f54] bg-[#0b5b43] p-5 text-white shadow-[0_18px_42px_rgba(11,33,25,0.14)]"
-                          : "rounded-[1.35rem] border border-[#d7e3dc] bg-white p-5 shadow-[0_14px_32px_rgba(11,33,25,0.05)]"
+                          ? "rounded-[1.2rem] border border-[#0f6f54] bg-[#0b5b43] p-4 text-white shadow-[0_18px_42px_rgba(11,33,25,0.14)] sm:rounded-[1.35rem] sm:p-5"
+                          : "rounded-[1.2rem] border border-[#d7e3dc] bg-white p-4 shadow-[0_14px_32px_rgba(11,33,25,0.05)] sm:rounded-[1.35rem] sm:p-5"
                       }
                     >
                       <p className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${index === 2 ? "text-white/58" : "text-brand-soft"}`}>
                         {service.label}
                       </p>
-                      <h3 className={`headline mt-3 text-[1.5rem] font-black ${index === 2 ? "text-white" : "text-brand"}`}>
+                      <h3 className={`headline mt-3 text-[1.35rem] font-black leading-tight sm:text-[1.5rem] ${index === 2 ? "text-white" : "text-brand"}`}>
                         {service.title}
                       </h3>
                       <p className={`mt-3 text-sm leading-7 ${index === 2 ? "text-white/78" : "text-muted"}`}>
@@ -265,18 +265,18 @@ export default function ServicesPage() {
           </RevealOnScroll>
 
           <RevealOnScroll delay={80} direction="right">
-            <article className="rounded-[1.55rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-5 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:rounded-[1.8rem] sm:p-8">
+            <article className="rounded-[1.35rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-4 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.8rem] lg:p-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/58">
                 Existing systems
               </p>
-              <h2 className="headline mt-4 text-[2rem] font-black sm:text-3xl">
+              <h2 className="headline mt-3 text-[1.75rem] font-black sm:mt-4 sm:text-[2rem] lg:text-3xl">
                 Need a system check?
               </h2>
-              <p className="mt-4 text-sm leading-7 text-white/78">
+              <p className="mt-3 text-sm leading-7 text-white/78 sm:mt-4">
                 For underperforming panels, inverter faults, panel cleaning, monitoring issues,
                 roof work, warranty support, or a system that simply needs a proper review.
               </p>
-              <div className="mt-6 rounded-[1.3rem] border border-white/14 bg-white/8 p-5">
+              <div className="mt-5 rounded-[1.1rem] border border-white/14 bg-white/8 p-4 sm:mt-6 sm:rounded-[1.3rem] sm:p-5">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#9fe2c9]">
                   Most requested
                 </p>
@@ -295,23 +295,23 @@ export default function ServicesPage() {
           </RevealOnScroll>
         </div>
 
-        <div className="mt-10 border-t border-[#d6e1da]/80 pt-10 sm:mt-14 sm:pt-14" />
+        <div className="mt-8 border-t border-[#d6e1da]/80 pt-8 sm:mt-12 sm:pt-12 lg:mt-14 lg:pt-14" />
 
         <div className="grid gap-5 sm:gap-6 xl:grid-cols-[1.04fr_0.96fr]">
           <div className="grid gap-4 sm:gap-5">
             <RevealOnScroll direction="left">
-              <div className="rounded-[1.55rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.8rem] sm:p-7">
+              <div className="rounded-[1.35rem] border border-[#d7e3dc] bg-white/82 p-4 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.8rem] lg:p-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-soft">
                   Tell LIKTISH what is happening
                 </p>
-                <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:text-3xl">
+                <h2 className="headline mt-3 text-[1.75rem] font-black text-brand sm:mt-4 sm:text-[2rem] lg:text-3xl">
                   A simple path from problem or project idea to the right next step.
                 </h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4">
                   {contactSteps.map((step, index) => (
                     <div
                       key={step}
-                      className="rounded-[1.2rem] border border-[#e2ebe5] bg-[#f8fbf8] p-4"
+                      className="rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] p-3.5 sm:rounded-[1.2rem] sm:p-4"
                     >
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                         Step {index + 1}
@@ -325,9 +325,9 @@ export default function ServicesPage() {
 
             {prioritySupportGroup ? (
               <RevealOnScroll delay={80} direction="left">
-                <article className="overflow-hidden rounded-[1.45rem] border border-[#d7e3dc] bg-white/82 p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(11,33,25,0.10)] sm:rounded-[1.75rem] sm:p-7">
-                  <div className="flex items-start gap-4">
-                    <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
+                <article className="overflow-hidden rounded-[1.3rem] border border-[#d7e3dc] bg-white/82 p-4 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(11,33,25,0.10)] sm:rounded-[1.55rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.9rem] bg-[#dff6e9] text-[#19A875] sm:h-11 sm:w-11 sm:rounded-[0.95rem]">
                       {groupIcons[prioritySupportGroup.label as keyof typeof groupIcons]}
                     </div>
                     <div>
@@ -339,10 +339,10 @@ export default function ServicesPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="mt-5 overflow-hidden rounded-[1.2rem] border border-[#dfe8e1]">
-                    <div className="relative h-44 bg-[linear-gradient(135deg,#dff3e7_0%,#eef4ea_46%,#f3ead7_100%)]">
+                  <div className="mt-5 overflow-hidden rounded-[1rem] border border-[#dfe8e1] sm:rounded-[1.2rem]">
+                    <div className="relative h-40 bg-[linear-gradient(135deg,#dff3e7_0%,#eef4ea_46%,#f3ead7_100%)] sm:h-44">
                       <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,rgba(21,144,102,0.18)_1px,transparent_1px)] [background-size:90px_90px]" />
-                      <div className="absolute left-5 top-5 max-w-[14rem] rounded-[1rem] bg-white/82 px-4 py-3 shadow-[0_12px_24px_rgba(11,33,25,0.08)] backdrop-blur-sm">
+                      <div className="absolute left-3 top-3 max-w-[12rem] rounded-[0.9rem] bg-white/82 px-3 py-2.5 shadow-[0_12px_24px_rgba(11,33,25,0.08)] backdrop-blur-sm sm:left-5 sm:top-5 sm:max-w-[14rem] sm:rounded-[1rem] sm:px-4 sm:py-3">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                           Specialist support
                         </p>
@@ -350,8 +350,8 @@ export default function ServicesPage() {
                           Monitoring, add-ons, carports, and support during construction or roof repair.
                         </p>
                       </div>
-                      <div className="absolute right-5 top-6 h-16 w-16 rounded-full bg-[rgba(21,144,102,0.18)] blur-2xl" />
-                      <div className="absolute bottom-4 right-4 rounded-[1rem] border border-white/60 bg-white/76 px-4 py-3 shadow-[0_10px_22px_rgba(11,33,25,0.08)] backdrop-blur-sm">
+                      <div className="absolute right-4 top-5 h-14 w-14 rounded-full bg-[rgba(21,144,102,0.18)] blur-2xl sm:right-5 sm:top-6 sm:h-16 sm:w-16" />
+                      <div className="absolute bottom-3 right-3 max-w-[10rem] rounded-[0.9rem] border border-white/60 bg-white/76 px-3 py-2.5 shadow-[0_10px_22px_rgba(11,33,25,0.08)] backdrop-blur-sm sm:bottom-4 sm:right-4 sm:max-w-none sm:rounded-[1rem] sm:px-4 sm:py-3">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
                           Existing systems
                         </p>
@@ -365,7 +365,7 @@ export default function ServicesPage() {
                     {prioritySupportGroup.items.map((item) => (
                       <li
                         key={item}
-                        className="rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] px-4 py-3"
+                        className="rounded-[0.95rem] border border-[#e2ebe5] bg-[#f8fbf8] px-3.5 py-3 sm:rounded-[1rem] sm:px-4"
                       >
                         {item}
                       </li>
@@ -376,28 +376,28 @@ export default function ServicesPage() {
             ) : null}
 
             <RevealOnScroll delay={220} direction="left">
-              <aside className="rounded-[1.55rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-6 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:p-7">
+              <aside className="rounded-[1.35rem] border border-[#cfe0d6] bg-[linear-gradient(135deg,#0d5a43_0%,#137356_100%)] p-5 text-white shadow-[0_20px_50px_rgba(11,33,25,0.18)] sm:rounded-[1.55rem] sm:p-6 lg:p-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/58">
                   Need help deciding?
                 </p>
-                <h2 className="headline mt-4 text-[1.8rem] font-black sm:text-[2.1rem]">
+                <h2 className="headline mt-3 text-[1.6rem] font-black sm:mt-4 sm:text-[1.85rem] lg:text-[2.1rem]">
                   Talk to LIKTISH about the service your system actually needs.
                 </h2>
-                <p className="mt-4 text-sm leading-7 text-white/78">
+                <p className="mt-3 text-sm leading-7 text-white/78 sm:mt-4">
                   If you are not sure whether the job is an inspection, repair, upgrade,
                   or a custom project, the quickest next step is still WhatsApp or a direct call.
                 </p>
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
                   <Link
                     href={siteContact.whatsapp}
-                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-[#0d5a43]"
+                    className="inline-flex min-h-12 w-full items-center justify-center rounded-[1rem] bg-white px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-[#0d5a43] sm:w-auto"
                     style={{ color: "#0d5a43" }}
                   >
                     WhatsApp
                   </Link>
                   <Link
                     href={`tel:${siteContact.phone.replace(/\s+/g, "")}`}
-                    className="inline-flex min-h-12 items-center justify-center rounded-[1rem] border border-white/24 bg-white/10 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
+                    className="inline-flex min-h-12 w-full items-center justify-center rounded-[1rem] border border-white/24 bg-white/10 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white sm:w-auto"
                   >
                     Call
                   </Link>
@@ -420,15 +420,15 @@ export default function ServicesPage() {
                       : undefined
                 }
               >
-                <article className={`rounded-[1.45rem] border p-5 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(11,33,25,0.10)] sm:rounded-[1.75rem] sm:p-7 ${
+                <article className={`rounded-[1.3rem] border p-4 shadow-[0_14px_36px_rgba(11,33,25,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgba(11,33,25,0.10)] sm:rounded-[1.55rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7 ${
                   group.label === "Cleaning, repairs, and component replacement"
                     ? "border-[#cfe0d6] bg-[linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(246,251,248,0.98)_100%)]"
                     : group.label === "Custom delivery and client support"
                       ? "border-[#d7e3dc] bg-white"
                       : "border-[#d7e3dc] bg-white/82"
                 }`}>
-                  <div className="flex items-start gap-4">
-                    <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#dff6e9] text-[#19A875]">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.9rem] bg-[#dff6e9] text-[#19A875] sm:h-11 sm:w-11 sm:rounded-[0.95rem]">
                       {groupIcons[group.label as keyof typeof groupIcons]}
                     </div>
                     <div>
@@ -444,7 +444,7 @@ export default function ServicesPage() {
                     {group.items.map((item) => (
                       <li
                         key={item}
-                        className="rounded-[1rem] border border-[#e2ebe5] bg-[#f8fbf8] px-4 py-3"
+                        className="rounded-[0.95rem] border border-[#e2ebe5] bg-[#f8fbf8] px-3.5 py-3 sm:rounded-[1rem] sm:px-4"
                       >
                         {item}
                       </li>
