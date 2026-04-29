@@ -298,6 +298,16 @@ textarea {
   background-position: center, top left;
 }
 
+.services-overview-pattern {
+  background-color: #eef4ef;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(237, 244, 239, 0.28)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%2319A875' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' opacity='0.38'%3E%3Cpath d='M14 26h52v22H36v20h44'/%3E%3Cpath d='M92 18v54h44V46h26'/%3E%3Cpath d='M168 18h38v36h-24v20h24'/%3E%3Cpath d='M18 102h30v42h34v-18h18v38'/%3E%3Cpath d='M120 96c-16 0-28 12-28 28s12 28 28 28 30-12 30-28'/%3E%3Cpath d='M162 138v36h42v-24'/%3E%3Cpath d='M24 182h46v22h22'/%3E%3Cpath d='M106 182h30v24h54'/%3E%3Cpath d='M70 78h14M58 114h12M92 154h12M184 84h12M150 184h10M198 118h8M128 56h10M34 62h8' stroke-dasharray='0 11'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 220px 220px;
+  background-repeat: repeat, repeat;
+  background-position: center, top left;
+}
+
 @keyframes fade-rise {
   from {
     opacity: 0;

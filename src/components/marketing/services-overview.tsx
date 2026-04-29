@@ -71,8 +71,10 @@ const serviceIcons: Record<string, ReactNode> = {
 export function ServicesOverview() {
   return (
     <section id="services" className="relative overflow-hidden px-4 py-18 sm:py-24">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f3f6f3_0%,#edf3ef_100%)]" />
-      <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(120deg,rgba(13,87,63,0.14)_1px,transparent_1px)] [background-size:190px_190px]" />
+      <div className="services-overview-pattern absolute inset-0" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(243,246,243,0.18)_0%,rgba(237,243,239,0.12)_100%)]" />
+      <div className="absolute inset-y-0 right-0 w-[32%] bg-[linear-gradient(180deg,rgba(25,168,117,0.12),rgba(25,168,117,0.02))]" />
+      <div className="absolute inset-y-0 left-0 w-[22%] bg-[linear-gradient(180deg,rgba(203,138,46,0.08),rgba(203,138,46,0.01))]" />
       <div className="container-shell relative">
         <RevealOnScroll className="mb-10 text-center sm:mb-14">
           <SectionHeading
