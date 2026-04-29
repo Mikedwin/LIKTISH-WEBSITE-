@@ -255,7 +255,7 @@ export default function ServicesPage() {
                 delay={80 + index * 80}
                 className={
                   group.label === "Cleaning, repairs, and component replacement"
-                    ? "xl:-mt-16"
+                    ? "xl:-mt-28"
                     : group.label === "Custom delivery and client support"
                       ? "xl:-mt-24"
                       : undefined
