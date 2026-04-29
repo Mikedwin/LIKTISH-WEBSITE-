@@ -52,10 +52,14 @@ export default function ServicesPage() {
 
   return (
     <div className="relative overflow-hidden px-4 py-16 sm:py-20">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f4f7f4_0%,#edf3ef_100%)]" />
-      <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(120deg,rgba(13,87,63,0.14)_1px,transparent_1px),linear-gradient(rgba(13,87,63,0.08)_1px,transparent_1px)] [background-size:160px_160px,44px_44px]" />
-      <div className="absolute left-0 top-16 h-52 w-52 rounded-full bg-[rgba(25,168,117,0.12)] blur-3xl" />
-      <div className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[rgba(203,138,46,0.1)] blur-3xl" />
+      <div className="absolute inset-0 bg-[#e9f1ea]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.26)_0%,rgba(203,138,46,0.08)_100%)]" />
+      <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(120deg,rgba(21,144,102,0.2)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.1)_1px,transparent_1px)] [background-size:140px_140px,36px_36px]" />
+      <div className="absolute inset-y-0 right-0 w-[42%] bg-[linear-gradient(180deg,rgba(21,144,102,0.18),rgba(21,144,102,0.04))]" />
+      <div className="absolute inset-y-0 left-0 w-[26%] bg-[linear-gradient(180deg,rgba(203,138,46,0.1),rgba(203,138,46,0.02))]" />
+      <div className="absolute -right-12 top-10 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
+      <div className="absolute left-0 bottom-0 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
+      <div className="absolute left-12 top-16 h-44 w-44 rounded-full bg-[rgba(255,255,255,0.16)] blur-3xl" />
 
       <div className="container-shell relative">
         <RevealOnScroll className="max-w-3xl">
