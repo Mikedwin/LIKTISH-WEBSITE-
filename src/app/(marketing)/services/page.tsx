@@ -173,14 +173,13 @@ export default function ServicesPage() {
 
   return (
     <div className="relative overflow-hidden px-4 py-14 sm:py-18 lg:py-20">
-      <div className="services-etched-bg absolute inset-0" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(237,244,238,0.12)_0%,rgba(232,242,236,0.08)_24%,rgba(220,236,228,0.1)_60%,rgba(199,160,96,0.05)_100%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(19,115,86,0.08)_0%,rgba(19,115,86,0.02)_42%,rgba(255,255,255,0.03)_100%)]" />
-      <div className="absolute inset-y-0 right-0 w-[44%] bg-[linear-gradient(180deg,rgba(22,148,103,0.1),rgba(22,148,103,0.02))]" />
-      <div className="absolute inset-y-0 left-0 w-[28%] bg-[linear-gradient(180deg,rgba(201,151,78,0.08),rgba(201,151,78,0.02))]" />
+      <div className="absolute inset-0 bg-[#f3ecdd]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.26)_0%,rgba(21,144,102,0.06)_45%,rgba(203,138,46,0.14)_100%)]" />
+      <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,rgba(21,144,102,0.24)_1px,transparent_1px),linear-gradient(rgba(21,144,102,0.14)_1px,transparent_1px)] [background-size:120px_120px,36px_36px]" />
+      <div className="absolute inset-y-0 right-0 w-[38%] bg-[linear-gradient(180deg,rgba(16,112,80,0.2),rgba(16,112,80,0.04))]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(203,138,46,0.28),transparent_60%)]" />
       <div className="absolute -right-12 top-10 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
-      <div className="absolute left-0 bottom-0 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
-      <div className="absolute left-12 top-16 h-44 w-44 rounded-full bg-[rgba(255,255,255,0.16)] blur-3xl" />
+      <div className="absolute -left-16 top-10 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.2)] blur-3xl" />
 
       <div className="container-shell relative">
         <RevealOnScroll className="max-w-3xl">
