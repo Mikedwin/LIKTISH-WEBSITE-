@@ -173,12 +173,12 @@ export default function ServicesPage() {
 
   return (
     <div className="relative overflow-hidden px-4 py-14 sm:py-18 lg:py-20">
-      <div className="absolute inset-0 bg-[#e8f0e8]" />
-      <div className="absolute inset-0 bg-[url('/services-background-pattern.jfif')] bg-[length:320px_auto] bg-repeat opacity-[0.34] sm:bg-[length:400px_auto]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(237,244,238,0.34)_0%,rgba(232,241,235,0.26)_24%,rgba(221,238,229,0.28)_60%,rgba(205,168,102,0.08)_100%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(19,115,86,0.18)_0%,rgba(19,115,86,0.04)_42%,rgba(255,255,255,0.08)_100%)]" />
-      <div className="absolute inset-y-0 right-0 w-[44%] bg-[linear-gradient(180deg,rgba(22,148,103,0.24),rgba(22,148,103,0.06))]" />
-      <div className="absolute inset-y-0 left-0 w-[28%] bg-[linear-gradient(180deg,rgba(201,151,78,0.16),rgba(201,151,78,0.04))]" />
+      <div className="absolute inset-0 bg-[#edf4ee]" />
+      <div className="absolute inset-0 bg-[url('/services-background-pattern.jfif')] bg-[length:260px_auto] bg-repeat opacity-[0.72] sm:bg-[length:320px_auto]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(237,244,238,0.16)_0%,rgba(231,241,235,0.14)_24%,rgba(222,237,228,0.16)_60%,rgba(203,164,95,0.06)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(19,115,86,0.08)_0%,rgba(19,115,86,0.02)_42%,rgba(255,255,255,0.04)_100%)]" />
+      <div className="absolute inset-y-0 right-0 w-[44%] bg-[linear-gradient(180deg,rgba(22,148,103,0.14),rgba(22,148,103,0.03))]" />
+      <div className="absolute inset-y-0 left-0 w-[28%] bg-[linear-gradient(180deg,rgba(201,151,78,0.1),rgba(201,151,78,0.02))]" />
       <div className="absolute -right-12 top-10 h-56 w-56 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
       <div className="absolute left-0 bottom-0 h-48 w-48 rounded-full bg-[rgba(203,138,46,0.14)] blur-3xl" />
       <div className="absolute left-12 top-16 h-44 w-44 rounded-full bg-[rgba(255,255,255,0.16)] blur-3xl" />
