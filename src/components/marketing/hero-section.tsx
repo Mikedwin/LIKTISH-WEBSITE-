@@ -34,7 +34,7 @@ export function HeroSection() {
               className="intro-rise mt-6 max-w-2xl text-[0.98rem] leading-7 text-white/80 sm:mt-8 sm:text-[1rem] md:text-[1.08rem]"
               style={{ animationDelay: "180ms" }}
             >
-              LIKTISH Engineering designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana. Clean energy. Smart investment. Reliable power.
+              LIKTISH Engineering designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana and Africa. Clean energy. Smart investment. Reliable power.
             </p>
 
             <div
