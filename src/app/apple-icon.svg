@@ -1,19 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
   <defs>
-    <radialGradient id="appleCoreGlow" cx="40%" cy="22%" r="80%">
-      <stop offset="0%" stop-color="#fff8b8" />
-      <stop offset="55%" stop-color="#f8eb78" />
-      <stop offset="100%" stop-color="#e5c84d" />
+    <radialGradient id="appleCoreGlow" cx="40%" cy="20%" r="82%">
+      <stop offset="0%" stop-color="#fffcca" />
+      <stop offset="58%" stop-color="#fff07a" />
+      <stop offset="100%" stop-color="#f2d94a" />
     </radialGradient>
   </defs>
   <rect width="180" height="180" rx="42" fill="#eef5ef"/>
-  <ellipse cx="90" cy="92" rx="58" ry="70" fill="#fffdf1" stroke="#19A875" stroke-width="6"/>
-  <ellipse cx="90" cy="92" rx="50" ry="62" fill="url(#appleCoreGlow)" opacity="0.96"/>
+  <ellipse cx="90" cy="92" rx="58" ry="70" fill="#fffdf1" stroke="#ff2b17" stroke-width="6"/>
+  <ellipse cx="90" cy="92" rx="53" ry="65" fill="none" stroke="#ff2b17" stroke-width="3.2"/>
+  <ellipse cx="90" cy="92" rx="50" ry="62" fill="url(#appleCoreGlow)" opacity="0.98"/>
   <path d="M44 58c14-16 33-23 54-23 14 0 27 4 39 10" fill="none" stroke="#d39a2f" stroke-width="5" stroke-linecap="round"/>
   <path d="M39 84c20-28 40-40 65-46M45 100c17-21 31-32 50-39M54 113c13-16 24-25 39-31" fill="none" stroke="rgba(255,255,255,0.88)" stroke-width="7.6" stroke-linecap="round"/>
-  <path d="M48 124V74M48 124h18" fill="none" stroke="#4b136f" stroke-width="10" stroke-linecap="square"/>
-  <path d="M69 124V81M69 81h20M79 81v43" fill="none" stroke="#d91f16" stroke-width="9.6" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M66 95h41M87 75v49" fill="none" stroke="#1638c5" stroke-width="10" stroke-linecap="square"/>
-  <path d="M102 82c4-4 9-6 16-6 8 0 14 2 19 6m-34 19c5 0 9 0 14 2 5 2 8 4 8 9 0 6-6 11-14 11-7 0-14-3-19-8m0-31c5 0 10 1 14 2" fill="none" stroke="#d91f16" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M120 76v48M143 76v48M120 99h23" fill="none" stroke="#1638c5" stroke-width="10" stroke-linecap="square"/>
+  <path d="M48 124V74" fill="none" stroke="#49106f" stroke-width="10" stroke-linecap="square"/>
+  <path d="M48 124h18" fill="none" stroke="#49106f" stroke-width="10" stroke-linecap="square"/>
+  <path d="M69 124V77" fill="none" stroke="#ff1f12" stroke-width="9.6" stroke-linecap="square"/>
+  <path d="M69 97 89 78M69 100l22 24" fill="none" stroke="#ff1f12" stroke-width="9.6" stroke-linecap="square"/>
+  <path d="M69 90h43M88 78v46" fill="none" stroke="#0d2dd8" stroke-width="10" stroke-linecap="square"/>
+  <path d="M101 82c4-4 9-6 16-6 8 0 14 3 18 8M101 110c4-4 11-6 18-6 8 0 13 3 16 9 0 8-8 14-18 14-7 0-14-2-19-8" fill="none" stroke="#ff2b17" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M119 76v48M143 76v48M119 100h24" fill="none" stroke="#0d2dd8" stroke-width="10" stroke-linecap="square"/>
 </svg>

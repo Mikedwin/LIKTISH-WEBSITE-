@@ -8,15 +8,11 @@ function LiktishMarkSvg(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 112 128" aria-hidden="true" {...props}>
       <defs>
-        <radialGradient id="liktishCoreGlow" cx="40%" cy="22%" r="80%">
-          <stop offset="0%" stopColor="#fff8b8" />
-          <stop offset="55%" stopColor="#f8eb78" />
-          <stop offset="100%" stopColor="#e5c84d" />
+        <radialGradient id="liktishCoreGlow" cx="40%" cy="20%" r="82%">
+          <stop offset="0%" stopColor="#fffcca" />
+          <stop offset="58%" stopColor="#fff07a" />
+          <stop offset="100%" stopColor="#f2d94a" />
         </radialGradient>
-        <linearGradient id="liktishGlassFade" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(255,255,255,0.96)" />
-          <stop offset="100%" stopColor="rgba(255,255,255,0.42)" />
-        </linearGradient>
       </defs>
 
       <ellipse
@@ -25,43 +21,37 @@ function LiktishMarkSvg(props: SVGProps<SVGSVGElement>) {
         rx="44"
         ry="54"
         fill="#fffdf1"
-        stroke="#19A875"
-        strokeWidth="3.5"
+        stroke="#ff2b17"
+        strokeWidth="3.2"
       />
       <ellipse
         cx="56"
         cy="64"
-        rx="39"
-        ry="49"
-        fill="url(#liktishCoreGlow)"
-        opacity="0.96"
+        rx="41"
+        ry="51"
+        fill="none"
+        stroke="#ff2b17"
+        strokeWidth="2"
       />
-      <ellipse
-        cx="56"
-        cy="64"
-        rx="39"
-        ry="49"
-        fill="url(#liktishGlassFade)"
-        opacity="0.52"
-      />
+      <ellipse cx="56" cy="64" rx="38" ry="48" fill="url(#liktishCoreGlow)" opacity="0.98" />
 
       <path
-        d="M23 35c11-13 24-18 40-18 11 0 21 3 29 8"
+        d="M21 59c15-20 31-31 51-35M24 69c13-17 27-27 46-32M29 79c10-13 20-21 35-26"
+        fill="none"
+        stroke="rgba(255,255,255,0.9)"
+        strokeWidth="4.4"
+        strokeLinecap="round"
+        opacity="0.98"
+      />
+      <path
+        d="M22 36c11-13 25-18 41-18 10 0 20 3 28 8"
         fill="none"
         stroke="#d39a2f"
         strokeWidth="3.2"
         strokeLinecap="round"
       />
       <path
-        d="M18 60c16-20 32-31 52-35M22 71c14-17 27-27 45-33M28 81c11-14 21-22 35-27"
-        fill="none"
-        stroke="rgba(255,255,255,0.86)"
-        strokeWidth="4.4"
-        strokeLinecap="round"
-        opacity="0.92"
-      />
-      <path
-        d="M28 42 16 28M37 36 27 20M47 31 40 16M59 29l-1-16"
+        d="M27 43 15 30M36 37 26 22M46 32 38 18M58 31l-1-15"
         fill="none"
         stroke="#d39a2f"
         strokeWidth="2.3"
@@ -69,50 +59,27 @@ function LiktishMarkSvg(props: SVGProps<SVGSVGElement>) {
         opacity="0.82"
       />
 
+      <path d="M26 95V54" fill="none" stroke="#49106f" strokeWidth="7" strokeLinecap="square" />
+      <path d="M26 95h16" fill="none" stroke="#49106f" strokeWidth="7" strokeLinecap="square" />
+
+      <path d="M42 95V56" fill="none" stroke="#ff1f12" strokeWidth="7" strokeLinecap="square" />
+      <path d="M42 74 58 58" fill="none" stroke="#ff1f12" strokeWidth="7" strokeLinecap="square" />
+      <path d="M42 77 60 95" fill="none" stroke="#ff1f12" strokeWidth="7" strokeLinecap="square" />
+
+      <path d="M42 64H77" fill="none" stroke="#0d2dd8" strokeWidth="7" strokeLinecap="square" />
+      <path d="M58 58v37" fill="none" stroke="#0d2dd8" strokeWidth="7" strokeLinecap="square" />
+
       <path
-        d="M25 95V52"
+        d="M67 61c3-4 8-6 13-6 7 0 12 3 14 7M66 77c3-4 9-6 15-6 7 0 12 3 13 8 0 9-8 15-18 15-6 0-12-2-16-6"
         fill="none"
-        stroke="#4b136f"
-        strokeWidth="7"
-        strokeLinecap="square"
-      />
-      <path
-        d="M25 95h15"
-        fill="none"
-        stroke="#4b136f"
-        strokeWidth="7"
-        strokeLinecap="square"
-      />
-      <path
-        d="M40 95V58M40 58h16M48 58v37"
-        fill="none"
-        stroke="#d91f16"
-        strokeWidth="7"
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-      />
-      <path
-        d="M37 70h30M52 54v41"
-        fill="none"
-        stroke="#1638c5"
-        strokeWidth="7"
-        strokeLinecap="square"
-      />
-      <path
-        d="M61 57c4-4 8-6 13-6 6 0 11 2 15 6m-28 15c4 0 7 0 11 2 5 2 7 4 7 8 0 6-6 10-14 10-6 0-12-2-16-7m0-28c4 0 9 1 13 2"
-        fill="none"
-        stroke="#d91f16"
-        strokeWidth="6.3"
+        stroke="#ff2b17"
+        strokeWidth="6.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M73 52v43M93 52v43M73 73h20"
-        fill="none"
-        stroke="#1638c5"
-        strokeWidth="7"
-        strokeLinecap="square"
-      />
+      <path d="M76 55v40" fill="none" stroke="#0d2dd8" strokeWidth="7" strokeLinecap="square" />
+      <path d="M95 55v40" fill="none" stroke="#0d2dd8" strokeWidth="7" strokeLinecap="square" />
+      <path d="M76 75h19" fill="none" stroke="#0d2dd8" strokeWidth="7" strokeLinecap="square" />
     </svg>
   );
 }

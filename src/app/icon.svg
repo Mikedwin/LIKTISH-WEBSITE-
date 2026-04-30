@@ -1,19 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
   <defs>
-    <radialGradient id="iconCoreGlow" cx="40%" cy="22%" r="80%">
-      <stop offset="0%" stop-color="#fff8b8" />
-      <stop offset="55%" stop-color="#f8eb78" />
-      <stop offset="100%" stop-color="#e5c84d" />
+    <radialGradient id="iconCoreGlow" cx="40%" cy="20%" r="82%">
+      <stop offset="0%" stop-color="#fffcca" />
+      <stop offset="58%" stop-color="#fff07a" />
+      <stop offset="100%" stop-color="#f2d94a" />
     </radialGradient>
   </defs>
   <rect width="96" height="96" rx="22" fill="#eef5ef"/>
-  <ellipse cx="48" cy="48" rx="32" ry="38" fill="#fffdf1" stroke="#19A875" stroke-width="3"/>
-  <ellipse cx="48" cy="48" rx="28" ry="34" fill="url(#iconCoreGlow)" opacity="0.96"/>
+  <ellipse cx="48" cy="48" rx="32" ry="38" fill="#fffdf1" stroke="#ff2b17" stroke-width="3"/>
+  <ellipse cx="48" cy="48" rx="29.5" ry="35.5" fill="none" stroke="#ff2b17" stroke-width="1.7"/>
+  <ellipse cx="48" cy="48" rx="27" ry="33" fill="url(#iconCoreGlow)" opacity="0.98"/>
   <path d="M24 32c8-9 18-13 30-13 8 0 15 2 22 6" fill="none" stroke="#d39a2f" stroke-width="2.6" stroke-linecap="round"/>
   <path d="M22 46c11-15 22-22 35-25M25 54c10-12 18-19 29-23" fill="none" stroke="rgba(255,255,255,0.88)" stroke-width="3.8" stroke-linecap="round"/>
-  <path d="M28 68V41M28 68h10" fill="none" stroke="#4b136f" stroke-width="5.5" stroke-linecap="square"/>
-  <path d="M39 68V45M39 45h11M44 45v23" fill="none" stroke="#d91f16" stroke-width="5.3" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M37 52h23M49 42v26" fill="none" stroke="#1638c5" stroke-width="5.4" stroke-linecap="square"/>
-  <path d="M57 46c3-3 5-4 9-4 5 0 8 1 11 4m-19 10c3 0 5 0 8 1 4 1 5 3 5 6 0 4-4 7-10 7-4 0-9-1-12-5m0-19c3 0 6 1 9 2" fill="none" stroke="#d91f16" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M68 42v28M82 42v28M68 56h14" fill="none" stroke="#1638c5" stroke-width="5.5" stroke-linecap="square"/>
+  <path d="M28 68V42" fill="none" stroke="#49106f" stroke-width="5.4" stroke-linecap="square"/>
+  <path d="M28 68h10" fill="none" stroke="#49106f" stroke-width="5.4" stroke-linecap="square"/>
+  <path d="M39 68V44" fill="none" stroke="#ff1f12" stroke-width="5.2" stroke-linecap="square"/>
+  <path d="M39 55 49 45M39 57l11 11" fill="none" stroke="#ff1f12" stroke-width="5.2" stroke-linecap="square"/>
+  <path d="M39 51h24M50 45v23" fill="none" stroke="#0d2dd8" stroke-width="5.3" stroke-linecap="square"/>
+  <path d="M57 47c2-2 5-4 9-4 5 0 8 2 10 5M57 58c3-2 6-4 10-4 5 0 8 2 9 5 0 5-5 9-12 9-4 0-8-2-11-4" fill="none" stroke="#ff2b17" stroke-width="4.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M65 43v25M80 43v25M65 55h15" fill="none" stroke="#0d2dd8" stroke-width="5.4" stroke-linecap="square"/>
 </svg>
