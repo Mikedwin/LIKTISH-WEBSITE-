@@ -11,8 +11,9 @@
   <ellipse cx="48" cy="48" rx="28" ry="34" fill="url(#iconCoreGlow)" opacity="0.96"/>
   <path d="M24 32c8-9 18-13 30-13 8 0 15 2 22 6" fill="none" stroke="#d39a2f" stroke-width="2.6" stroke-linecap="round"/>
   <path d="M22 46c11-15 22-22 35-25M25 54c10-12 18-19 29-23" fill="none" stroke="rgba(255,255,255,0.88)" stroke-width="3.8" stroke-linecap="round"/>
-  <path d="M28 68V38h6v28h13" fill="none" stroke="#0f6e57" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M46 38v32M46 54l12-16M46 54l12 14" fill="none" stroke="#19A875" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M56 43c2-2 5-4 8-4 4 0 8 1 10 4m-18 18c2 3 5 5 9 5 4 0 8-2 10-5m-18-8h16" fill="none" stroke="#d35f27" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M66 39v31M82 39v31M66 54h16" fill="none" stroke="#1b3ba8" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 68V41M28 68h10" fill="none" stroke="#4b136f" stroke-width="5.5" stroke-linecap="square"/>
+  <path d="M39 68V45M39 45h11M44 45v23" fill="none" stroke="#d91f16" stroke-width="5.3" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M37 52h23M49 42v26" fill="none" stroke="#1638c5" stroke-width="5.4" stroke-linecap="square"/>
+  <path d="M57 46c3-3 5-4 9-4 5 0 8 1 11 4m-19 10c3 0 5 0 8 1 4 1 5 3 5 6 0 4-4 7-10 7-4 0-9-1-12-5m0-19c3 0 6 1 9 2" fill="none" stroke="#d91f16" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68 42v28M82 42v28M68 56h14" fill="none" stroke="#1638c5" stroke-width="5.5" stroke-linecap="square"/>
 </svg>

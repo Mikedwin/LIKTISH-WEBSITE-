@@ -70,36 +70,48 @@ function LiktishMarkSvg(props: SVGProps<SVGSVGElement>) {
       />
 
       <path
-        d="M26 95V50h8v38h18"
+        d="M25 95V52"
         fill="none"
-        stroke="#0f6e57"
+        stroke="#4b136f"
         strokeWidth="7"
+        strokeLinecap="square"
+      />
+      <path
+        d="M25 95h15"
+        fill="none"
+        stroke="#4b136f"
+        strokeWidth="7"
+        strokeLinecap="square"
+      />
+      <path
+        d="M40 95V58M40 58h16M48 58v37"
+        fill="none"
+        stroke="#d91f16"
+        strokeWidth="7"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+      />
+      <path
+        d="M37 70h30M52 54v41"
+        fill="none"
+        stroke="#1638c5"
+        strokeWidth="7"
+        strokeLinecap="square"
+      />
+      <path
+        d="M61 57c4-4 8-6 13-6 6 0 11 2 15 6m-28 15c4 0 7 0 11 2 5 2 7 4 7 8 0 6-6 10-14 10-6 0-12-2-16-7m0-28c4 0 9 1 13 2"
+        fill="none"
+        stroke="#d91f16"
+        strokeWidth="6.3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M50 50v45M50 72l17-22M50 72l17 19"
+        d="M73 52v43M93 52v43M73 73h20"
         fill="none"
-        stroke="#19A875"
+        stroke="#1638c5"
         strokeWidth="7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M64 57c3-4 7-6 12-6 6 0 11 2 14 6m-26 25c3 4 8 7 13 7 6 0 11-3 14-7m-25-12h22"
-        fill="none"
-        stroke="#d35f27"
-        strokeWidth="6.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M76 51v44M97 51v44M76 71h21"
-        fill="none"
-        stroke="#1b3ba8"
-        strokeWidth="7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeLinecap="square"
       />
     </svg>
   );

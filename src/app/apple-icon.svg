@@ -11,8 +11,9 @@
   <ellipse cx="90" cy="92" rx="50" ry="62" fill="url(#appleCoreGlow)" opacity="0.96"/>
   <path d="M44 58c14-16 33-23 54-23 14 0 27 4 39 10" fill="none" stroke="#d39a2f" stroke-width="5" stroke-linecap="round"/>
   <path d="M39 84c20-28 40-40 65-46M45 100c17-21 31-32 50-39M54 113c13-16 24-25 39-31" fill="none" stroke="rgba(255,255,255,0.88)" stroke-width="7.6" stroke-linecap="round"/>
-  <path d="M50 124V68h10v50h24" fill="none" stroke="#0f6e57" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M82 68v56M82 96l20-28M82 96l20 23" fill="none" stroke="#19A875" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M100 76c4-5 9-7 15-7 8 0 14 2 18 7m-33 31c4 5 10 8 17 8 8 0 14-3 18-8m-33-12h29" fill="none" stroke="#d35f27" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M118 70v54M145 70v54M118 96h27" fill="none" stroke="#1b3ba8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 124V74M48 124h18" fill="none" stroke="#4b136f" stroke-width="10" stroke-linecap="square"/>
+  <path d="M69 124V81M69 81h20M79 81v43" fill="none" stroke="#d91f16" stroke-width="9.6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M66 95h41M87 75v49" fill="none" stroke="#1638c5" stroke-width="10" stroke-linecap="square"/>
+  <path d="M102 82c4-4 9-6 16-6 8 0 14 2 19 6m-34 19c5 0 9 0 14 2 5 2 8 4 8 9 0 6-6 11-14 11-7 0-14-3-19-8m0-31c5 0 10 1 14 2" fill="none" stroke="#d91f16" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 76v48M143 76v48M120 99h23" fill="none" stroke="#1638c5" stroke-width="10" stroke-linecap="square"/>
 </svg>
