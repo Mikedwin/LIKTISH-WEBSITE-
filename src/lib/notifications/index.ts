@@ -13,6 +13,8 @@ interface NotificationPayload {
   subject: string;
   recipient: string;
   message: string;
+  htmlMessage?: string;
+  replyTo?: string;
 }
 
 interface NotificationLogRow {
@@ -135,11 +137,26 @@ async function postSendgridEmail(payload: NotificationPayload) {
       from: {
         email: sendgridFromEmail,
       },
+      ...(payload.replyTo
+        ? {
+            reply_to: {
+              email: payload.replyTo,
+            },
+          }
+        : {}),
       content: [
         {
           type: "text/plain",
           value: payload.message,
         },
+        ...(payload.htmlMessage
+          ? [
+              {
+                type: "text/html",
+                value: payload.htmlMessage,
+              },
+            ]
+          : []),
       ],
     }),
     cache: "no-store",
