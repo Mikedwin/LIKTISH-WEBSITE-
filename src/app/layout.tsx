@@ -17,9 +17,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = buildMetadata({
-  title: "LIKTISH Engineering | Solar Solutions in Ghana",
+  title: "LIKTISH Engineering | Solar Solutions in Ghana and Africa",
   description:
-    "LIKTISH Engineering designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana.",
+    "LIKTISH Engineering designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana and Africa.",
   path: "/",
 });
 

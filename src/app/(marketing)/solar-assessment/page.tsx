@@ -4,7 +4,7 @@ import { SolarAssessmentForm } from "@/components/marketing/solar-assessment-for
 export const metadata = buildMetadata({
   title: "Free Solar Assessment | LIKTISH Engineering",
   description:
-    "Request a free solar assessment from LIKTISH Engineering for your home or business in Ghana.",
+    "Request a free solar assessment from LIKTISH Engineering for your home or business in Ghana and Africa.",
   path: "/solar-assessment",
 });
 

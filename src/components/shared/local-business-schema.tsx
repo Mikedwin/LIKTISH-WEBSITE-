@@ -6,7 +6,7 @@ export function LocalBusinessSchema() {
     "@type": "LocalBusiness",
     name: "LIKTISH Engineering",
     description:
-      "Solar engineering company in Takoradi, Ghana offering residential, commercial, industrial, and institutional solar solutions.",
+      "Solar engineering company in Takoradi, Ghana offering residential, commercial, industrial, and institutional solar solutions across Ghana and Africa.",
     telephone: siteContact.phone,
     email: siteContact.email,
     address: {
@@ -14,7 +14,7 @@ export function LocalBusinessSchema() {
       streetAddress: siteContact.address,
       addressCountry: "GH",
     },
-    areaServed: "Ghana",
+    areaServed: ["Ghana", "Africa"],
     url: "https://liktishengineering.com",
   };
 

@@ -38,7 +38,7 @@ const groupedFaqs = [
 export const metadata = buildMetadata({
   title: "About Us | LIKTISH Engineering",
   description:
-    "Meet the LIKTISH Engineering team, mission, values, and long-term commitment to clean, reliable power in Ghana.",
+    "Meet the LIKTISH Engineering team, mission, values, and long-term commitment to clean, reliable power in Ghana and Africa.",
   path: "/about",
 });
 
@@ -61,7 +61,7 @@ export default function AboutPage() {
               </p>
             </div>
             <SectionHeading
-              title="An engineering-led solar company grounded in Ghana's power realities."
+              title="An engineering-led solar company grounded in power realities across Ghana and Africa."
               body="The About page should make LIKTISH feel like a real operating company with people, field judgment, and long-term accountability."
             />
           </div>
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 Company story
               </p>
                 <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-base sm:leading-8">
-                  LIKTISH Engineering is positioned around clean, reliable power solutions for residential, commercial, industrial, and government clients in Ghana, with support that continues after installation.
+                  LIKTISH Engineering is positioned around clean, reliable power solutions for residential, commercial, industrial, and government clients in Ghana and Africa, with support that continues after installation.
                 </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -119,7 +119,7 @@ export default function AboutPage() {
                 How it started
               </p>
               <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-base sm:leading-8">
-                LIKTISH was shaped by the everyday reality of unstable power, rising electricity costs, and the need for solar systems that are engineered for how people actually live and work in Ghana.
+                LIKTISH was shaped by the everyday reality of unstable power, rising electricity costs, and the need for solar systems that are engineered for how people actually live and work in Ghana and Africa.
               </p>
             </article>
 

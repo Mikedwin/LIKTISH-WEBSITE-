@@ -82,7 +82,7 @@ export function ServicesOverview() {
         <RevealOnScroll className="mb-10 text-center sm:mb-14">
           <SectionHeading
             title="Our Services"
-            body="Solar solutions for homes, businesses, industries, institutions, and long-term system support across Ghana."
+          body="Solar solutions for homes, businesses, industries, institutions, and long-term system support across Ghana and Africa."
             align="center"
           />
         </RevealOnScroll>

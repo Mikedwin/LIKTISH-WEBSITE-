@@ -22,7 +22,7 @@ export function CtaBanner() {
               Go Solar Today.
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-[0.98rem] leading-7 text-white/82 sm:mt-7 sm:text-base sm:leading-8 md:text-xl">
-              Contact us for a free site assessment. Join Ghanaian homes and businesses moving from unreliable power to clean, engineered solar.
+              Contact us for a free site assessment. Join homes and businesses across Ghana and Africa moving from unreliable power to clean, engineered solar.
             </p>
             <div className="mt-8 mx-auto grid w-full max-w-[42rem] grid-cols-2 gap-3 sm:mt-10 sm:gap-4">
               <CTAButton

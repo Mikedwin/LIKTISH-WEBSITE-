@@ -7,7 +7,7 @@ import { siteContact } from "@/lib/site-data";
 export const metadata = buildMetadata({
   title: "Contact | LIKTISH Engineering",
   description:
-    "Contact LIKTISH Engineering by phone, WhatsApp, email, or website form to discuss a solar project in Ghana.",
+    "Contact LIKTISH Engineering by phone, WhatsApp, email, or website form to discuss a solar project in Ghana and Africa.",
   path: "/contact",
 });
 

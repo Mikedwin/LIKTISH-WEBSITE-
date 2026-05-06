@@ -4,7 +4,7 @@ import { whyLiktishPoints } from "@/lib/site-data";
 export const metadata = buildMetadata({
   title: "Why LIKTISH | LIKTISH Engineering",
   description:
-    "Understand how LIKTISH Engineering positions solar as a reliable, financially smart power solution for Ghana.",
+    "Understand how LIKTISH Engineering positions solar as a reliable, financially smart power solution for Ghana and Africa.",
   path: "/why-liktish",
 });
 
@@ -26,7 +26,7 @@ export default function WhyLiktishPage() {
               The value story behind every LIKTISH recommendation.
             </h1>
             <p className="mt-5 max-w-2xl text-[1rem] leading-7 text-white/78 sm:mt-6 sm:text-lg sm:leading-8">
-              LIKTISH should feel like a credible solar company in Ghana: confident, knowledgeable, approachable, and grounded in real power conditions.
+                LIKTISH should feel like a credible solar company in Ghana and Africa: confident, knowledgeable, approachable, and grounded in real power conditions.
             </p>
           </div>
             <div className="glass-panel rounded-[1.3rem] p-5 text-brand sm:rounded-[1.45rem] sm:p-6">

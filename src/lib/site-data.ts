@@ -154,7 +154,7 @@ export const services: ServicePageData[] = [
       "Large-scale engineering, procurement, and construction delivery for factories, plants, and energy-intensive operations.",
     heroTitle: "Industrial solar built for output",
     heroBody:
-      "LIKTISH brings technical rigor, site planning, and structured delivery to industrial and EPC-scale solar projects across Ghana.",
+      "LIKTISH brings technical rigor, site planning, and structured delivery to industrial and EPC-scale solar projects across Ghana and Africa.",
     benefits: [
       "High-capacity systems sized for demanding loads",
       "Disciplined EPC delivery process",

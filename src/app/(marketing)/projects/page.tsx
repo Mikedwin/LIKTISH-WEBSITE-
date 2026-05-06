@@ -6,7 +6,7 @@ import { projects, siteContact } from "@/lib/site-data";
 export const metadata = buildMetadata({
   title: "Projects | LIKTISH Engineering",
   description:
-    "Browse LIKTISH solar projects across residential, commercial, industrial, and institutional environments in Ghana.",
+    "Browse LIKTISH solar projects across residential, commercial, industrial, and institutional environments in Ghana and Africa.",
   path: "/projects",
 });
 
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               Built systems for real energy pressure.
             </h1>
             <p className="prose-copy mt-5 max-w-2xl text-[0.98rem] sm:mt-6 sm:text-base md:text-lg">
-              This page should feel like operating proof, not a brochure gallery. These projects show how LIKTISH applies solar across homes, businesses, industrial sites, and institutions in Ghana.
+              This page should feel like operating proof, not a brochure gallery. These projects show how LIKTISH applies solar across homes, businesses, industrial sites, and institutions in Ghana and Africa.
             </p>
           </div>
 
@@ -173,7 +173,7 @@ export default function ProjectsPage() {
                 Project archive
               </p>
               <h2 className="headline mt-3 text-[2rem] font-black text-brand sm:text-3xl md:text-4xl">
-                More LIKTISH work across Ghana
+                More LIKTISH work across Ghana and Africa
               </h2>
             </div>
           </div>
@@ -216,26 +216,41 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        <section className="mt-16 rounded-[1.6rem] border border-[#d9e5dd] bg-[linear-gradient(135deg,#fffaf2_0%,#eef5ef_100%)] px-5 py-6 shadow-[0_18px_44px_rgba(11,33,25,0.06)] sm:rounded-[2.1rem] sm:px-7 sm:py-8 md:px-10 md:py-10">
-          <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+        <section className="relative mt-16 overflow-hidden rounded-[1.6rem] border border-[#d9e5dd] bg-[linear-gradient(135deg,#fffaf2_0%,#eef5ef_100%)] px-5 py-6 shadow-[0_18px_44px_rgba(11,33,25,0.06)] sm:rounded-[2.1rem] sm:px-7 sm:py-8 md:px-10 md:py-10">
+          <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[rgba(21,144,102,0.08)] blur-3xl" />
+          <div className="absolute left-0 bottom-0 h-36 w-36 rounded-full bg-[rgba(203,138,46,0.08)] blur-3xl" />
+          <div className="relative grid gap-6 md:grid-cols-[1.12fr_0.88fr] md:items-center md:gap-10">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
-                Ready to start your own project?
-              </p>
-              <h2 className="headline mt-3 text-[2rem] font-black text-brand sm:text-3xl md:text-4xl">
-                Call or message LIKTISH and let&apos;s scope your solar system.
+              <div className="inline-flex items-center gap-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#159066]" />
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
+                  Ready to start your own project?
+                </p>
+              </div>
+              <h2 className="headline mt-4 text-[2rem] font-black text-brand sm:text-3xl md:text-4xl">
+                Seen the kind of work LIKTISH delivers? Let&apos;s talk about your own site.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted md:text-base">
-                LIKTISH designs, installs, and maintains solar systems for homes, businesses, industries, and institutions across Ghana.
+                Whether it&apos;s a home, business, industrial site, or institution,
+                LIKTISH can help you scope the right next step with practical solar
+                guidance grounded in real delivery.
+              </p>
+              <p className="mt-4 text-sm font-medium leading-7 text-[#356a55]">
+                Share your project by WhatsApp or call directly and LIKTISH will
+                guide you on what comes next.
+              </p>
+              <p className="mt-3 text-[0.92rem] leading-6 text-muted">
+                Phone and WhatsApp responses available for residential, commercial,
+                and institutional projects across Ghana and Africa.
               </p>
             </div>
-            <div className="md:justify-self-end">
-              <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="md:justify-self-end md:self-center">
+              <div className="flex flex-col gap-3 sm:w-full sm:max-w-[22rem]">
                 <a
                   href={siteContact.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-12 items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong"
                   style={{ color: "#ffffff" }}
                 >
                   <svg
@@ -249,7 +264,7 @@ export default function ProjectsPage() {
                 </a>
                 <a
                   href={`tel:${siteContact.phone.replace(/\s+/g, "")}`}
-                  className="inline-flex min-h-12 items-center justify-center rounded-[1rem] border border-[#c9d9cf] bg-white/82 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_14px_30px_rgba(11,33,25,0.08)]"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-[1rem] border border-[#c9d9cf] bg-white/82 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_14px_30px_rgba(11,33,25,0.08)] transition duration-200 hover:-translate-y-0.5 hover:bg-white"
                 >
                   <svg
                     aria-hidden="true"
@@ -264,6 +279,10 @@ export default function ProjectsPage() {
                   </svg>
                   Call
                 </a>
+                <p className="text-center text-[0.82rem] leading-6 text-muted">
+                  Quick project conversations usually start by WhatsApp, then move
+                  into the right next step for your site.
+                </p>
               </div>
             </div>
           </div>

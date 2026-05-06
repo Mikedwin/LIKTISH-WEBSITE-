@@ -26,7 +26,7 @@ export function ProjectsPreview() {
             Projects
           </h2>
           <p className="mx-auto mt-4 text-[0.98rem] leading-7 text-white/82 sm:mt-5 sm:text-base sm:leading-8 md:text-lg">
-            Case-study proof from homes, businesses, industrial sites, and institutions that needed reliable solar power across Ghana.
+          Case-study proof from homes, businesses, industrial sites, and institutions that needed reliable solar power across Ghana and Africa.
           </p>
         </RevealOnScroll>
 
