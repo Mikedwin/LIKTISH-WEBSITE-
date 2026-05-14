@@ -26,8 +26,8 @@ export function HeroSection() {
               className="headline intro-rise max-w-4xl text-[2.6rem] font-extrabold leading-[0.94] sm:text-[3.4rem] md:text-[4.4rem] xl:text-[4.9rem]"
               style={{ animationDelay: "60ms" }}
             >
-              <span className="block text-white">Say Goodbye to</span>
-              <span className="block text-[#27d69d]">Dumsor. Forever.</span>
+              <span className="block text-white">Energy</span>
+              <span className="block text-[#27d69d]">Independence</span>
             </h1>
 
             <p
