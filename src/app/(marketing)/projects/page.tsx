@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { projects, siteContact } from "@/lib/site-data";
 
@@ -53,20 +52,21 @@ export default function ProjectsPage() {
                 ))}
               </div>
             </div>
-            <Link
-              href={`/projects/${featuredProject.slug}`}
+            <a
+              href={siteContact.whatsapp}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex min-h-12 items-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] !text-white shadow-[0_18px_34px_rgba(11,33,25,0.18)]"
               style={{ color: "#ffffff" }}
             >
-              View Project
-            </Link>
+              Discuss a Project
+            </a>
           </div>
         </section>
 
         <section className="mt-14 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-          <Link
-            href={`/projects/${featuredProject.slug}`}
-            className="group overflow-hidden rounded-[2.3rem] border border-white/10 bg-[linear-gradient(160deg,#095F42_0%,#148E63_52%,#0A583E_100%)] text-white shadow-[0_28px_70px_rgba(11,33,25,0.22)]"
+          <article
+            className="overflow-hidden rounded-[2.3rem] border border-white/10 bg-[linear-gradient(160deg,#095F42_0%,#148E63_52%,#0A583E_100%)] text-white shadow-[0_28px_70px_rgba(11,33,25,0.22)]"
           >
             <div className="relative h-[16rem] overflow-hidden rounded-b-[2rem] sm:h-[18rem] md:h-[21rem] lg:h-[25rem]">
               <Image
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
                 alt={featuredProject.title}
                 width={1400}
                 height={1000}
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,40,29,0.08),rgba(7,40,29,0.56))]" />
               <div className="absolute left-5 top-5 rounded-full bg-white/92 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand shadow-[0_12px_28px_rgba(11,33,25,0.12)]">
@@ -107,17 +107,13 @@ export default function ProjectsPage() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/78">
-                  View case study
-                </p>
               </div>
             </div>
-          </Link>
+          </article>
 
           <div className="grid gap-6">
-            <Link
-              href={`/projects/${leadProject.slug}`}
-              className="group rounded-[1.6rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] p-5 shadow-[0_16px_40px_rgba(11,33,25,0.08)] transition duration-300 hover:-translate-y-1 sm:rounded-[2rem] sm:p-6"
+            <article
+              className="rounded-[1.6rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] p-5 shadow-[0_16px_40px_rgba(11,33,25,0.08)] sm:rounded-[2rem] sm:p-6"
             >
               <div className="grid gap-5 sm:grid-cols-[9rem_1fr] sm:items-start md:grid-cols-[11rem_1fr]">
                 <div className="relative h-40 overflow-hidden rounded-[1.4rem]">
@@ -126,7 +122,7 @@ export default function ProjectsPage() {
                     alt={leadProject.title}
                     width={600}
                     height={460}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <div>
@@ -142,7 +138,7 @@ export default function ProjectsPage() {
                   <p className="mt-3 text-sm leading-7 text-muted">{leadProject.summary}</p>
                 </div>
               </div>
-            </Link>
+            </article>
 
             <div className="rounded-[1.6rem] border border-[#d9e5dd] bg-white/82 p-5 shadow-[0_14px_34px_rgba(11,33,25,0.05)] sm:rounded-[2rem] sm:p-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
@@ -180,10 +176,9 @@ export default function ProjectsPage() {
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {projectLibrary.map((project) => (
-              <Link
+              <article
                 key={project.slug}
-                href={`/projects/${project.slug}`}
-                className="group flex h-[34rem] flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8fb49e] sm:h-[35rem]"
+                className="flex h-[34rem] flex-col overflow-hidden rounded-[1.8rem] border border-[#d6e0d8] bg-[linear-gradient(180deg,#fffdf8_0%,#f1f5ef_100%)] shadow-[0_14px_34px_rgba(11,33,25,0.06)] sm:h-[35rem]"
               >
                 <div className="relative h-[22rem] overflow-hidden sm:h-[23rem]">
                   <Image
@@ -191,7 +186,7 @@ export default function ProjectsPage() {
                     alt={project.title}
                     width={800}
                     height={560}
-                    className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <div className="flex h-full flex-col p-5 pt-4 sm:p-6 sm:pt-5">
@@ -207,11 +202,8 @@ export default function ProjectsPage() {
                   <p className="mt-4 flex-1 text-sm leading-7 text-muted">
                     {project.summary}
                   </p>
-                  <p className="mt-auto pt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand">
-                    View case study
-                  </p>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </section>

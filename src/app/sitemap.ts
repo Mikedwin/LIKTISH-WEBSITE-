@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { projects, services } from "@/lib/site-data";
+import { services } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -23,10 +23,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  const projectPages = projects.map((project) => ({
-    url: `https://liktishengineering.com/projects/${project.slug}`,
-    lastModified: new Date(),
-  }));
-
-  return [...pages, ...servicePages, ...projectPages];
+  return [...pages, ...servicePages];
 }

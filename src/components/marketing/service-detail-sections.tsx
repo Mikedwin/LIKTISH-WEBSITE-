@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FAQAccordion } from "@/components/marketing/faq-accordion";
 import { SectionHeading } from "@/components/shared/section-heading";
 import type { ProjectData, ServicePageData } from "@/types/site";
@@ -129,12 +128,6 @@ export function ServiceDetailSections({
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
               {relatedProject.summary}
             </p>
-            <Link
-              href={`/projects/${relatedProject.slug}`}
-              className="mt-6 inline-flex text-[11px] font-semibold uppercase tracking-[0.18em] text-brand"
-            >
-              View case study
-            </Link>
           </div>
         </section>
       ) : null}
