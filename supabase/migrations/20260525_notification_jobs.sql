@@ -46,7 +46,9 @@ alter table public.notification_jobs enable row level security;
 
 revoke all on public.notification_logs from public, anon, authenticated;
 revoke all on public.notification_jobs from public, anon, authenticated;
+
 grant all on public.notification_logs to service_role;
 grant all on public.notification_jobs to service_role;
+
 grant usage, select on sequence public.notification_logs_id_seq to service_role;
 grant usage, select on sequence public.notification_jobs_id_seq to service_role;

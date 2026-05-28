@@ -1,13 +1,17 @@
 import "server-only";
 
 import { createHash } from "node:crypto";
+import { after } from "next/server";
+import { isProductionRuntime } from "@/lib/env";
+import { SecurityControlUnavailableError } from "@/lib/errors";
 import { logAbuseEvent } from "@/lib/security/abuse-log";
 import { hasSupabaseAdminConfig } from "@/lib/supabase/config";
-import { supabaseInsert } from "@/lib/supabase/rest";
+import { supabaseInsert, supabaseRpc, supabaseUpdate } from "@/lib/supabase/rest";
 
 type NotificationChannel = "email" | "sms" | "admin";
 type NotificationMode = "sendgrid" | "hubtel" | "env-missing" | "mock" | "logged-only";
 type NotificationStatus = "queued" | "sent" | "failed" | "skipped";
+type NotificationJobStatus = "queued" | "processing" | "sent" | "failed";
 
 interface NotificationPayload {
   subject: string;
@@ -28,6 +32,10 @@ interface NotificationLogRow {
   error_message?: string | null;
 }
 
+interface QueuedNotificationJob {
+  id: number;
+}
+
 declare global {
   var __liktishNotificationDedupeStore:
     | Map<
@@ -43,6 +51,8 @@ const notificationDedupeStore =
   globalThis.__liktishNotificationDedupeStore ??
   (globalThis.__liktishNotificationDedupeStore = new Map());
 const NOTIFICATION_DEDUPE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_LOG_MESSAGE_LENGTH = 180;
+const MAX_ERROR_MESSAGE_LENGTH = 500;
 
 function getNotificationConfig() {
   return {
@@ -64,20 +74,89 @@ async function logNotification(entry: NotificationLogRow) {
   try {
     await supabaseInsert("notification_logs", {
       channel: entry.channel,
-      recipient: entry.recipient,
+      recipient: redactRecipient(entry.recipient),
       subject: entry.subject,
-      message: entry.message,
+      message: redactMessage(entry.message),
       mode: entry.mode,
       status: entry.status,
       provider_message_id: entry.provider_message_id ?? null,
-      error_message: entry.error_message ?? null,
+      error_message: entry.error_message ? redactError(entry.error_message) : null,
     });
   } catch (error) {
     console.error("Unable to log notification", error);
   }
 }
 
-function shouldSuppressNotification(payload: NotificationPayload) {
+function redactRecipient(value: string) {
+  return value
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      if (part.includes("@")) {
+        const [localPart, domain] = part.split("@");
+        if (!localPart || !domain) return "[redacted-email]";
+        const visible = localPart.length > 2
+          ? `${localPart.at(0)}***${localPart.at(-1)}`
+          : "***";
+        return `${visible}@${domain}`;
+      }
+
+      const digits = part.replace(/\D/g, "");
+      if (digits.length >= 7) {
+        return `***${digits.slice(-4)}`;
+      }
+
+      return part;
+    })
+    .join(", ");
+}
+
+function redactMessage(value: string) {
+  const compact = value
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[redacted-email]")
+    .replace(/\+?\d[\d\s().-]{6,}\d/g, "[redacted-phone]")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (compact.length <= MAX_LOG_MESSAGE_LENGTH) {
+    return compact;
+  }
+
+  return `${compact.slice(0, MAX_LOG_MESSAGE_LENGTH - 1)}…`;
+}
+
+function redactError(value: string) {
+  return redactMessage(value).slice(0, MAX_ERROR_MESSAGE_LENGTH);
+}
+
+function scheduleNotificationWork(work: () => Promise<unknown>) {
+  after(async () => {
+    try {
+      await work();
+    } catch (error) {
+      console.error("Queued notification delivery failed", error);
+    }
+  });
+}
+
+async function updateNotificationJob(
+  id: number,
+  status: NotificationJobStatus,
+  fields: Record<string, unknown> = {},
+) {
+  if (!hasSupabaseAdminConfig()) {
+    return;
+  }
+
+  await supabaseUpdate("notification_jobs", { id }, {
+    status,
+    updated_at: new Date().toISOString(),
+    ...fields,
+  });
+}
+
+function shouldSuppressNotificationInMemory(fingerprint: string) {
   const now = Date.now();
 
   for (const [key, value] of notificationDedupeStore.entries()) {
@@ -86,10 +165,6 @@ function shouldSuppressNotification(payload: NotificationPayload) {
     }
   }
 
-  const fingerprint = createHash("sha256")
-    .update(`${payload.recipient}::${payload.subject}::${payload.message}`)
-    .digest("hex");
-
   const existing = notificationDedupeStore.get(fingerprint);
   if (existing && now - existing.createdAt <= NOTIFICATION_DEDUPE_WINDOW_MS) {
     return true;
@@ -97,6 +172,27 @@ function shouldSuppressNotification(payload: NotificationPayload) {
 
   notificationDedupeStore.set(fingerprint, { createdAt: now });
   return false;
+}
+
+async function shouldSuppressNotification(payload: NotificationPayload) {
+  const fingerprint = createHash("sha256")
+    .update(`${payload.recipient}::${payload.subject}::${payload.message}`)
+    .digest("hex");
+
+  if (!hasSupabaseAdminConfig()) {
+    if (!isProductionRuntime()) {
+      return shouldSuppressNotificationInMemory(fingerprint);
+    }
+
+    throw new SecurityControlUnavailableError(
+      "Supabase admin configuration is required for production notification dedupe.",
+    );
+  }
+
+  return supabaseRpc<boolean>("check_notification_dedupe", {
+    p_fingerprint: fingerprint,
+    p_window_seconds: Math.ceil(NOTIFICATION_DEDUPE_WINDOW_MS / 1000),
+  });
 }
 
 async function postSendgridEmail(payload: NotificationPayload) {
@@ -278,11 +374,11 @@ export async function sendSmsNotification(payload: NotificationPayload) {
   return sendHubtelSms(payload);
 }
 
-export async function sendAdminNotification(payload: NotificationPayload) {
+async function deliverAdminNotification(payload: NotificationPayload) {
   const { adminNotificationEmail, adminNotificationPhone } = getNotificationConfig();
   const results: unknown[] = [];
 
-  if (shouldSuppressNotification(payload)) {
+  if (await shouldSuppressNotification(payload)) {
     await logNotification({
       channel: "admin",
       recipient: [adminNotificationEmail, adminNotificationPhone].filter(Boolean).join(", "),
@@ -357,6 +453,91 @@ export async function sendAdminNotification(payload: NotificationPayload) {
     mode: "logged-only" as const,
     status: "sent" as const,
     deliveries: results,
+    ...payload,
+  };
+}
+
+async function deliverQueuedAdminNotification(
+  jobId: number | null,
+  payload: NotificationPayload,
+) {
+  if (jobId) {
+    await updateNotificationJob(jobId, "processing", {
+      attempts: 1,
+      last_error: null,
+    });
+  }
+
+  try {
+    const result = await deliverAdminNotification(payload);
+
+    if (jobId) {
+      await updateNotificationJob(jobId, "sent", {
+        message: "[processed]",
+        html_message: null,
+        reply_to: null,
+        processed_at: new Date().toISOString(),
+      });
+    }
+
+    return result;
+  } catch (error) {
+    if (jobId) {
+      await updateNotificationJob(jobId, "failed", {
+        last_error: redactError(error instanceof Error ? error.message : "Unknown error"),
+      });
+    }
+
+    throw error;
+  }
+}
+
+export async function sendAdminNotification(payload: NotificationPayload) {
+  if (!hasSupabaseAdminConfig()) {
+    if (isProductionRuntime()) {
+      throw new SecurityControlUnavailableError(
+        "Supabase admin configuration is required for production notification queueing.",
+      );
+    }
+
+    scheduleNotificationWork(() => deliverQueuedAdminNotification(null, payload));
+    return {
+      channel: "admin" as const,
+      mode: "logged-only" as const,
+      status: "queued" as const,
+      ...payload,
+    };
+  }
+
+  const [job] = await supabaseInsert<QueuedNotificationJob>("notification_jobs", {
+    notification_type: "admin",
+    subject: payload.subject,
+    recipient_label: payload.recipient,
+    message: payload.message,
+    html_message: payload.htmlMessage ?? null,
+    reply_to: payload.replyTo ?? null,
+    status: "queued",
+    attempts: 0,
+  });
+
+  if (job?.id) {
+    scheduleNotificationWork(() => deliverQueuedAdminNotification(job.id, payload));
+  }
+
+  await logNotification({
+    channel: "admin",
+    recipient: payload.recipient,
+    subject: payload.subject,
+    message: payload.message,
+    mode: "logged-only",
+    status: "queued",
+  });
+
+  return {
+    channel: "admin" as const,
+    mode: "logged-only" as const,
+    status: "queued" as const,
+    jobId: job?.id ?? null,
     ...payload,
   };
 }

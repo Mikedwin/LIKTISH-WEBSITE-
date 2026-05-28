@@ -1,4 +1,11 @@
 import { NextResponse } from "next/server";
+import {
+  buildPayloadIdempotencyKey,
+  claimIdempotencyKey,
+  completeIdempotencyKey,
+} from "@/lib/api/idempotency";
+import { getLeadMetadata, getRequestId, readJsonObjectRequest } from "@/lib/api/requests";
+import { handleApiError, jsonError, jsonSuccess, runAfterLeadSaved } from "@/lib/api/responses";
 import { createSolarAssessment } from "@/lib/lead-store";
 import { sendAdminNotification } from "@/lib/notifications";
 import { logAbuseEvent } from "@/lib/security/abuse-log";
@@ -8,6 +15,10 @@ import { checkSpamProtection } from "@/lib/security/spam-protection";
 import { hasTurnstileConfig, verifyTurnstileToken } from "@/lib/security/turnstile";
 import { validateSolarAssessmentInput } from "@/lib/validation/forms";
 import type { SolarAssessmentInput } from "@/types/site";
+
+const ROUTE = "/api/solar-assessment";
+const IDEMPOTENCY_TTL_SECONDS = 10 * 60;
+const MAX_BODY_BYTES = 12 * 1024;
 
 function escapeHtml(value: string) {
   return value
@@ -110,97 +121,150 @@ function buildSolarAssessmentHtmlEmail(payload: SolarAssessmentInput, submittedA
 }
 
 export async function POST(request: Request) {
-  const payload = normalizeSolarAssessmentInput(
-    (await request.json()) as Partial<SolarAssessmentInput>,
-  );
-  const ip = getRequestIp(request);
-  const rateLimit = checkRateLimit(`solar-assessment:${ip}`, {
-    limit: 4,
-    windowMs: 10 * 60 * 1000,
-  });
+  const requestId = getRequestId(request);
 
-  if (!rateLimit.allowed) {
-    await logAbuseEvent({
-      route: "/api/solar-assessment",
-      type: "rate_limited",
-      ipAddress: ip,
-      details: "Solar assessment rate limit exceeded.",
+  try {
+    const rawPayload = await readJsonObjectRequest(request, { maxBytes: MAX_BODY_BYTES });
+    const payload = normalizeSolarAssessmentInput(
+      rawPayload as Partial<SolarAssessmentInput>,
+    );
+    const ip = getRequestIp(request);
+    const rateLimit = await checkRateLimit(`solar-assessment:${ip}`, {
+      limit: 4,
+      windowMs: 10 * 60 * 1000,
     });
-    return NextResponse.json(
-      {
-        error:
+
+    if (!rateLimit.allowed) {
+      await logAbuseEvent({
+        route: ROUTE,
+        type: "rate_limited",
+        ipAddress: ip,
+        details: "Solar assessment rate limit exceeded.",
+      });
+      return jsonError({
+        code: "rate_limited",
+        message:
           "Too many assessment requests in a short time. Please wait a little and try again.",
-      },
-      {
+        requestId,
         status: 429,
         headers: {
           "Retry-After": String(rateLimit.retryAfterSeconds),
         },
-      },
-    );
-  }
-
-  const spamCheck = checkSpamProtection(payload, [
-    payload.name ?? "",
-    payload.address ?? "",
-    payload.email ?? "",
-    payload.phone ?? "",
-    payload.helpNeeded ?? "",
-  ]);
-
-  if (!spamCheck.valid) {
-    await logAbuseEvent({
-      route: "/api/solar-assessment",
-      type: "spam_rejected",
-      ipAddress: ip,
-      details: spamCheck.message,
-    });
-    return NextResponse.json(
-      { message: spamCheck.message, error: spamCheck.message },
-      { status: spamCheck.status },
-    );
-  }
-
-  if (hasTurnstileConfig()) {
-    const turnstileValid = await verifyTurnstileToken(payload.turnstileToken, ip);
-
-    if (!turnstileValid) {
-      await logAbuseEvent({
-        route: "/api/solar-assessment",
-        type: "turnstile_failed",
-        ipAddress: ip,
-        details: "Turnstile verification failed.",
       });
+    }
+
+    const spamCheck = checkSpamProtection(payload, [
+      payload.name ?? "",
+      payload.address ?? "",
+      payload.email ?? "",
+      payload.phone ?? "",
+      payload.helpNeeded ?? "",
+    ]);
+
+    if (!spamCheck.valid) {
+      await logAbuseEvent({
+        route: ROUTE,
+        type: "spam_rejected",
+        ipAddress: ip,
+        details: spamCheck.message,
+      });
+      if (spamCheck.status === 200) {
+        return jsonSuccess({ message: spamCheck.message }, { requestId });
+      }
+
+      return jsonError({
+        code: "spam_rejected",
+        message: spamCheck.message,
+        requestId,
+        status: spamCheck.status,
+      });
+    }
+
+    if (hasTurnstileConfig()) {
+      const turnstileValid = await verifyTurnstileToken(payload.turnstileToken, ip);
+
+      if (!turnstileValid) {
+        await logAbuseEvent({
+          route: ROUTE,
+          type: "turnstile_failed",
+          ipAddress: ip,
+          details: "Turnstile verification failed.",
+        });
+        return jsonError({
+          code: "turnstile_failed",
+          message: "Verification failed. Please try again and complete the check.",
+          requestId,
+          status: 400,
+        });
+      }
+    }
+
+    const validation = validateSolarAssessmentInput(payload);
+
+    if (!validation.valid) {
+      return jsonError({
+        code: "validation_failed",
+        message: validation.errors.join(" "),
+        requestId,
+        status: 400,
+      });
+    }
+
+    const assessment = payload as SolarAssessmentInput;
+    const submittedAt = formatSubmittedAt();
+    const idempotencyKey =
+      request.headers.get("idempotency-key")?.trim() ||
+      buildPayloadIdempotencyKey(ROUTE, payload as Record<string, unknown>);
+    const idempotencyClaim = await claimIdempotencyKey({
+      route: ROUTE,
+      key: idempotencyKey,
+      ttlSeconds: IDEMPOTENCY_TTL_SECONDS,
+    });
+
+    if (idempotencyClaim.state === "duplicate") {
       return NextResponse.json(
-        { error: "Verification failed. Please try again and complete the check." },
-        { status: 400 },
+        {
+          ...idempotencyClaim.responseBody,
+          requestId,
+        },
+        {
+          status: idempotencyClaim.responseStatus,
+          headers: {
+            "X-Request-Id": requestId,
+            "X-Idempotent-Replay": "true",
+          },
+        },
       );
     }
-  }
 
-  const validation = validateSolarAssessmentInput(payload);
-
-  if (!validation.valid) {
-    return NextResponse.json(
-      { error: validation.errors.join(" ") },
-      { status: 400 },
+    await createSolarAssessment(
+      assessment,
+      getLeadMetadata(request, requestId, ROUTE),
     );
+    const responseBody = {
+      ok: true,
+      code: "ok",
+      message:
+        "Your solar assessment request has been sent. LIKTISH will review it and follow up soon.",
+    };
+    await completeIdempotencyKey({
+      route: ROUTE,
+      key: idempotencyKey,
+      status: 200,
+      body: responseBody,
+    });
+    await runAfterLeadSaved(ROUTE, () =>
+      sendAdminNotification({
+        subject: `Solar assessment request: ${assessment.name}`,
+        recipient: "LIKTISH admin",
+        message: buildSolarAssessmentTextEmail(assessment, submittedAt),
+        htmlMessage: buildSolarAssessmentHtmlEmail(assessment, submittedAt),
+        replyTo: assessment.email,
+      }),
+    );
+
+    return jsonSuccess({ message: responseBody.message }, { requestId });
+  } catch (error) {
+    return handleApiError(error, ROUTE, requestId);
   }
-
-  const assessment = payload as SolarAssessmentInput;
-  const submittedAt = formatSubmittedAt();
-
-  await createSolarAssessment(assessment);
-  await sendAdminNotification({
-    subject: `Solar assessment request: ${assessment.name}`,
-    recipient: "LIKTISH admin",
-    message: buildSolarAssessmentTextEmail(assessment, submittedAt),
-    htmlMessage: buildSolarAssessmentHtmlEmail(assessment, submittedAt),
-    replyTo: assessment.email,
-  });
-
-  return NextResponse.json({
-    message:
-      "Your solar assessment request has been sent. LIKTISH will review it and follow up soon.",
-  });
 }

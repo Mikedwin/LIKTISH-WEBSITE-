@@ -74,6 +74,26 @@ export async function supabaseInsert<T>(table: string, payload: Record<string, u
   return parseResponse<T[]>(response);
 }
 
+export async function supabaseRpc<T>(functionName: string, payload: Record<string, unknown>) {
+  if (!hasSupabaseAdminConfig()) {
+    throw new Error("Supabase admin configuration is missing.");
+  }
+
+  const { url, serviceRoleKey } = getSupabaseConfig();
+  const response = await fetch(`${url}/rest/v1/rpc/${functionName}`, {
+    method: "POST",
+    headers: {
+      apikey: serviceRoleKey,
+      Authorization: `Bearer ${serviceRoleKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+    cache: "no-store",
+  });
+
+  return parseResponse<T>(response);
+}
+
 export async function supabaseUpdate<T>(
   table: string,
   filters: Record<string, Primitive>,

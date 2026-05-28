@@ -7,6 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "backup:check": "node scripts/backup-readiness.mjs",
     "test": "node --experimental-strip-types --test tests/solar-calculator.test.ts"
   },
   "dependencies": {

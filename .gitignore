@@ -31,13 +31,23 @@ yarn-error.log*
 .pnpm-debug.log*
 .dev-server*.log
 .next-dev*
+.backup-readiness.env.tmp
+
+# backup exports contain production data and must stay private
+/backups
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
 
+# supabase local metadata
+supabase/.temp
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

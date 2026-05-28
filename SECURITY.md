@@ -10,9 +10,25 @@ This project is a lightweight marketing site with server-side lead capture. It d
   - `/api/solar-assessment`
 - Honeypot and minimum-form-time spam checks on live forms
 - Optional Cloudflare Turnstile support
+- JSON content-type and request-size enforcement on form APIs
+- API idempotency controls to reduce duplicate lead inserts on retries
+- Request IDs on API responses and server logs for easier incident tracing
 - Server-only boundaries around Supabase service-role access and notification code
 - Duplicate admin-notification suppression to reduce inbox flooding
 - Abuse-event logging support in Supabase
+- Supabase-backed notification queueing so lead submissions do not wait on provider delivery
+- Redacted notification logs to reduce unnecessary personal-data duplication
+- Lead lifecycle, source, consent timestamp, and retention metadata in Supabase
+- Admin-only lead anonymization for privacy requests and accidental data exposure
+- Service-role cleanup functions for expired operational records and expired closed/spam leads
+- Signed admin dashboard sessions with `admin` and `viewer` roles
+- Same-origin enforcement on admin POST endpoints to reduce CSRF risk
+- Admin audit logging for login, logout, lead status updates, and CSV export
+- Production-safe `/api/health` checks for required configuration and Supabase reachability
+- `CRON_SECRET`-protected scheduled maintenance for operational cleanup and retained closed/spam leads
+- Supabase-backed operational events for health degradation, maintenance runs, and cron abuse attempts
+- Admin alert queueing for health degradation and maintenance failures
+- Admin-only test alert endpoint for verifying operations alert routing
 - Security headers in `next.config.ts`
 
 ## Required Live Configuration
@@ -51,6 +67,8 @@ This enables row level security, revokes browser-side access to lead tables and 
 - Review who can read and edit production environment variables.
 - Remove stale collaborators from the Vercel project.
 - Use separate environment scopes for preview and production where practical.
+- Use a long random `ADMIN_SESSION_SECRET`.
+- Rotate `ADMIN_DASHBOARD_PASSWORD` when admin access changes.
 
 ### Email security and deliverability
 
@@ -61,6 +79,8 @@ This enables row level security, revokes browser-side access to lead tables and 
 ### Backup and recovery readiness
 
 - Confirm Supabase backups are enabled for the project plan in use.
+- Run `npm run backup:check` before major releases and after access changes.
+- Keep manual database exports in a private encrypted location, never in Git.
 - Decide who responds if spam floods the forms or inbox.
 - Decide who rotates keys if one is exposed.
 - Keep a short incident note with:
@@ -75,6 +95,8 @@ Run these checks before major deploys:
 
 ```bash
 npm run lint
+npm run typecheck
+npm test
 npm run build
 npm audit
 ```
