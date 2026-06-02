@@ -44,8 +44,8 @@ To enable it:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
-   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (optional)
-   - `TURNSTILE_SECRET_KEY` (optional)
+   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
+   - `TURNSTILE_SECRET_KEY`
 5. Restart the app.
 
 The main schema also creates the shared production rate-limit, API idempotency, notification-dedupe, lead lifecycle, and retention tables/functions used by the API routes.
@@ -80,7 +80,7 @@ If provider credentials are missing, the app safely skips delivery and records t
 
 ## Security
 
-The live forms now include lightweight anti-abuse protection, optional Turnstile support, shared production rate limiting, request size checks, idempotency, request IDs, and server-only Supabase handling.
+The live forms now include lightweight anti-abuse protection, required production Turnstile support, shared production rate limiting, request size checks, idempotency, request IDs, and server-only Supabase handling.
 
 The admin dashboard is available at `/admin` and requires:
 

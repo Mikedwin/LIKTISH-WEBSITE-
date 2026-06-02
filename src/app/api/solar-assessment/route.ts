@@ -12,7 +12,7 @@ import { logAbuseEvent } from "@/lib/security/abuse-log";
 import { normalizeSolarAssessmentInput } from "@/lib/security/form-normalization";
 import { checkRateLimit, getRequestIp } from "@/lib/security/rate-limit";
 import { checkSpamProtection } from "@/lib/security/spam-protection";
-import { hasTurnstileConfig, verifyTurnstileToken } from "@/lib/security/turnstile";
+import { shouldEnforceTurnstile, verifyTurnstileToken } from "@/lib/security/turnstile";
 import { validateSolarAssessmentInput } from "@/lib/validation/forms";
 import type { SolarAssessmentInput } from "@/types/site";
 
@@ -180,7 +180,7 @@ export async function POST(request: Request) {
       });
     }
 
-    if (hasTurnstileConfig()) {
+    if (shouldEnforceTurnstile()) {
       const turnstileValid = await verifyTurnstileToken(payload.turnstileToken, ip);
 
       if (!turnstileValid) {

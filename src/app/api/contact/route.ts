@@ -12,7 +12,7 @@ import { logAbuseEvent } from "@/lib/security/abuse-log";
 import { normalizeContactInput } from "@/lib/security/form-normalization";
 import { checkRateLimit, getRequestIp } from "@/lib/security/rate-limit";
 import { checkSpamProtection } from "@/lib/security/spam-protection";
-import { hasTurnstileConfig, verifyTurnstileToken } from "@/lib/security/turnstile";
+import { shouldEnforceTurnstile, verifyTurnstileToken } from "@/lib/security/turnstile";
 import { validateContactInput } from "@/lib/validation/forms";
 import type { ContactInput } from "@/types/site";
 
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
       });
     }
 
-    if (hasTurnstileConfig()) {
+    if (shouldEnforceTurnstile()) {
       const turnstileValid = await verifyTurnstileToken(payload.turnstileToken, ip);
 
       if (!turnstileValid) {

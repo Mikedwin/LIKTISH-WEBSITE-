@@ -9,7 +9,7 @@ This project is a lightweight marketing site with server-side lead capture. It d
   - `/api/savings-leads`
   - `/api/solar-assessment`
 - Honeypot and minimum-form-time spam checks on live forms
-- Optional Cloudflare Turnstile support
+- Required Cloudflare Turnstile support for production lead forms
 - JSON content-type and request-size enforcement on form APIs
 - API idempotency controls to reduce duplicate lead inserts on retries
 - Request IDs on API responses and server logs for easier incident tracing
@@ -42,7 +42,8 @@ To enable the CAPTCHA layer, add these environment variables in Vercel and local
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
 - `TURNSTILE_SECRET_KEY`
 
-If they are absent, the forms continue to work without Turnstile.
+In production, these variables are required. If they are absent, health checks
+degrade and form submissions fail closed instead of bypassing verification.
 
 ### Supabase SQL
 

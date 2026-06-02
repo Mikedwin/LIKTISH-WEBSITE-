@@ -1,5 +1,8 @@
 import "server-only";
 
+import { isProductionRuntime } from "@/lib/env";
+import { SecurityControlUnavailableError } from "@/lib/errors";
+
 function getTurnstileConfig() {
   return {
     siteKey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "",
@@ -10,6 +13,18 @@ function getTurnstileConfig() {
 export function hasTurnstileConfig() {
   const config = getTurnstileConfig();
   return Boolean(config.siteKey && config.secretKey);
+}
+
+export function shouldEnforceTurnstile() {
+  return isProductionRuntime() || hasTurnstileConfig();
+}
+
+export function assertTurnstileConfigured() {
+  if (shouldEnforceTurnstile() && !hasTurnstileConfig()) {
+    throw new SecurityControlUnavailableError(
+      "Turnstile site and secret keys are required for production form protection.",
+    );
+  }
 }
 
 export function getTurnstileSiteKey() {
@@ -23,7 +38,8 @@ export async function verifyTurnstileToken(
   const { secretKey } = getTurnstileConfig();
 
   if (!secretKey) {
-    return true;
+    assertTurnstileConfigured();
+    return false;
   }
 
   if (!token) {
