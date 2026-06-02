@@ -84,6 +84,7 @@ The live forms now include lightweight anti-abuse protection, optional Turnstile
 
 The admin dashboard is available at `/admin` and requires:
 
+- `ADMIN_USERS_JSON` (recommended hashed multi-user config)
 - `ADMIN_DASHBOARD_USERNAME`
 - `ADMIN_DASHBOARD_PASSWORD`
 - `ADMIN_DASHBOARD_ROLE` (`admin` or `viewer`)
@@ -91,6 +92,8 @@ The admin dashboard is available at `/admin` and requires:
 - `ADMIN_ALLOWED_ORIGINS` (optional comma-separated admin origins)
 
 Use the `viewer` role for read-only access. The `admin` role can update lead status and export CSV files.
+Use `npm run admin:hash-password -- "your-password"` to generate password hashes
+for `ADMIN_USERS_JSON`. Keep plaintext admin passwords out of shared notes.
 Admins can also anonymize individual leads from the dashboard. This replaces
 stored personal data with safe placeholders, audits the action, records an
 operational event, and marks the record for retention cleanup.

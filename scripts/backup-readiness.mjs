@@ -7,6 +7,7 @@ const REQUIRED_VERCEL_ENV = [
   "NEXT_PUBLIC_SUPABASE_URL",
   "NEXT_PUBLIC_SUPABASE_ANON_KEY",
   "SUPABASE_SERVICE_ROLE_KEY",
+  "ADMIN_USERS_JSON",
   "ADMIN_DASHBOARD_USERNAME",
   "ADMIN_DASHBOARD_PASSWORD",
   "ADMIN_DASHBOARD_ROLE",
@@ -47,6 +48,7 @@ function run(command, args, options = {}) {
     cwd: root,
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
+    timeout: 60_000,
     ...options,
   });
 }

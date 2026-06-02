@@ -1,6 +1,6 @@
 import "server-only";
 
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, pbkdf2Sync, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { isProductionRuntime } from "@/lib/env";
 
@@ -15,6 +15,13 @@ export interface AdminSession {
 
 export const ADMIN_SESSION_COOKIE = "liktish_admin_session";
 const SESSION_TTL_SECONDS = 60 * 60 * 8;
+const PASSWORD_HASH_ALGORITHM = "pbkdf2_sha256";
+
+type AdminUserConfig = {
+  username: string;
+  role: AdminRole;
+  passwordHash: string;
+};
 
 function getAdminConfig() {
   return {
@@ -23,6 +30,51 @@ function getAdminConfig() {
     role: (process.env.ADMIN_DASHBOARD_ROLE === "viewer" ? "viewer" : "admin") as AdminRole,
     sessionSecret: process.env.ADMIN_SESSION_SECRET ?? "",
   };
+}
+
+function normalizeRole(value: unknown): AdminRole {
+  return value === "viewer" ? "viewer" : "admin";
+}
+
+function getConfiguredAdminUsers() {
+  const rawUsers = process.env.ADMIN_USERS_JSON;
+
+  if (!rawUsers) {
+    return [] satisfies AdminUserConfig[];
+  }
+
+  try {
+    const parsed = JSON.parse(rawUsers) as unknown;
+
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed
+      .map((user) => {
+        if (!user || typeof user !== "object") {
+          return null;
+        }
+
+        const candidate = user as Record<string, unknown>;
+        const username = typeof candidate.username === "string" ? candidate.username.trim() : "";
+        const passwordHash =
+          typeof candidate.passwordHash === "string" ? candidate.passwordHash.trim() : "";
+
+        if (!username || !passwordHash) {
+          return null;
+        }
+
+        return {
+          username,
+          passwordHash,
+          role: normalizeRole(candidate.role),
+        };
+      })
+      .filter((user): user is AdminUserConfig => Boolean(user));
+  } catch {
+    return [];
+  }
 }
 
 function getSessionSecret() {
@@ -41,13 +93,14 @@ function getSessionSecret() {
 
 export function assertAdminAuthConfigured() {
   const { password, sessionSecret } = getAdminConfig();
+  const users = getConfiguredAdminUsers();
 
   if (!isProductionRuntime()) {
     return;
   }
 
   const missing = [
-    !password && "ADMIN_DASHBOARD_PASSWORD",
+    users.length === 0 && !password && "ADMIN_USERS_JSON or ADMIN_DASHBOARD_PASSWORD",
     !sessionSecret && "ADMIN_SESSION_SECRET",
   ].filter(Boolean);
 
@@ -71,8 +124,43 @@ function safeEqual(left: string, right: string) {
   return timingSafeEqual(leftBuffer, rightBuffer);
 }
 
+function verifyPasswordHash(password: string, encodedHash: string) {
+  const [algorithm, iterationsValue, salt, expectedHash] = encodedHash.split("$");
+  const iterations = Number(iterationsValue);
+
+  if (
+    algorithm !== PASSWORD_HASH_ALGORITHM ||
+    !Number.isInteger(iterations) ||
+    iterations < 100_000 ||
+    !salt ||
+    !expectedHash
+  ) {
+    return false;
+  }
+
+  const actualHash = pbkdf2Sync(password, salt, iterations, 32, "sha256").toString("base64url");
+  return safeEqual(actualHash, expectedHash);
+}
+
+function getAdminUser(username: string) {
+  return getConfiguredAdminUsers().find((user) => user.username === username) ?? null;
+}
+
+function getAdminRole(username: string): AdminRole {
+  return getAdminUser(username)?.role ?? getAdminConfig().role;
+}
+
 export function verifyAdminCredentials(username: string, password: string) {
   assertAdminAuthConfigured();
+
+  const user = getAdminUser(username);
+  if (user) {
+    return verifyPasswordHash(password, user.passwordHash);
+  }
+
+  if (getConfiguredAdminUsers().length > 0) {
+    return false;
+  }
 
   const config = getAdminConfig();
   if (!config.password) {
@@ -86,7 +174,7 @@ export function createAdminSession(username: string): AdminSession {
   const now = Math.floor(Date.now() / 1000);
   return {
     username,
-    role: getAdminConfig().role,
+    role: getAdminRole(username),
     issuedAt: now,
     expiresAt: now + SESSION_TTL_SECONDS,
   };

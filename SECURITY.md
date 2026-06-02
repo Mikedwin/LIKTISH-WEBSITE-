@@ -22,6 +22,8 @@ This project is a lightweight marketing site with server-side lead capture. It d
 - Admin-only lead anonymization for privacy requests and accidental data exposure
 - Service-role cleanup functions for expired operational records and expired closed/spam leads
 - Signed admin dashboard sessions with `admin` and `viewer` roles
+- Hashed multi-admin credentials through `ADMIN_USERS_JSON`
+- Supabase-backed admin login rate limiting
 - Same-origin enforcement on admin POST endpoints to reduce CSRF risk
 - Admin audit logging for login, logout, lead status updates, and CSV export
 - Production-safe `/api/health` checks for required configuration and Supabase reachability
@@ -68,7 +70,8 @@ This enables row level security, revokes browser-side access to lead tables and 
 - Remove stale collaborators from the Vercel project.
 - Use separate environment scopes for preview and production where practical.
 - Use a long random `ADMIN_SESSION_SECRET`.
-- Rotate `ADMIN_DASHBOARD_PASSWORD` when admin access changes.
+- Prefer `ADMIN_USERS_JSON` password hashes over plaintext `ADMIN_DASHBOARD_PASSWORD`.
+- Rotate admin credentials when admin access changes.
 
 ### Email security and deliverability
 

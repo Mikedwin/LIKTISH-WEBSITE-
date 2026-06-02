@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "backup:check": "node scripts/backup-readiness.mjs",
+    "admin:hash-password": "node scripts/hash-admin-password.mjs",
     "test": "node --experimental-strip-types --test tests/solar-calculator.test.ts"
   },
   "dependencies": {
