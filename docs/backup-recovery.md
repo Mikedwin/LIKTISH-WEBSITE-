@@ -35,6 +35,8 @@ The check verifies:
 - local and remote Supabase migrations are aligned
 - Vercel CLI is available and the project is linked
 - required Vercel production environment variable names exist
+- Supabase backup/PITR status is readable from the CLI
+- the selected recovery tier has been explicitly confirmed in production env metadata
 - live `/api/health` returns healthy status
 
 The command prints only environment variable names and presence status. It must
@@ -43,8 +45,40 @@ not print secret values.
 ## Supabase Backup Procedure
 
 Confirm the Supabase project dashboard has backups enabled for the project plan.
-If point-in-time recovery is available, record the retention window in the
-private operations notes for LIKTISH.
+Point-in-time recovery is the strongest option, but it is a paid add-on. If the
+business does not buy PITR, record the accepted daily-backup recovery tier and
+its recovery point objective in private operations notes for LIKTISH.
+
+The current readiness gate requires these production environment variables after
+Supabase backup settings have been reviewed.
+
+For the paid PITR tier:
+
+- `SUPABASE_BACKUP_TIER=pitr`
+- `SUPABASE_PITR_CONFIRMED=true`
+- `SUPABASE_DAILY_BACKUPS_CONFIRMED=false`
+- `SUPABASE_BACKUP_RPO_HOURS=<PITR retention objective in hours>`
+- `SUPABASE_BACKUP_POLICY_CONFIRMED_AT=YYYY-MM-DD`
+- `SUPABASE_BACKUP_POLICY_OWNER=<owner name or team>`
+
+For the Pro daily-backup tier without PITR:
+
+- `SUPABASE_BACKUP_TIER=daily`
+- `SUPABASE_PITR_CONFIRMED=false`
+- `SUPABASE_DAILY_BACKUPS_CONFIRMED=true`
+- `SUPABASE_BACKUP_RPO_HOURS=24`
+- `SUPABASE_BACKUP_POLICY_CONFIRMED_AT=YYYY-MM-DD`
+- `SUPABASE_BACKUP_POLICY_OWNER=<owner name or team>`
+
+Use the CLI to verify the project:
+
+```bash
+supabase backups list --output json
+```
+
+The project is not fully backup-ready until `pitr_enabled` is `true` for the
+PITR tier, or daily backups are confirmed and the business accepts the 24-hour
+RPO for the daily tier.
 
 For a manual schema snapshot:
 
@@ -106,6 +140,12 @@ Required production variables include:
 - `ADMIN_DASHBOARD_ROLE`
 - `ADMIN_SESSION_SECRET`
 - `CRON_SECRET`
+- `SUPABASE_BACKUP_TIER`
+- `SUPABASE_PITR_CONFIRMED`
+- `SUPABASE_DAILY_BACKUPS_CONFIRMED`
+- `SUPABASE_BACKUP_POLICY_CONFIRMED_AT`
+- `SUPABASE_BACKUP_POLICY_OWNER`
+- `SUPABASE_BACKUP_RPO_HOURS`
 
 Optional production variables include:
 

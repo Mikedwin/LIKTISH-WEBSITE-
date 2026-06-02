@@ -17,6 +17,10 @@ export async function GET(request: Request) {
       metadata: {
         missing: report.checks.environment.missing,
         supabaseReachable: report.checks.supabase.reachable,
+        backupStatus: report.checks.backup.status,
+        backupTier: report.checks.backup.tier,
+        pitrConfirmed: report.checks.backup.pitrConfirmed,
+        dailyBackupsConfirmed: report.checks.backup.dailyBackupsConfirmed,
       },
       alert: true,
     });

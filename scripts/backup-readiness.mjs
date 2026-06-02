@@ -15,6 +15,12 @@ const REQUIRED_VERCEL_ENV = [
   "ADMIN_DASHBOARD_ROLE",
   "ADMIN_SESSION_SECRET",
   "CRON_SECRET",
+  "SUPABASE_BACKUP_TIER",
+  "SUPABASE_PITR_CONFIRMED",
+  "SUPABASE_DAILY_BACKUPS_CONFIRMED",
+  "SUPABASE_BACKUP_POLICY_CONFIRMED_AT",
+  "SUPABASE_BACKUP_POLICY_OWNER",
+  "SUPABASE_BACKUP_RPO_HOURS",
 ];
 
 const OPTIONAL_VERCEL_ENV = [
@@ -31,6 +37,10 @@ const OPTIONAL_VERCEL_ENV = [
 const root = process.cwd();
 const isWindows = process.platform === "win32";
 const results = [];
+const supabaseBackupState = {
+  pitrEnabled: false,
+  physicalBackupAvailable: false,
+};
 const commandOverrides = {
   supabase: isWindows ? join(homedir(), "bin", "supabase-cli", "supabase.exe") : "",
   vercel: isWindows ? join(homedir(), "bin", "vercel-cli", "vercel.cmd") : "",
@@ -89,6 +99,26 @@ function parseEnvNames(contents) {
   return names;
 }
 
+function parseEnvValues(contents) {
+  const values = new Map();
+
+  for (const line of contents.split(/\r?\n/)) {
+    const match = line.match(/^\s*([^#][^=]+?)\s*=\s*(.*)\s*$/);
+    if (match) {
+      let value = match[2].trim();
+      if (
+        (value.startsWith("\"") && value.endsWith("\"")) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+      values.set(match[1].trim(), value);
+    }
+  }
+
+  return values;
+}
+
 function checkGit() {
   if (!commandExists("git")) {
     addResult("Git CLI", "fail", "git is not available on PATH.");
@@ -126,6 +156,33 @@ function checkSupabase() {
   } catch (error) {
     addResult("Supabase migrations", "fail", error.stderr?.toString().trim() || "Unable to list linked migrations.");
   }
+
+  try {
+    const output = run("supabase", ["backups", "list", "--output", "json"]);
+    const parsed = JSON.parse(output);
+    const pitrEnabled = parsed.pitr_enabled === true;
+    const physicalBackupAvailable = parsed.walg_enabled === true;
+    const backups = Array.isArray(parsed.backups) ? parsed.backups : [];
+    supabaseBackupState.pitrEnabled = pitrEnabled;
+    supabaseBackupState.physicalBackupAvailable = physicalBackupAvailable || backups.length > 0;
+
+    addResult(
+      "Supabase PITR",
+      pitrEnabled ? "pass" : "warn",
+      pitrEnabled
+        ? "PITR is enabled according to Supabase."
+        : "PITR is not enabled; this is acceptable only when the confirmed tier is daily backups.",
+    );
+    addResult(
+      "Supabase backup infrastructure",
+      supabaseBackupState.physicalBackupAvailable ? "pass" : "fail",
+      supabaseBackupState.physicalBackupAvailable
+        ? `Backup infrastructure is enabled; ${backups.length} physical backup(s) listed.`
+        : "No backup infrastructure or physical backups listed by Supabase CLI.",
+    );
+  } catch (error) {
+    addResult("Supabase backups", "fail", error.stderr?.toString().trim() || "Unable to list Supabase backups.");
+  }
 }
 
 function checkVercel() {
@@ -159,6 +216,7 @@ function checkVercel() {
   }
 
   const envNames = parseEnvNames(envOutput);
+  const envValues = parseEnvValues(envOutput);
   const missingRequired = REQUIRED_VERCEL_ENV.filter((name) => !envNames.has(name));
   const missingOptional = OPTIONAL_VERCEL_ENV.filter((name) => !envNames.has(name));
 
@@ -172,6 +230,41 @@ function checkVercel() {
     missingOptional.length === 0 ? "pass" : "warn",
     missingOptional.length === 0 ? "All optional names present." : `Not configured: ${missingOptional.join(", ")}`,
   );
+
+  addResult(
+    "Backup policy confirmation",
+    isBackupPolicyConfirmed(envValues)
+      ? "pass"
+      : "fail",
+    "Requires a confirmed pitr or daily tier, owner/date, and documented RPO.",
+  );
+}
+
+function isBackupPolicyConfirmed(envValues) {
+  const tier = envValues.get("SUPABASE_BACKUP_TIER")?.toLowerCase();
+  const rpoHours = Number(envValues.get("SUPABASE_BACKUP_RPO_HOURS"));
+  const hasPolicyMetadata =
+    Boolean(envValues.get("SUPABASE_BACKUP_POLICY_CONFIRMED_AT")) &&
+    Boolean(envValues.get("SUPABASE_BACKUP_POLICY_OWNER")) &&
+    Number.isFinite(rpoHours) &&
+    rpoHours > 0;
+
+  if (!hasPolicyMetadata) {
+    return false;
+  }
+
+  if (tier === "pitr") {
+    return envValues.get("SUPABASE_PITR_CONFIRMED") === "true" && supabaseBackupState.pitrEnabled;
+  }
+
+  if (tier === "daily") {
+    return (
+      envValues.get("SUPABASE_DAILY_BACKUPS_CONFIRMED") === "true" &&
+      supabaseBackupState.physicalBackupAvailable
+    );
+  }
+
+  return false;
 }
 
 async function checkHealth() {
@@ -185,7 +278,7 @@ async function checkHealth() {
     addResult(
       "Live health",
       response.ok && body.ok ? "pass" : "fail",
-      `HTTP ${response.status}; status=${body.status ?? "unknown"}`,
+      `HTTP ${response.status}; status=${body.status ?? "unknown"}; backup=${body.checks?.backup?.status ?? "unknown"}`,
     );
   } catch (error) {
     addResult("Live health", "fail", error instanceof Error ? error.message : "Unable to reach health endpoint.");

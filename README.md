@@ -106,10 +106,15 @@ additional trusted origin.
 The app exposes a production-safe health endpoint at `/api/health`. It returns:
 
 - `200` when required server configuration is present and Supabase is reachable
-- `503` when required configuration is missing or Supabase cannot be reached
+- `503` when required configuration is missing, Supabase cannot be reached, or
+  backup/PITR readiness has not been confirmed
 
 The response includes a request ID and high-level check statuses only. It does not return secret values.
 Degraded health checks are recorded as operational events for admin review.
+Backup readiness is confirmed through `SUPABASE_BACKUP_TIER`,
+`SUPABASE_PITR_CONFIRMED`, `SUPABASE_DAILY_BACKUPS_CONFIRMED`,
+`SUPABASE_BACKUP_RPO_HOURS`, `SUPABASE_BACKUP_POLICY_CONFIRMED_AT`, and
+`SUPABASE_BACKUP_POLICY_OWNER`.
 
 Scheduled maintenance runs daily through Vercel Cron at `/api/cron/maintenance`.
 The endpoint requires `CRON_SECRET` and runs the Supabase cleanup functions for:

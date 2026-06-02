@@ -1,5 +1,6 @@
 import "server-only";
 
+import { getBackupReadiness } from "@/lib/ops/backup";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
 const REQUIRED_ENV = [
@@ -30,6 +31,15 @@ export type HealthReport = {
     supabase: {
       status: HealthCheckStatus;
       reachable: boolean;
+    };
+    backup: {
+      status: HealthCheckStatus;
+      tier: string;
+      pitrConfirmed: boolean;
+      dailyBackupsConfirmed: boolean;
+      backupPolicyConfirmedAt: string | null;
+      backupPolicyOwner: string | null;
+      recoveryPointObjectiveHours: number | null;
     };
   };
 };
@@ -67,10 +77,14 @@ async function checkSupabaseReachability() {
 export async function getHealthReport(): Promise<HealthReport> {
   const missing = REQUIRED_ENV.filter((key) => !process.env[key]);
   const supabaseReachable = await checkSupabaseReachability();
+  const backup = getBackupReadiness();
   const environmentStatus = missing.length === 0 ? "ok" : "degraded";
   const supabaseStatus = supabaseReachable ? "ok" : "degraded";
+  const backupStatus = backup.status === "confirmed" ? "ok" : "degraded";
   const status =
-    environmentStatus === "ok" && supabaseStatus === "ok" ? "ok" : "degraded";
+    environmentStatus === "ok" && supabaseStatus === "ok" && backupStatus === "ok"
+      ? "ok"
+      : "degraded";
 
   return {
     status,
@@ -84,6 +98,15 @@ export async function getHealthReport(): Promise<HealthReport> {
       supabase: {
         status: supabaseStatus,
         reachable: supabaseReachable,
+      },
+      backup: {
+        status: backupStatus,
+        tier: backup.tier,
+        pitrConfirmed: backup.pitrConfirmed,
+        dailyBackupsConfirmed: backup.dailyBackupsConfirmed,
+        backupPolicyConfirmedAt: backup.backupPolicyConfirmedAt,
+        backupPolicyOwner: backup.backupPolicyOwner,
+        recoveryPointObjectiveHours: backup.recoveryPointObjectiveHours,
       },
     },
   };

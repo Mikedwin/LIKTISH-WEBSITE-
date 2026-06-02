@@ -27,6 +27,7 @@ This project is a lightweight marketing site with server-side lead capture. It d
 - Same-origin enforcement on admin POST endpoints to reduce CSRF risk
 - Admin audit logging for login, logout, lead status updates, and CSV export
 - Production-safe `/api/health` checks for required configuration and Supabase reachability
+- Backup tier confirmation in health and backup readiness checks
 - `CRON_SECRET`-protected scheduled maintenance for operational cleanup and retained closed/spam leads
 - Supabase-backed operational events for health degradation, maintenance runs, and cron abuse attempts
 - Admin alert queueing for health degradation and maintenance failures
@@ -83,6 +84,14 @@ This enables row level security, revokes browser-side access to lead tables and 
 ### Backup and recovery readiness
 
 - Confirm Supabase backups are enabled for the project plan in use.
+- If PITR is purchased, confirm `supabase backups list --output json` reports
+  `pitr_enabled: true`.
+- If PITR is not purchased, confirm the business accepts the Pro daily-backup
+  tier and a 24-hour recovery point objective.
+- Set `SUPABASE_BACKUP_TIER`, `SUPABASE_PITR_CONFIRMED`,
+  `SUPABASE_DAILY_BACKUPS_CONFIRMED`, `SUPABASE_BACKUP_RPO_HOURS`,
+  `SUPABASE_BACKUP_POLICY_CONFIRMED_AT`, and `SUPABASE_BACKUP_POLICY_OWNER`
+  only after the Supabase dashboard has been reviewed.
 - Run `npm run backup:check` before major releases and after access changes.
 - Keep manual database exports in a private encrypted location, never in Git.
 - Decide who responds if spam floods the forms or inbox.
