@@ -47,6 +47,8 @@ export function SolarAssessmentForm() {
   const [status, setStatus] = useState("");
   const [statusTone, setStatusTone] = useState<"error" | "success">("success");
   const [loading, setLoading] = useState(false);
+  const verificationRequired = Boolean(turnstileSiteKey);
+  const submitDisabled = loading || (verificationRequired && !formState.turnstileToken);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -259,19 +261,19 @@ export function SolarAssessmentForm() {
         </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0 active:scale-[0.985] disabled:opacity-60 sm:w-auto"
-      >
-        {loading ? "Submitting..." : "Submit"}
-      </button>
       <TurnstileWidget
         siteKey={turnstileSiteKey}
         onVerify={(token) =>
           setFormState((current) => ({ ...current, turnstileToken: token ?? undefined }))
         }
       />
+      <button
+        type="submit"
+        disabled={submitDisabled}
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-[1rem] bg-brand px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-brand-strong active:translate-y-0 active:scale-[0.985] disabled:opacity-60 sm:w-auto"
+      >
+        {loading ? "Submitting..." : "Submit"}
+      </button>
 
       {status ? (
         <p
