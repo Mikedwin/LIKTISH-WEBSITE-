@@ -37,6 +37,7 @@ export function TurnstileWidget({ siteKey, onVerify }: TurnstileWidgetProps) {
   const containerId = useId().replace(/:/g, "");
   const onVerifyRef = useRef(onVerify);
   const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const verificationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const widgetIdRef = useRef<string | null>(null);
   const renderedRef = useRef(false);
   const [scriptReady, setScriptReady] = useState(turnstileScriptLoaded);
@@ -58,6 +59,10 @@ export function TurnstileWidget({ siteKey, onVerify }: TurnstileWidgetProps) {
       "retry-interval": 8000,
       "refresh-expired": "auto",
       callback: (token) => {
+        if (verificationTimerRef.current) {
+          clearTimeout(verificationTimerRef.current);
+          verificationTimerRef.current = null;
+        }
         setWidgetMessage("");
         onVerifyRef.current(token);
       },
@@ -87,10 +92,19 @@ export function TurnstileWidget({ siteKey, onVerify }: TurnstileWidgetProps) {
       },
     });
     renderedRef.current = true;
+    verificationTimerRef.current = setTimeout(() => {
+      setWidgetMessage("Verification is taking longer than expected. Please retry the check.");
+      onVerifyRef.current(null);
+    }, 15000);
 
     return () => {
       if (retryTimerRef.current) {
         clearTimeout(retryTimerRef.current);
+        retryTimerRef.current = null;
+      }
+      if (verificationTimerRef.current) {
+        clearTimeout(verificationTimerRef.current);
+        verificationTimerRef.current = null;
       }
       if (widgetIdRef.current && window.turnstile?.remove) {
         window.turnstile.remove(widgetIdRef.current);
@@ -107,6 +121,13 @@ export function TurnstileWidget({ siteKey, onVerify }: TurnstileWidgetProps) {
   function retryVerification() {
     setWidgetMessage("");
     onVerifyRef.current(null);
+    if (verificationTimerRef.current) {
+      clearTimeout(verificationTimerRef.current);
+    }
+    verificationTimerRef.current = setTimeout(() => {
+      setWidgetMessage("Verification is taking longer than expected. Please retry the check.");
+      onVerifyRef.current(null);
+    }, 15000);
     if (widgetIdRef.current) {
       window.turnstile?.reset?.(widgetIdRef.current);
     }
@@ -120,6 +141,10 @@ export function TurnstileWidget({ siteKey, onVerify }: TurnstileWidgetProps) {
         onLoad={() => {
           turnstileScriptLoaded = true;
           setScriptReady(true);
+        }}
+        onError={() => {
+          setWidgetMessage("Verification could not load. Please check your connection and retry.");
+          onVerifyRef.current(null);
         }}
       />
       <div className="rounded-[1rem] border border-[#d7e2db] bg-white/86 px-4 py-4">
