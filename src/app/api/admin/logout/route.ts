@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
-import { ADMIN_SESSION_COOKIE, getAdminCookieOptions, getAdminSession } from "@/lib/admin/auth";
+import {
+  ADMIN_SESSION_COOKIE,
+  getAdminCookieOptions,
+  getAdminSession,
+  revokeAdminSession,
+} from "@/lib/admin/auth";
 import { logAdminAuditEvent } from "@/lib/admin/audit";
 import { assertSameOriginAdminRequest } from "@/lib/admin/csrf";
 import { getRequestId } from "@/lib/api/requests";
@@ -14,6 +19,7 @@ export async function POST(request: Request) {
     const session = await getAdminSession();
 
     if (session) {
+      await revokeAdminSession(session.sessionId);
       await logAdminAuditEvent({
         session,
         action: "logout",

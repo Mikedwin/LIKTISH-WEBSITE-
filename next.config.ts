@@ -19,6 +19,10 @@ const securityHeaders = [
     ].join("; "),
   },
   {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains",
+  },
+  {
     key: "Referrer-Policy",
     value: "strict-origin-when-cross-origin",
   },

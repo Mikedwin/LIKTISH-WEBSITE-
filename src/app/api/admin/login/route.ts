@@ -3,6 +3,7 @@ import {
   ADMIN_SESSION_COOKIE,
   createAdminSession,
   getAdminCookieOptions,
+  persistAdminSession,
   serializeAdminSession,
   verifyAdminCredentials,
 } from "@/lib/admin/auth";
@@ -11,6 +12,7 @@ import { assertSameOriginAdminRequest } from "@/lib/admin/csrf";
 import { getRequestId } from "@/lib/api/requests";
 import { handleApiError, jsonError } from "@/lib/api/responses";
 import { logOperationalEvent } from "@/lib/ops/events";
+import { logAbuseEvent } from "@/lib/security/abuse-log";
 import { checkRateLimit, getRequestIp } from "@/lib/security/rate-limit";
 
 const ROUTE = "/api/admin/login";
@@ -57,10 +59,17 @@ export async function POST(request: Request) {
     }
 
     if (!verifyAdminCredentials(username, password)) {
+      await logAbuseEvent({
+        route: ROUTE,
+        type: "admin_login_failed",
+        ipAddress: ip,
+        details: `Failed admin login attempt for username "${username}".`,
+      });
       return NextResponse.redirect(new URL("/admin/login?error=1", request.url), 303);
     }
 
     const session = createAdminSession(username);
+    await persistAdminSession(session);
     const response = NextResponse.redirect(new URL("/admin", request.url), 303);
     response.cookies.set(
       ADMIN_SESSION_COOKIE,

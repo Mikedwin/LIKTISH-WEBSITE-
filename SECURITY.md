@@ -22,17 +22,24 @@ This project is a lightweight marketing site with server-side lead capture. It d
 - Admin-only lead anonymization for privacy requests and accidental data exposure
 - Service-role cleanup functions for expired operational records and expired closed/spam leads
 - Signed admin dashboard sessions with `admin` and `viewer` roles
-- Hashed multi-admin credentials through `ADMIN_USERS_JSON`
+- Server-side session store in Supabase so admin sessions can be revoked before expiry
+- Hashed multi-admin credentials through `ADMIN_USERS_JSON` (must be a JSON array;
+  an invalid value fails closed instead of silently falling back to the plaintext password)
 - Supabase-backed admin login rate limiting
+- Failed admin login attempts logged as abuse events, with timing-equalized
+  username checks to prevent username enumeration
 - Same-origin enforcement on admin POST endpoints to reduce CSRF risk
 - Admin audit logging for login, logout, lead status updates, and CSV export
-- Production-safe `/api/health` checks for required configuration and Supabase reachability
+- CSV lead export hardened against spreadsheet formula injection
+- `/api/health` returns only up/degraded publicly; the detailed report requires
+  an admin session or `Authorization: Bearer <CRON_SECRET>` (point uptime
+  monitors at the bearer form), and degraded-event logging is debounced
 - Backup tier confirmation in health and backup readiness checks
 - `CRON_SECRET`-protected scheduled maintenance for operational cleanup and retained closed/spam leads
 - Supabase-backed operational events for health degradation, maintenance runs, and cron abuse attempts
 - Admin alert queueing for health degradation and maintenance failures
 - Admin-only test alert endpoint for verifying operations alert routing
-- Security headers in `next.config.ts`
+- Security headers in `next.config.ts`, including HSTS
 
 ## Required Live Configuration
 
@@ -52,6 +59,10 @@ Run these files in the Supabase SQL editor:
 
 - `supabase/schema.sql`
 - `supabase/notification-logs.sql`
+
+For existing databases, also apply the pending migrations in
+`supabase/migrations/` (most recently `20260706090000_admin_sessions.sql`,
+which adds the revocable admin session store).
 
 This enables row level security, revokes browser-side access to lead tables and log tables, and preserves service-role access for the Next.js backend.
 
@@ -73,6 +84,8 @@ This enables row level security, revokes browser-side access to lead tables and 
 - Use separate environment scopes for preview and production where practical.
 - Use a long random `ADMIN_SESSION_SECRET`.
 - Prefer `ADMIN_USERS_JSON` password hashes over plaintext `ADMIN_DASHBOARD_PASSWORD`.
+  It must be a JSON array: `[{"username":"...","passwordHash":"...","role":"admin"}]`.
+  Once it is set, remove `ADMIN_DASHBOARD_PASSWORD` entirely.
 - Rotate admin credentials when admin access changes.
 
 ### Email security and deliverability

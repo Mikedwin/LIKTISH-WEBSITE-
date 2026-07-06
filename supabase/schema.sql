@@ -132,6 +132,18 @@ create table if not exists public.api_idempotency_keys (
   updated_at timestamptz not null default timezone('utc', now())
 );
 
+create table if not exists public.admin_sessions (
+  session_id_hash text primary key,
+  username text not null,
+  role text not null,
+  expires_at timestamptz not null,
+  revoked_at timestamptz,
+  created_at timestamptz not null default timezone('utc', now())
+);
+
+create index if not exists admin_sessions_expires_at_idx
+  on public.admin_sessions (expires_at);
+
 create index if not exists rate_limit_buckets_reset_at_idx
   on public.rate_limit_buckets (reset_at);
 
@@ -209,6 +221,7 @@ alter table public.operational_events enable row level security;
 alter table public.rate_limit_buckets enable row level security;
 alter table public.notification_dedupe enable row level security;
 alter table public.api_idempotency_keys enable row level security;
+alter table public.admin_sessions enable row level security;
 
 revoke all on public.contact_inquiries from public, anon, authenticated;
 revoke all on public.savings_leads from public, anon, authenticated;
@@ -219,6 +232,7 @@ revoke all on public.operational_events from public, anon, authenticated;
 revoke all on public.rate_limit_buckets from public, anon, authenticated;
 revoke all on public.notification_dedupe from public, anon, authenticated;
 revoke all on public.api_idempotency_keys from public, anon, authenticated;
+revoke all on public.admin_sessions from public, anon, authenticated;
 
 grant all on public.contact_inquiries to service_role;
 grant all on public.savings_leads to service_role;
@@ -229,6 +243,7 @@ grant all on public.operational_events to service_role;
 grant all on public.rate_limit_buckets to service_role;
 grant all on public.notification_dedupe to service_role;
 grant all on public.api_idempotency_keys to service_role;
+grant all on public.admin_sessions to service_role;
 
 grant usage, select on sequence public.contact_inquiries_id_seq to service_role;
 grant usage, select on sequence public.savings_leads_id_seq to service_role;
@@ -454,6 +469,7 @@ declare
   v_rate_limit_deleted integer := 0;
   v_dedupe_deleted integer := 0;
   v_idempotency_deleted integer := 0;
+  v_admin_sessions_deleted integer := 0;
 begin
   delete from public.rate_limit_buckets
     where reset_at <= v_now - interval '1 day';
@@ -467,10 +483,15 @@ begin
     where expires_at <= v_now;
   get diagnostics v_idempotency_deleted = row_count;
 
+  delete from public.admin_sessions
+    where expires_at <= v_now - interval '1 day';
+  get diagnostics v_admin_sessions_deleted = row_count;
+
   return jsonb_build_object(
     'rateLimitDeleted', v_rate_limit_deleted,
     'notificationDedupeDeleted', v_dedupe_deleted,
-    'idempotencyDeleted', v_idempotency_deleted
+    'idempotencyDeleted', v_idempotency_deleted,
+    'adminSessionsDeleted', v_admin_sessions_deleted
   );
 end;
 $$;

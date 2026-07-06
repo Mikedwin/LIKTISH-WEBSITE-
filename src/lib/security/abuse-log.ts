@@ -7,7 +7,8 @@ type AbuseEventType =
   | "rate_limited"
   | "spam_rejected"
   | "turnstile_failed"
-  | "notification_suppressed";
+  | "notification_suppressed"
+  | "admin_login_failed";
 
 interface AbuseEventInput {
   route: string;
