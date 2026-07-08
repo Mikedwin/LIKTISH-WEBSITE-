@@ -6,6 +6,8 @@ type CleanupOperationalResult = {
   rateLimitDeleted: number;
   notificationDedupeDeleted: number;
   idempotencyDeleted: number;
+  // Absent until the admin_sessions migration has been applied.
+  adminSessionsDeleted?: number;
 };
 
 type CleanupLeadResult = {

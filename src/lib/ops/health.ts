@@ -1,5 +1,6 @@
 import "server-only";
 
+import { hasHashedAdminUsers, isAdminUsersJsonUnusable } from "@/lib/admin/auth";
 import { getBackupReadiness } from "@/lib/ops/backup";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
@@ -9,13 +10,21 @@ const REQUIRED_ENV = [
   "SUPABASE_SERVICE_ROLE_KEY",
   "NEXT_PUBLIC_TURNSTILE_SITE_KEY",
   "TURNSTILE_SECRET_KEY",
-  "ADMIN_USERS_JSON",
-  "ADMIN_DASHBOARD_USERNAME",
-  "ADMIN_DASHBOARD_PASSWORD",
-  "ADMIN_DASHBOARD_ROLE",
   "ADMIN_SESSION_SECRET",
   "CRON_SECRET",
 ] as const;
+
+function getMissingAdminAuthConfig() {
+  if (isAdminUsersJsonUnusable()) {
+    return ["ADMIN_USERS_JSON (set but not parseable into admin users)"];
+  }
+
+  if (!hasHashedAdminUsers() && !process.env.ADMIN_DASHBOARD_PASSWORD) {
+    return ["ADMIN_USERS_JSON or ADMIN_DASHBOARD_PASSWORD"];
+  }
+
+  return [];
+}
 
 type HealthCheckStatus = "ok" | "degraded";
 
@@ -75,7 +84,10 @@ async function checkSupabaseReachability() {
 }
 
 export async function getHealthReport(): Promise<HealthReport> {
-  const missing = REQUIRED_ENV.filter((key) => !process.env[key]);
+  const missing: string[] = [
+    ...REQUIRED_ENV.filter((key) => !process.env[key]),
+    ...getMissingAdminAuthConfig(),
+  ];
   const supabaseReachable = await checkSupabaseReachability();
   const backup = getBackupReadiness();
   const environmentStatus = missing.length === 0 ? "ok" : "degraded";

@@ -59,7 +59,14 @@ export async function GET() {
 }
 
 function csvCell(value: string | number) {
-  const raw = String(value);
+  let raw = String(value);
+
+  // Lead fields are visitor-controlled; a leading =, +, -, @, tab, or CR would
+  // execute as a formula when the CSV is opened in Excel or Sheets.
+  if (/^[=+\-@\t\r]/.test(raw)) {
+    raw = `'${raw}`;
+  }
+
   if (!/[",\n\r]/.test(raw)) {
     return raw;
   }
