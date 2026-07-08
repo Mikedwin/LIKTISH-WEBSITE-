@@ -22,7 +22,7 @@ export function CookieBanner() {
     <div className="fixed inset-x-4 bottom-4 z-40 mx-auto max-w-3xl rounded-[1.5rem] border border-border bg-white p-5 shadow-[0_24px_60px_rgba(2,44,34,0.18)]">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-muted">
-          LIKTISH uses essential cookies and analytics to improve website performance and lead handling.
+          LIKTISH uses only essential cookies and browser storage needed to run this website and protect its forms from spam.
         </p>
         <button
           type="button"
