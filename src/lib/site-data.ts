@@ -524,16 +524,3 @@ export const serviceCatalogGroups: ServiceCatalogGroup[] = [
     ],
   },
 ];
-
-export const legalHighlights = {
-  privacy: [
-    "Forms collect only the information needed to respond to enquiries and provide quotations or system guidance.",
-    "Lead and enquiry data should be stored securely and accessed only by authorized LIKTISH personnel.",
-    "Users can opt out of SMS and WhatsApp follow-up communication.",
-  ],
-  terms: [
-    "Website content is informational and does not replace a site-specific technical proposal.",
-    "Savings estimates are indicative and depend on usage, system size, and site conditions.",
-    "Phone calls, WhatsApp messages, and website enquiries do not become binding agreements until confirmed by LIKTISH.",
-  ],
-};
