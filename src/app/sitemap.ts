@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects",
     "/about",
     "/contact",
+    "/solar-assessment",
     "/privacy",
     "/terms",
   ];

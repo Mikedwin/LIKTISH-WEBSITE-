@@ -5,7 +5,6 @@
   ServiceCatalogGroup,
   ServicePageData,
   TeamMember,
-  TestimonialData,
 } from "@/types/site";
 
 export const siteContact = {
@@ -24,13 +23,6 @@ export const navLinks: NavLink[] = [
   { label: "Projects", href: "/#projects" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/#contact" },
-];
-
-export const stats = [
-  { label: "Systems installed", value: "500+" },
-  { label: "kW generated", value: "1,200+" },
-  { label: "Satisfied customers", value: "300+" },
-  { label: "Average panel warranty", value: "25 years" },
 ];
 
 export const trustBadges = [
@@ -377,27 +369,6 @@ export const projects: ProjectData[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
-  },
-];
-
-export const testimonials: TestimonialData[] = [
-  {
-    name: "Kwame Asante",
-    role: "Homeowner, Takoradi",
-    quote:
-      "LIKTISH changed our home completely. We stopped planning life around outages, and our monthly bill dropped sharply.",
-  },
-  {
-    name: "Abena Boateng",
-    role: "Business Owner, Kumasi",
-    quote:
-      "The commercial proposal was practical, clearly explained, and the team executed with confidence from start to finish.",
-  },
-  {
-    name: "Ernest Mensah",
-    role: "Operations Manager, Accra",
-    quote:
-      "Their maintenance support stands out. LIKTISH treats performance and reliability as seriously as the installation itself.",
   },
 ];
 
