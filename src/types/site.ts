@@ -55,12 +55,6 @@ export interface ProjectData {
   image: string;
 }
 
-export interface TestimonialData {
-  name: string;
-  role: string;
-  quote: string;
-}
-
 export interface TeamMember {
   name: string;
   role: string;
