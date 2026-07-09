@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
   }
 
   return buildMetadata({
-    title: `${service.title} | LIKTISH Engineering`,
+    title: `${service.title} in Ghana | LIKTISH Engineering`,
     description: service.shortDescription,
     path: `/services/${service.slug}`,
   });

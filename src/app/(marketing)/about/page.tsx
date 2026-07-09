@@ -36,9 +36,9 @@ const groupedFaqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "About Us | LIKTISH Engineering",
+  title: "About Us | Solar Company in Ghana | LIKTISH Engineering",
   description:
-    "Meet the LIKTISH Engineering team, mission, values, and long-term commitment to clean, reliable power in Ghana and Africa.",
+    "Meet the LIKTISH Engineering team, mission, values, and long-term commitment to clean, reliable solar power for homes and businesses across Ghana and Africa.",
   path: "/about",
 });
 

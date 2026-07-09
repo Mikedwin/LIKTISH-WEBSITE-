@@ -155,9 +155,9 @@ const groupIcons = {
 };
 
 export const metadata = buildMetadata({
-  title: "Services | LIKTISH Engineering",
+  title: "Solar Services in Ghana | LIKTISH Engineering",
   description:
-    "Explore LIKTISH solar services for residential, commercial, industrial, government, and maintenance needs.",
+    "Explore LIKTISH solar services for residential, commercial, industrial, government, and maintenance needs across Accra, Kumasi, Takoradi, and the rest of Ghana.",
   path: "/services",
 });
 

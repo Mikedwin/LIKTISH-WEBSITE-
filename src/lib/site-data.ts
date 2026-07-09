@@ -57,10 +57,10 @@ export const services: ServicePageData[] = [
     label: "Residential",
     title: "Residential Solar",
     shortDescription:
-      "Custom home solar systems with battery backup that eliminate dumsor and reduce household energy spend.",
+      "Custom home solar systems with battery backup that eliminate dumsor and reduce household energy spend in Accra, Kumasi, Takoradi, and across Ghana.",
     heroTitle: "Own your power at home",
     heroBody:
-      "LIKTISH helps homeowners move from unreliable grid dependency to engineered solar systems designed for comfort, security, and lower monthly bills.",
+      "LIKTISH helps homeowners across Ghana move from unreliable grid dependency to engineered solar systems designed for comfort, security, and lower monthly bills.",
     benefits: [
       "Lower ECG bills with predictable monthly savings",
       "Battery-ready systems for night-time backup",
@@ -100,10 +100,10 @@ export const services: ServicePageData[] = [
     label: "Commercial",
     title: "Commercial Solar",
     shortDescription:
-      "Solar systems for businesses focused on lowering operating costs, improving uptime, and protecting margins.",
+      "Solar systems for businesses in Ghana focused on lowering operating costs, improving uptime, and protecting margins.",
     heroTitle: "Make energy a business advantage",
     heroBody:
-      "For shops, offices, hospitality, and mixed-use sites, LIKTISH designs commercial systems that reduce cost pressure and power disruption.",
+      "For shops, offices, hospitality, and mixed-use sites in Accra, Kumasi, Takoradi, and beyond, LIKTISH designs commercial systems that reduce cost pressure and power disruption.",
     benefits: [
       "Lower monthly operating expenses",
       "Better uptime for customer-facing operations",
@@ -143,7 +143,7 @@ export const services: ServicePageData[] = [
     label: "Industrial / EPC",
     title: "Industrial / EPC",
     shortDescription:
-      "Large-scale engineering, procurement, and construction delivery for factories, plants, and energy-intensive operations.",
+      "Large-scale engineering, procurement, and construction delivery for factories, plants, and energy-intensive operations across Ghana.",
     heroTitle: "Industrial solar built for output",
     heroBody:
       "LIKTISH brings technical rigor, site planning, and structured delivery to industrial and EPC-scale solar projects across Ghana and Africa.",
@@ -186,10 +186,10 @@ export const services: ServicePageData[] = [
     label: "Government & Institutions",
     title: "Government & Institutions",
     shortDescription:
-      "Structured solar delivery for public sector, education, healthcare, and institutional facilities requiring compliance and accountability.",
+      "Structured solar delivery for public sector, education, healthcare, and institutional facilities across Ghana requiring compliance and accountability.",
     heroTitle: "Institutional solar with accountability",
     heroBody:
-      "LIKTISH supports public and institutional buyers with documented, compliant delivery and clear maintenance planning.",
+      "LIKTISH supports public and institutional buyers across Ghana with documented, compliant delivery and clear maintenance planning.",
     benefits: [
       "Documented execution for institutional stakeholders",
       "Reliable power for public-facing services",
@@ -229,10 +229,10 @@ export const services: ServicePageData[] = [
     label: "Maintenance & Repairs",
     title: "Maintenance & Repairs",
     shortDescription:
-      "Planned maintenance, diagnostics, and repairs for LIKTISH systems and qualifying third-party solar installations.",
+      "Planned maintenance, diagnostics, and repairs for LIKTISH systems and qualifying third-party solar installations across Ghana.",
     heroTitle: "Protect your solar investment",
     heroBody:
-      "From preventive inspections to inverter faults and battery performance issues, LIKTISH keeps systems operating safely and efficiently.",
+      "From preventive inspections to inverter faults and battery performance issues, LIKTISH keeps solar systems across Ghana operating safely and efficiently.",
     benefits: [
       "Longer asset life through planned maintenance",
       "Fast issue diagnosis and repair support",

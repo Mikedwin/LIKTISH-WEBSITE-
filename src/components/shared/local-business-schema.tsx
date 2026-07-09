@@ -12,9 +12,11 @@ export function LocalBusinessSchema() {
     address: {
       "@type": "PostalAddress",
       streetAddress: siteContact.address,
+      addressLocality: "Takoradi",
+      addressRegion: "Western Region",
       addressCountry: "GH",
     },
-    areaServed: ["Ghana", "Africa"],
+    areaServed: ["Takoradi", "Accra", "Kumasi", "Ghana", "Africa"],
     url: "https://liktishengineering.com",
   };
 
