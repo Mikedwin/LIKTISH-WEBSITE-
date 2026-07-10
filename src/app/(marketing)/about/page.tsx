@@ -1,15 +1,8 @@
-import Image from "next/image";
 import { FAQAccordion } from "@/components/marketing/faq-accordion";
 import { MapEmbed } from "@/components/shared/map-embed";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { aboutFaqs, teamMembers } from "@/lib/site-data";
+import { aboutFaqs } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/seo/metadata";
-
-const aboutTeamImages = [
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-];
 
 const featuredFaqs = [
   aboutFaqs[0],
@@ -89,65 +82,6 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#eef3ea] px-4 py-18 sm:py-24">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(203,138,46,0.08)_100%)]" />
-        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(120deg,rgba(21,144,102,0.24)_1px,transparent_1px)] [background-size:140px_140px]" />
-        <div className="absolute inset-y-0 left-0 w-[38%] bg-[linear-gradient(180deg,rgba(21,144,102,0.18),rgba(21,144,102,0.04))]" />
-        <div className="absolute left-8 top-8 h-44 w-44 rounded-full bg-[rgba(21,144,102,0.18)] blur-3xl" />
-        <div className="absolute bottom-0 right-12 h-52 w-52 rounded-full bg-[rgba(203,138,46,0.16)] blur-3xl" />
-        <div className="container-shell relative">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-soft">
-              The People Behind LIKTISH
-            </p>
-            <SectionHeading
-              title="The people behind LIKTISH delivery."
-              body="The team section should feel spacious and credible, with enough room for each person to sound like a real operator instead of a compressed profile card."
-            />
-          </div>
-
-          <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-2">
-            {teamMembers.map((member, index) => (
-              <article
-                key={member.name}
-                className={
-                  index === 1
-                    ? "ink-panel rounded-[1.55rem] p-6 text-white sm:rounded-[1.9rem] sm:p-8"
-                    : "section-frame rounded-[1.55rem] p-6 sm:rounded-[1.9rem] sm:p-8"
-                }
-              >
-                <div className="grid gap-5 sm:grid-cols-[9rem_1fr] sm:items-start">
-                  <div className="relative h-56 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[linear-gradient(180deg,#eef4ef_0%,#dfe9e2_100%)] sm:h-64">
-                    <Image
-                      src={aboutTeamImages[index] ?? aboutTeamImages[0]}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className={`absolute inset-x-0 bottom-0 h-24 ${index === 1 ? "bg-[linear-gradient(180deg,transparent,rgba(7,40,29,0.34))]" : "bg-[linear-gradient(180deg,transparent,rgba(24,49,39,0.22))]"}`} />
-                  </div>
-
-                  <div>
-                    <h2 className={`headline text-[1.85rem] font-black sm:text-[2.15rem] ${index === 1 ? "text-white" : "text-brand"}`}>
-                      {member.name}
-                    </h2>
-                    <p className={`mt-2 text-sm font-semibold uppercase tracking-[0.08em] ${index === 1 ? "text-accent-soft" : "text-brand-soft"}`}>
-                      {member.role}
-                    </p>
-                    <p className={`mt-2 text-sm ${index === 1 ? "text-white/68" : "text-muted"}`}>
-                      {member.credential}
-                    </p>
-                    <p className={`mt-6 max-w-[34rem] text-[0.98rem] leading-7 sm:text-base sm:leading-8 ${index === 1 ? "text-white/76" : "text-muted"}`}>
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>
