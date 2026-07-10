@@ -6,7 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/services",
     "/why-liktish",
-    "/projects",
     "/about",
     "/contact",
     "/solar-assessment",

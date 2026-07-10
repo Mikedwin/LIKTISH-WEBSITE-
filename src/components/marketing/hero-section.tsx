@@ -22,9 +22,6 @@ export function HeroSection() {
       <div className="container-shell relative">
         <div className="grid items-start gap-10 lg:gap-12 xl:grid-cols-[1fr_0.95fr]">
           <div className="max-w-3xl pt-0 md:-translate-y-2 xl:-translate-y-8">
-            <p className="eyebrow intro-rise text-white/72" style={{ animationDelay: "20ms" }}>
-              Solar Installation Company in Accra, Kumasi &amp; Takoradi, Ghana
-            </p>
             <h1
               className="headline intro-rise max-w-4xl text-[2.6rem] font-extrabold leading-[0.94] sm:text-[3.4rem] md:text-[4.4rem] xl:text-[4.9rem]"
               style={{ animationDelay: "60ms" }}
