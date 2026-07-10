@@ -11,9 +11,6 @@ const aboutTeamImages = [
   "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
 ];
 
-const workersImage =
-  "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?auto=format&fit=crop&w=1400&q=80";
-
 const featuredFaqs = [
   aboutFaqs[0],
   aboutFaqs[1],
@@ -89,55 +86,6 @@ export default function AboutPage() {
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted">
                   Homes, businesses, industrial sites, and institutions that need reliable power planning, not generic brochure promises.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#e6f0e8] px-4 py-18 sm:py-24">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(203,138,46,0.06)_100%)]" />
-        <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(90deg,rgba(24,49,39,0.24)_1px,transparent_1px),linear-gradient(rgba(24,49,39,0.16)_1px,transparent_1px)] [background-size:88px_88px,28px_28px]" />
-        <div className="absolute inset-y-0 right-0 w-[44%] bg-[linear-gradient(180deg,rgba(21,144,102,0.2),rgba(21,144,102,0.05))]" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-[radial-gradient(circle_at_bottom_left,rgba(203,138,46,0.28),transparent_55%)]" />
-        <div className="absolute left-10 top-8 h-44 w-44 rounded-full bg-[rgba(255,255,255,0.18)] blur-3xl" />
-        <div className="container-shell relative">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-[0.9rem] font-semibold uppercase tracking-[0.18em] text-brand-soft sm:text-[1rem] sm:tracking-[0.22em]">
-              Our Journey
-            </p>
-            <SectionHeading
-              title="LIKTISH grew from solving real power problems, not following a generic solar script."
-              body="The About page should show how the company thinks, how it works, and why clients trust it to stay involved long after installation."
-            />
-          </div>
-
-          <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-            <article className="section-frame rounded-[1.55rem] p-6 sm:rounded-[1.9rem] sm:p-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
-                How it started
-              </p>
-              <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-base sm:leading-8">
-                LIKTISH was shaped by the everyday reality of unstable power, rising electricity costs, and the need for solar systems that are engineered for how people actually live and work in Ghana and Africa.
-              </p>
-            </article>
-
-            <div className="overflow-hidden rounded-[1.55rem] border border-[#dce8e0] bg-white shadow-[0_18px_46px_rgba(11,33,25,0.08)] sm:rounded-[1.9rem]">
-              <div className="relative h-[280px] sm:h-[340px]">
-                <Image
-                  src={workersImage}
-                  alt="LIKTISH solar installation team at work"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-5 sm:p-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-soft">
-                  Field reality
-                </p>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  The company story should stay grounded in site work, engineering judgment, installation discipline, and support after handover.
                 </p>
               </div>
             </div>
